@@ -13,3 +13,6 @@ This is a full IDE for writing and running the pseudo code defined in **"Program
 
 
 ![](Screenshots/clock.png)
+
+## Comments about implementation
+I included a copy of the *Avalon* edit and dock repositories here to simplify my development and debugging. The workplace must be created first, see **How To ...**  documents in the *Document* folder.
