@@ -1,0 +1,912 @@
+﻿<Window x:Class                    ="Views.ViewMain"
+        xmlns                      ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x                    ="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d                    ="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc                   ="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views                ="clr-namespace:Views"
+        xmlns:xcad                 ="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns:adp                  ="clr-namespace:Xceed.Wpf.AvalonDock.Properties;assembly=Xceed.Wpf.AvalonDock"
+        xmlns:avalonedit           ="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:editors              ="clr-namespace:Views.Editors;assembly=IdeEditor"
+        xmlns:viewModels           ="clr-namespace:ViewModels"
+        xmlns:behavior             ="clr-namespace:Views.Behavior"
+        xmlns:dialogs              ="clr-namespace:Views.Dialogs;assembly=IdeEditor"
+        xmlns:i                    ="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:lineCharts="clr-namespace:LineCharts"
+        mc:Ignorable               ="d"
+        Icon                       ="/Ide;component/Views/Images/pc.ico"
+        d:DesignWidth              ="998"
+        d:DesignHeight             ="579"
+        Background                 ="LightSteelBlue"
+        Title ="{Binding VMActiveDocument.Title}"
+    >
+    <!--d:DataContext              ="{d:DesignInstance   Type=views:DesignTimeData, IsDesignTimeCreatable=true}"-->
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="TabHeaderStyle">
+            <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TabItem}}" Value="True">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        
+        
+
+    </Window.Resources>
+    <DockPanel>
+        <Menu  DockPanel.Dock="Top"  VerticalAlignment="Top" Height="23"  Background="{DynamicResource MenuBackground}">
+            <!--<Menu.Resources>
+                <RadioButton x:Key="rb" x:Shared="false" HorizontalAlignment="Left" GroupName="MenuGroup" IsChecked="{Binding IsChecked}">
+                    <RadioButton.Template>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <Path x:Name="check" Margin="7,0,0,0" Visibility="Collapsed" VerticalAlignment="Center"
+                                    Fill="{TemplateBinding MenuItem.Foreground}" FlowDirection="LeftToRight"
+                                    Data="M 0,5.1 L 1.7,5.2 L 3.4,7.1 L 8,0.4 L 9.2,0 L 3.3,10.8 Z"/>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="check" Property="Visibility" Value="Visible" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+            </Menu.Resources>-->
+            <MenuItem Header="_File" ToolTip="File actions" >
+                <MenuItem Header="_New Workspace"   ToolTip="Create a new workspace."      Command="views:AppCommand.WorkspaceNew"   SnapsToDevicePixels="True">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/NewWorkspace.png"    Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Open Workspace"  ToolTip="Open a workspace."            Command="views:AppCommand.WorkspaceOpen"  SnapsToDevicePixels="True">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/Workspace.png"       Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Close Workspace" ToolTip="Close the current workspace." Command="views:AppCommand.WorkspaceClose" SnapsToDevicePixels="True">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/WorkspaceClose.png"  Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                    <MenuItem  Header="New Project" ToolTip="add a new project to the current workspace." SnapsToDevicePixels="True" Command="views:AppCommand.ProjectNew">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Images/NewProject.png" Style="{StaticResource ImageEnabled}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                <!--<MenuItem Header="_Delete Workspace" ToolTip="Delete the current workspace." SnapsToDevicePixels="True"/>-->
+                <Separator/>
+                <MenuItem Header="Export File to HTML"    Command="views:AppCommand.ExportTextToHTML"    ToolTip="Export current file to an html file (keeping syntax colors)"  />
+                <MenuItem Header="Export Workspace to Zip" Command="views:AppCommand.ExportWorkspaceToZip" ToolTip="Export the workspace to a zip file.">
+                    <MenuItem.Icon >
+                        <Image  Source="/Views/Images/compress.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon >
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="New File"  Command="views:AppCommand.FileNew">
+                     <MenuItem.Icon >
+                        <Image Source="/Views/Images/NewDocument.png"  Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                   
+                </MenuItem>
+                <MenuItem Header="Open File" Command="views:AppCommand.FileOpen">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditDocument.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save Current File"      Command="{Binding VMActiveDocument.SaveCommand}">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/Save.png"     Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save Curent File As..." Command="{Binding VMActiveDocument.SaveAsCommand}">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/SaveAs.png"    Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Close Current file"     Command="{Binding VMActiveDocument.CloseCommand}"/>
+                <Separator/>
+                <!--<MenuItem Header    ="_Add Existing..."                ToolTip="Add a project or file.">
+                    <MenuItem  Header="Project" ToolTip="add an existion project to the current workspace." SnapsToDevicePixels="True" Command="views:AppCommand.ProjectNew">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Images/Project.png" Style="{StaticResource ImageEnabled}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Add File from Project" ToolTip="Remove current file from project.">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Images/EditDocument.png" Style="{StaticResource ImageEnabled}" />
+                        </MenuItem.Icon>
+                        
+                    </MenuItem>
+                    <Separator/>
+                    --><!--<MenuItem Header="New _Grammar"                      ToolTip="add an new grammar to the current workspace."/>
+                    <MenuItem Header="E_xiting Grammar"                  ToolTip="add an existing grammar to the current workspace." SnapsToDevicePixels="True"/>--><!--
+                </MenuItem>-->
+                <MenuItem Header="Recent Workspaces" ToolTip="Open a recent workspace." ItemsSource="{Binding MRUWorkspaces}" >
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType ="{x:Type MenuItem}">
+                            <Setter Property="MenuItem.Header" Value="{Binding Path}"/>
+                            <Setter Property="Command" Value="{Binding  MRUSelectCommand}" />
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                    <MenuItem.Icon >
+                        <Image  Source="/Views/Images/RecentWorkspaces.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="E_xit" ToolTip="Exit Integrated Development Environment." Command="views:AppCommand.Exit"  SnapsToDevicePixels="True">
+                    <MenuItem.Icon >
+                        <Image  Source="/Views/Images/application_exit.ico" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Edit" ToolTip="Edit the document or tree">
+                <MenuItem Command="Copy" Header="Copy">
+                    <MenuItem.Icon >
+                        <Image  Source="/Views/Images/EditCopy.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Paste" Header="Paste">
+                    <MenuItem.Icon>
+                        <Image  Source="/Views/Images/EditPaste.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Cut" Header="Cut">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditCut.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Delete" Header="Delete">
+                    <MenuItem.Icon>
+                        <Image  Source="/Views/Images/EditDelete.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Undo" Header="Undo">
+                    <MenuItem.Icon>
+                        <Image  Source="/Views/Images/EditUndo.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="Redo" Header="Redo">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditRedo.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem Command="SelectAll"
+                  Header="Select All"
+                  ToolTip="Select all text in current document"
+                  />
+                <Separator/>
+                <MenuItem Header="Goto Line..." Command="dialogs:GotoLineDialog.GotoLine" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditGoto.ico" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Find..." Command="Find" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"  >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditFind.png"  Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Replace..." Command="Replace" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditReplace.png"  Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem  Header="Comment Block Insert" Command="views:AppCommand.EditCommentBlock">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Footprint.png"  Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem  Header="Spell Check" Command="views:AppCommand.EditSpellCheck">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/spellcheck.ico"  Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator />
+                <MenuItem  Header="Record and Clear" Command="views:AppCommand.EditRecordAndClear">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/RecordAndClear.png"  Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Header="Playback one Line" Command="views:AppCommand.EditPlayOneLine">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/PlaybackOneLine.png"  Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <!--<MenuItem Header="RecentFiles" IsChecked="{Binding RecentFiles.IsVisible, Mode=TwoWay}" IsCheckable="True"/>-->
+                <MenuItem Header="Options" Command="views:AppCommand.WorkspaceOptions" >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Properties.png" Style="{StaticResource ImageEnabled}" />
+                        </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Clear Output Window" Command="views:AppCommand.ClearOutput" />
+
+            </MenuItem>
+            <MenuItem Header="_View" ToolTip="Modify the view" SnapsToDevicePixels="True">
+                <MenuItem  Command="views:AppCommand.ShowWorkspace"  IsCheckable="True"    IsChecked ="{Binding ShowWorkspace ,Mode=TwoWay}"  />
+                <MenuItem  Command="views:AppCommand.ShowErrorList"  IsCheckable="True"    IsChecked ="{Binding ShowErrorList,Mode=TwoWay}" />
+                <MenuItem  Command="views:AppCommand.ShowOutput"     IsCheckable="True"    IsChecked ="{Binding ShowOutput,   Mode=TwoWay}"   />
+                <Separator/>
+                <MenuItem  Command="views:AppCommand.ShowElevator"   IsCheckable="True"    IsChecked ="{Binding ShowElevator,   Mode=TwoWay}">
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.ShowStats"     IsCheckable="True"     IsChecked ="{Binding ShowStats,   Mode=TwoWay}">
+                </MenuItem>
+                <Separator/>
+                <MenuItem  Command="views:AppCommand.ShowChart"     IsCheckable="True"   IsChecked ="{Binding ShowChart,   Mode=TwoWay}">
+            </MenuItem>
+
+
+                <!--Command             ="{Binding FilterChanged}"
+                CommandParameter    =".pclst"-->
+                <Separator/>
+                <MenuItem Header              ="Show Listings"
+                          ToolTip             ="Show the listing files in the workspace."
+                          IsCheckable         ="True"
+                          IsChecked           ="{Binding ShowListing, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                          SnapsToDevicePixels ="True" />
+                <MenuItem  Command="views:AppCommand.ResetView" ToolTip="Reset the tool windows views (in case they become hidden)"/>
+              </MenuItem>
+
+                <!--<MenuItem  Command="views:AppCommand.ShowStartPage" />-->
+            
+            <MenuItem Header="_Compile" ToolTip="Compile files and projects">
+                <MenuItem Command="views:AppCommand.Build"  ToolTip="Compile the current file">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/build.png"   Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.BuildAll"  ToolTip="Compile all files in the project file">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/BuildAll.png"  Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Debug" ToolTip="Debug controls.">
+                <MenuItem  Header="Debug windows">
+                    <MenuItem  Command="views:AppCommand.ShowDebugVariables"     IsCheckable="True"    IsChecked ="{Binding ShowDebugVariables,   Mode=TwoWay}">
+                        <MenuItem.Icon >
+                            <Image Source="/Views/Images/DebugAuto.png"    Style="{StaticResource ImageEnabled}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem  Command="views:AppCommand.ShowDebugStack"         IsCheckable="True"    IsChecked ="{Binding ShowDebugStack,   Mode=TwoWay}">
+                        <MenuItem.Icon >
+                            <Image Source="/Views/Images/DebugStack.png"    Style="{StaticResource ImageEnabled}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                </MenuItem>
+                <Separator/>
+                <MenuItem  Command="views:AppCommand.Run"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Run.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.Debug"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Debug.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.Stop"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/stop.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem  Command="views:AppCommand.DebugRun"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/DebugStepRun.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.DebugPause"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/DebugPause.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.DebugStepInto"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/DebugStepInto.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.DebugStepOver"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/DebugStepOver.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Command="views:AppCommand.DebugStepReturn"   Style="{StaticResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/DebugStepReturn.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </MenuItem>
+
+            <MenuItem Header="_Editor" ToolTip="Change the editor look" SnapsToDevicePixels="True">
+                <!--<MenuItem ToolTip="Change theme" SnapsToDevicePixels="True">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="Theme:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="_themeCombo" SelectedIndex="0" Width="200">
+                                <ComboBoxItem Content="Generic" />
+                                <ComboBoxItem Content="Aero">
+                                    <ComboBoxItem.Tag>
+                                        <xcad:AeroTheme />
+                                    </ComboBoxItem.Tag>
+                                </ComboBoxItem>
+                                <ComboBoxItem Content="VS2010">
+                                    <ComboBoxItem.Tag>
+                                        <xcad:VS2010Theme />
+                                    </ComboBoxItem.Tag>
+                                </ComboBoxItem>
+                                <ComboBoxItem Content="Metro">
+                                    <ComboBoxItem.Tag>
+                                        <xcad:MetroTheme />
+                                    </ComboBoxItem.Tag>
+                                </ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </MenuItem.Header>
+                </MenuItem>
+                    <Separator Margin="3" />-->
+
+                <!--Enumerated Items-->
+                <!--<MenuItem Header="Editor Options enumerated" ItemsSource="{Binding EnumValues}">
+                        <MenuItem.ItemContainerStyle>
+                            <Style TargetType="MenuItem">
+                                <Setter Property="Header" Value="{Binding Text}" />
+                                <Setter Property="IsCheckable" Value="True" />
+                                <Setter Property="Icon" Value="{DynamicResource rb}" />
+                                <Setter Property="IsChecked" Value="{Binding IsChecked}" />
+                            </Style>
+                        </MenuItem.ItemContainerStyle>
+                    </MenuItem>
+
+                    <MenuItem Header="Single Select Editor Option Values" ItemsSource="{Binding EnumValues2}">
+                        <MenuItem.ItemContainerStyle>
+                            <Style TargetType="MenuItem">
+                                <Setter Property="Header" Value="{Binding Text}" />
+                                <Setter Property="Icon" Value="{DynamicResource rb}" />
+                                -->
+                <!--<EventSetter Event="Click" Handler="OnMenuItemClick" />-->
+                <!--
+                            </Style>
+                        </MenuItem.ItemContainerStyle>
+                    </MenuItem>-->
+
+
+                <MenuItem IsCheckable  ="True"  IsChecked="{Binding VMActiveDocument.WordWrap, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                      Command          ="{Binding ToggleEditorOptionCommand}"
+                      CommandParameter ="{x:Static viewModels:EditorOptionEnum.WordWrap}"
+                      ToolTip          ="Click this button to switch word wrap on or off"
+                      Header           ="Word wrap"
+                      >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/ShowWordWrap.png" Height="32" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem IsCheckable  ="True" IsChecked="{Binding VMActiveDocument.ShowLineNumbers, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                      Command          ="{Binding ToggleEditorOptionCommand}"
+                      CommandParameter ="{x:Static viewModels:EditorOptionEnum.ShowLineNumber}"
+                      ToolTip          ="Click this button to switch display of line numbers on or off"
+                      Header           ="Show line numbers"
+                      >
+
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/ShowLineNumber.png" Height="32" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem IsCheckable    ="True"  IsChecked="{Binding VMActiveDocument.Options.ShowEndOfLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                        Command          ="{Binding ToggleEditorOptionCommand}"
+                        CommandParameter ="{x:Static viewModels:EditorOptionEnum.ShowEndOfLine}"
+                        ToolTip          ="Highlighted end of line in text (toggle on/off)"
+                        Header           ="Show End of lines"
+                       >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/ShowEnter.png" Height="32" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem IsCheckable  ="True"
+                      IsChecked        ="{Binding VMActiveDocument.Options.ShowSpaces, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                      Command          ="{Binding ToggleEditorOptionCommand}"
+                      CommandParameter ="{x:Static viewModels:EditorOptionEnum.ShowSpaces}"
+                      ToolTip          ="Highlight spaces characters in text (toggle on/off)"
+                      Header           ="Show spaces"
+                      >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/ShowSpaces.png" Height="32" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem IsCheckable    ="True"
+                          IsChecked      ="{Binding VMActiveDocument.Options.ShowTabs, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                         Command         ="{Binding ToggleEditorOptionCommand}"
+                        CommandParameter ="{x:Static viewModels:EditorOptionEnum.ShowTabs}"
+                        ToolTip          ="Highlight tab characters in text (toggle on/off)"
+                        Header           ="Show Tabs"
+                        >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/ShowTabs.png" Height="32" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem IsCheckable    ="True"
+                        IsChecked        ="{Binding VMActiveDocument.Options.ShowColumnRuler , UpdateSourceTrigger=PropertyChanged}"
+                        Command          ="{Binding ToggleEditorOptionCommand}"
+                        CommandParameter ="{x:Static viewModels:EditorOptionEnum.ShowColumnRuler}"
+                        ToolTip          ="Show the column ruler (toggle on/off)"
+                        Header           ="Show column ruler" />
+                <MenuItem  IsChecked     ="{Binding VMActiveDocument.Options.ConvertTabsToSpaces , UpdateSourceTrigger=PropertyChanged}"
+                          Command        ="{Binding ToggleEditorOptionCommand}"
+                        CommandParameter ="{x:Static viewModels:EditorOptionEnum.ShowColumnRuler}"
+                        ToolTip          ="Convert tabs to spaces (toggle on/off)"
+                         Header          ="Convert tabs to spaces" />
+                <MenuItem IsCheckable  ="True"  IsChecked="{Binding VMActiveDocument.Options.ShowOutline, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                      Command          ="{Binding ToggleEditorOptionCommand}"
+                      CommandParameter ="{x:Static viewModels:EditorOptionEnum.ShowOutline}"
+                      ToolTip          ="Click this button to turn outlining on/off"
+                      Header           ="Outline (collapsable regions)"
+                      >
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditOutine.png" Height="32" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+
+            </MenuItem>
+
+            <MenuItem Header ="_Help" ToolTip="Help features" SnapsToDevicePixels="True">
+                <MenuItem   Header="Help Contents..."  Command="views:AppCommand.HelpContents">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Help.png" Style="{StaticResource ImageEnabled}"/>
+                   </MenuItem.Icon>
+                </MenuItem>
+                    <MenuItem   Header="Report a bug..."  Command="views:AppCommand.HelpReport">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Images/HelpBugReport.png" Style="{StaticResource ImageEnabled}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                <MenuItem   Header="About..."  Command="views:AppCommand.HelpAbout">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Help_About32.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <ToolBarTray DockPanel.Dock="Top" Background="{DynamicResource MenuBackground}" >
+            <ToolBar x:Name="toolBar" Background="{DynamicResource ButtonBackground}" >
+                <Button  Command="views:AppCommand.FolderNew" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/FolderNew.ico"   Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button x:Name="cmdOpen" Command="Open" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/FileOpen.png"  Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button x:Name="cmdSave" Command="Save" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/Save.png"     Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button Command="views:AppCommand.SaveAll"  Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/SaveAll.png"   Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button Command="views:AppCommand.WorkspaceRefresh"  Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/RefreshArrow_Green24.png"   Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="Delete" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/EditDelete.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="Cut"  Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/EditCut.png"    Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Copy" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/EditCopy.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Paste" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/EditPaste.png"  Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Undo" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/EditUndo.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Redo" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/EditRedo.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Separator/>
+
+                <Button Command="views:AppCommand.EditSpellCheck" Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/spellcheck.ico"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+            </ToolBar>
+            <ToolBar x:Name="CompileToolBar"  Background="{DynamicResource ButtonBackground}" >
+                <Button Command="views:AppCommand.Build"  Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/build.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="views:AppCommand.BuildAll"  Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/BuildAll.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.BuildStop"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/Stopsign.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+            </ToolBar>
+            <ToolBar x:Name="CDebugToolBar"  Background="{DynamicResource ButtonBackground}" >
+                <Button  Command="views:AppCommand.Run"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/Run.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.Debug"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/debug.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.Stop"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/stop.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.DebugRun"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/DebugRun.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.DebugPause"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/DebugPause.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.DebugStepInto"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/DebugStepInto.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.DebugStepOver"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/DebugStepOver.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="views:AppCommand.DebugStepReturn"   Style="{StaticResource ToolBarButtonStyle}">
+                    <Image Source="/Views/Images/DebugStepReturn.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+            </ToolBar>
+            <ToolBar Background="{x:Null}" HorizontalContentAlignment="Right">
+                <TextBlock Text="Language: "  VerticalAlignment="Center" Margin="3,0,3,0" Padding="10,0,0,0" ToolTip="Current syntax highlighting definition.  Select drop down to change."/>
+                <ComboBox Name             ="highlightingComboBox"
+                MinWidth                   ="80"
+				SelectedItem               ="{Binding VMActiveDocument.HighlightDef}"
+				SelectionChanged           ="HighlightingComboBox_SelectionChanged"
+                VerticalAlignment          ="Center"
+                VerticalContentAlignment   ="Center"
+                Margin                     ="1,0,1,0"
+                Padding                    ="3,0"
+                MaxDropDownHeight          ="400"
+                HorizontalContentAlignment ="Center"
+                HorizontalAlignment        ="Center"
+                ItemsSource                ="{Binding Source={x:Static avalonedit:HighlightingManager.Instance}, Path=HighlightingDefinitions, Mode=OneWay}"
+                          />
+            </ToolBar>
+
+        </ToolBarTray>
+      
+        <StatusBar DockPanel.Dock="Bottom" Height="24" Background="{DynamicResource MenuBackground}">
+            <StatusBarItem DockPanel.Dock="Left" Content="{Binding AppVersion}"/>
+            <StatusBarItem DockPanel.Dock="Left" Content=" Elapsed Time this Session: "/>
+            <StatusBarItem DockPanel.Dock="Left" Content="{Binding Timer}"  Background="{DynamicResource MenuBackground}"  Foreground="Blue"  Margin="3,0,12,0" />
+            <StatusBarItem DockPanel.Dock="Right" Content="{Binding TextPosition}" Background="{DynamicResource MenuBackground}" Margin="6,0,6,0" />
+            <StatusBarItem DockPanel.Dock="Right" Content="{Binding DateTimeNow}" Background="{DynamicResource MenuBackground}" Margin="6,0,6,0" />
+            <StatusBarItem DockPanel.Dock="Right" Content="{Binding Message}" Background="{DynamicResource MenuBackground}" Foreground="Red"  Margin="10,0,10,0" />
+        </StatusBar>
+
+        <xcad:DockingManager x:Name                               ="DockManager"
+            AnchorablesSource                                     ="{Binding Tools}" 
+			DocumentsSource                                       ="{Binding Files}"
+			ActiveContent                                         ="{Binding VMActiveDocument, Converter={StaticResource ActiveDocumentConverter}, Mode=TwoWay}"
+            behavior:AvalonDockLayoutSerializer.LoadLayoutCommand ="{Binding LoadLayoutCommand}"
+            behavior:AvalonDockLayoutSerializer.SaveLayoutCommand ="{Binding SaveLayoutCommand}"
+            Background                                            ="LightSteelBlue"
+        >
+
+            <xcad:DockingManager.DocumentContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Open Containing Folder..." Command="{Binding Model.OpenContainingFolderCommand}"/>
+                    <MenuItem Header="Copy URL to Clipboard"     Command="{Binding Model.CopyFullPathtoClipboard}"/>
+                    <Separator/>
+
+
+
+                    <MenuItem Header="{x:Static adp:Resources.Document_Close}"                 Command="{Binding CloseCommand }" Visibility="{Binding IsEnabled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>
+                    <MenuItem Header="{x:Static adp:Resources.Document_CloseAllButThis}"       Command="{Binding CloseAllButThisCommand}"/>
+                    <MenuItem Header="{x:Static adp:Resources.Document_Float}"                 Command="{Binding FloatCommand}"/>
+                    <MenuItem Header="{x:Static adp:Resources.Document_DockAsDocument}"        Command="{Binding DockAsDocumentCommand}"/>
+                    <MenuItem Header="{x:Static adp:Resources.Document_NewHorizontalTabGroup}" Command="{Binding NewHorizontalTabGroupCommand}" Visibility="{Binding IsEnabled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay, RelativeSource={RelativeSource Self}}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Images/HTabGroup.png"  Style="{StaticResource ImageEnabled}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{x:Static adp:Resources.Document_NewVerticalTabGroup}" Command="{Binding NewVerticalTabGroupCommand}" Visibility="{Binding IsEnabled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay, RelativeSource={RelativeSource Self}}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Images/VTabGroup.png"  Style="{StaticResource ImageEnabled}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <!--<MenuItem Header="Synch Workspace View to This file." Command="{Binding Model.SyncPathToExplorerCommand }" Visibility="{Binding IsEnabled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>-->
+                </ContextMenu>
+            </xcad:DockingManager.DocumentContextMenu>
+            <!-- Dock Header template -->
+            <xcad:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                       </StackPanel.Resources>
+                        <TextBlock Text="{Binding Title}" Style="{StaticResource TabHeaderStyle}" />
+                        <!-- Show IsReadOnly Icon in document tab if that properties' present and true -->
+                        <Image Source="/Views/Images/Lock-icon.png" Margin="3,0,0,0" VerticalAlignment="Center">
+                            <Image.Visibility>
+                                <PriorityBinding FallbackValue="Collapsed" >
+                                    <Binding Path="Content.IsReadOnly" Mode="OneWay" Converter="{StaticResource BoolToVisibilityConverter}" />
+                                </PriorityBinding>
+                            </Image.Visibility>
+                            <Image.ToolTip>
+                                <PriorityBinding FallbackValue="">
+                                    <Binding Path="Content.IsReadOnlyReason" Mode="OneWay" />
+                                </PriorityBinding>
+                            </Image.ToolTip>
+                        </Image>
+                    </StackPanel>
+                </DataTemplate>
+            </xcad:DockingManager.DocumentHeaderTemplate>
+
+            <!-- dock theme -->
+            <!--xcad:DockingManager.Theme>
+                <xcad:AeroTheme/>
+            </xcad:DockingManager.Theme-->
+
+            <!--Dock template selectors-->
+            <xcad:DockingManager.LayoutItemTemplateSelector>
+                <views:PanesTemplateSelector>
+
+                    <!-- Data Template for Editor File documents -->
+
+                    <!--Text                ="{Binding Text,               Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"-->
+
+                    <views:PanesTemplateSelector.FileTemplate>
+                        <DataTemplate>
+                            <editors:IdeEditor Name       ="TextEditor"
+								SyntaxHighlighting        ="{Binding HighlightDef,              Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								IsModified                ="{Binding IsDirty,                   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								WordWrap                  ="{Binding WordWrap,                  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                FontFamily                ="{Binding FontFamily,                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                FontSize                  ="{Binding FontSize,                  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								ShowLineNumbers           ="{Binding ShowLineNumbers,           Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                ShowOutline               ="{Binding ShowOutline,               Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                SelectionStart            ="{Binding SelectionStart,            Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                SelectionLength           ="{Binding SelectionLength,           Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                TextLocation              ="{Binding TextLocation,              Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                CaretPosition             ="{Binding CaretPosition,             Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+								Options                   ="{Binding Options}"
+                                FullPath                  ="{Binding FullPath,                  Mode=OneWay}"
+                                Document                  ="{Binding Document,                  UpdateSourceTrigger=PropertyChanged}"
+								IsReadOnly                ="{Binding IsReadOnly}"
+                                TextMarkerService         ="{Binding TextMarkerService,         Mode=OneWay}"
+                                IconBarManager            ="{Binding IconBarManager,            Mode=OneWay}"
+                                ShowCurrentLineHighligted ="{Binding ShowCurrentLineHighligted, Mode=TwoWay}"
+                                CurrentLine               ="{Binding CurrentLine,               Mode=TwoWay}"
+                              >
+
+
+                                <editors:IdeEditor.LayoutTransform>
+                                    <ScaleTransform 
+                                        CenterX="0" CenterY="0"
+                                        ScaleX="{Binding ElementName=TextEditor, Path=ScaleFactor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        ScaleY="{Binding ElementName=TextEditor, Path=ScaleFactor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        />
+                                </editors:IdeEditor.LayoutTransform>
+
+                                <editors:IdeEditor.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Command="Cut" Header="Cut">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/EditCut.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="Copy" Header="Copy">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/EditCopy.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="Paste" Header="Paste">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/EditPaste.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="Delete" Header="Delete">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/EditDelete.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="Undo" Header="Undo">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/EditUndo.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="Redo" Header="Redo">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/EditRedo.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <Separator/>
+                                        <MenuItem Command="views:AppCommand.DebugAddBreakpoint" >
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/BreakAdd.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="views:AppCommand.DebugRemoveBreakpoint" >
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/BreakRemove.png" Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="views:AppCommand.DebugClearBreakpoint" >
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/BreakClear.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="views:AppCommand.DebugEnableBreakpoint" >
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/Break.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Command="views:AppCommand.DebugDisableBreakpoint" >
+                                            <MenuItem.Icon>
+                                                <Image Source="/Views/Images/BreakDisable.png"  Style="{StaticResource ImageEnabled}"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </editors:IdeEditor.ContextMenu>
+                            </editors:IdeEditor>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.FileTemplate>
+
+                    <!-- Line chart template -->
+
+                    <views:PanesTemplateSelector.ChartTemplate>
+                        <DataTemplate>
+                            <lineCharts:ViewLineChart/>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.ChartTemplate>
+            
+                    <!-- building template -->
+
+                    <views:PanesTemplateSelector.BuildingTemplate>
+                        <DataTemplate>
+                            <views:ViewElevator/>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.BuildingTemplate>
+                    <!-- stats template -->
+
+                    <views:PanesTemplateSelector.StatsTemplate>
+                        <DataTemplate>
+                            <views:ViewStats/>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.StatsTemplate>
+
+                    <!-- Error List template -->
+
+                    <views:PanesTemplateSelector.ErrorListTemplate>
+                        <DataTemplate>
+                            <views:ViewErrorList/>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.ErrorListTemplate>
+
+                    <!-- output list template -->
+
+                    <views:PanesTemplateSelector.OutputTemplate>
+                        <DataTemplate>
+                            <views:ViewOutput/>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.OutputTemplate>
+
+                    <!-- debug vaariables template -->
+
+                    <views:PanesTemplateSelector.DebugVariablesTemplate>
+                        <DataTemplate>
+                            <views:ViewDebugVariables/>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.DebugVariablesTemplate>
+
+                    <!-- debug stack template -->
+
+                    <views:PanesTemplateSelector.DebugStackTemplate>
+                        <DataTemplate>
+                            <views:ViewDebugStack/>
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.DebugStackTemplate>
+
+                    <!-- workspace  template -->
+
+                    <views:PanesTemplateSelector.WorkspaceTemplate>
+                        <DataTemplate>
+                            <views:ViewSolutionTree Selected="{Binding Selected}" />
+                        </DataTemplate>
+                    </views:PanesTemplateSelector.WorkspaceTemplate>
+                </views:PanesTemplateSelector>
+            </xcad:DockingManager.LayoutItemTemplateSelector>
+
+            <!--dock style selectors-->
+            <xcad:DockingManager.LayoutItemContainerStyleSelector>
+                <views:PanesStyleSelector>
+
+                    <views:PanesStyleSelector.ToolStyle>
+                        <Style TargetType="{x:Type xcad:LayoutAnchorableItem}">
+                            <Setter Property="Title"      Value="{Binding Model.Title}"/>
+                            <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                            <Setter Property="Visibility" Value="{Binding Model.IsVisible, ConverterParameter={x:Static Visibility.Hidden}, Converter={StaticResource BoolToVisibilityConverter}, Mode=TwoWay}"/>
+                            <Setter Property="ContentId"  Value="{Binding Model.ContentId}"/>
+                            <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+                            <Setter Property="IsActive"   Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+                        </Style>
+                    </views:PanesStyleSelector.ToolStyle>
+
+                    <views:PanesStyleSelector.FileStyle>
+                        <Style TargetType="{x:Type xcad:LayoutItem}">
+                            <Setter Property="Title"        Value="{Binding Model.Title}"/>
+                            <Setter Property="ToolTip"      Value="{Binding Model.FilePath}"/>
+                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
+                            <Setter Property="IconSource"   Value="{Binding Model.IconSource}"/>
+                            <Setter Property="ContentId"    Value="{Binding Model.ContentId}"/>
+                        </Style>
+                    </views:PanesStyleSelector.FileStyle>
+
+
+                    <views:PanesStyleSelector.WorkspaceStyle>
+                        <Style TargetType="{x:Type xcad:LayoutItem}"  >
+                            <Setter Property="Title"        Value="{Binding Model.Title}"/>
+                            <Setter Property="ToolTip"      Value="{Binding Model.FullPath}"/>
+                            <Setter Property="Visibility"   Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"/>
+                            <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
+                            <!--<Setter Property="IconSource"   Value="{Binding Model.IconSource}"/>-->
+                            <Setter Property="ContentId"    Value="{Binding Model.ContentId}"/>
+                        </Style>
+                    </views:PanesStyleSelector.WorkspaceStyle>
+
+                </views:PanesStyleSelector>
+            </xcad:DockingManager.LayoutItemContainerStyleSelector>
+
+            <!--dock layout update strategy -->
+            <xcad:DockingManager.LayoutUpdateStrategy>
+                <views:LayoutInitializer/>
+            </xcad:DockingManager.LayoutUpdateStrategy>
+
+            <!-- dock layout -->
+            <xcad:LayoutRoot>
+                <xcad:LayoutRoot.LeftSide>
+                    <xcad:LayoutAnchorSide />
+                </xcad:LayoutRoot.LeftSide>
+                <xcad:LayoutPanel Orientation="Horizontal">
+                    <xcad:LayoutDocumentPane/>
+                    <xcad:LayoutAnchorablePane Name="ToolsPane" DockHeight="150"/>
+                </xcad:LayoutPanel>
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
+    </DockPanel>
+
+</Window>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

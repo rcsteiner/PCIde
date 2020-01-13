@@ -1,0 +1,12 @@
+Declare Integer x[10],i
+
+For i=0 To 9
+   Set x[i]=i
+End For
+    
+
+
+For i=0 To 9
+    Display i,"=",x[i]
+    
+End For

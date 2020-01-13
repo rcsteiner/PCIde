@@ -1,0 +1,27 @@
+//  {"append"         ,new FunctionInfo("append",Append,StoreEnum.STRING, StoreEnum.STRING,StoreEnum.STRING)},
+//  {"length"         ,new FunctionInfo("length",Length,StoreEnum.INTEGER,StoreEnum.STRING)},
+//  {"toUpper"        ,new FunctionInfo("toUpper",ToUpper,StoreEnum.STRING, StoreEnum.STRING)},
+//  {"toLower"        ,new FunctionInfo("toLower",ToLower,StoreEnum.STRING, StoreEnum.STRING)},
+//  {"subString"      ,new FunctionInfo("subString",SubString,StoreEnum.STRING ,StoreEnum.INTEGER,StoreEnum.INTEGER)},
+//  {"contains"       ,new FunctionInfo("contains",Contains,StoreEnum.BOOL, StoreEnum.STRING,StoreEnum.STRING)},
+//  {"insert"         ,new FunctionInfo("insert",Insert,StoreEnum.STRING, StoreEnum.STRING,StoreEnum.INTEGER,StoreEnum.STRING)},
+//  {"delete"         ,new FunctionInfo("delete",Delete,StoreEnum.STRING,  StoreEnum.STRING , StoreEnum.INTEGER,StoreEnum.INTEGER)},
+
+Declare String test = "1234abcdABCD"
+
+If "1234ABCDABCD" == toUpper(test) Then Display "ToUpper() Ok" Else Display "ToUpper() Failed" End If
+
+If "1234abcdabcd" == toLower(test) Then Display "ToLower() Ok" Else Display "ToLower() Failed" End If
+
+If "abcd" == subString(test,4,7) Then Display "subString() Ok" Else Display "subString() Failed"  End If
+
+If 12 == length(test) Then Display "length() OK" Else Display "length() Failed" End If
+
+If "1234abcdABCD-xyz" == append(test,"-xyz") Then Display "append() OK" Else Display "append() Failed" End If
+
+
+If "1234-xyzabcdABCD" == insert(test,4,"-xyz") Then Display "insert() OK" Else Display "insert() Failed" End If
+
+If "1234ABCD" == delete(test,4,7) Then Display "delete() OK" Else Display "delete() Failed:",delete(test,4,7) End If
+
+If  contains(test, "abcd") Then Display "contains() Ok" Else Display "contains() Failed"  End If

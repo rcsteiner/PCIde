@@ -1,0 +1,33 @@
+Declare Boolean b[3]
+
+Set b[1]=True
+Set b[2]=False
+
+Display b[1]
+
+
+Module main()
+    Declare Integer y
+    
+    Set y = TestReturn()
+    Display "Bad array implementation: ",y[1]
+    Call test(b)
+
+End Module
+
+Module test(Boolean array[])
+    Display "test 1", b[1]
+    Call test2(array)
+End Module
+
+Module test2(Boolean array[])
+    Display "test 2", b[1]
+End Module
+
+Function Integer TestReturn()
+    Declare Integer x[7]
+    Set x[1]=234
+    Return x
+End Function
+
+ 

@@ -1,0 +1,5 @@
+Description     = This is the basic library of support functions for pseudo code projects.
+FileFilter      = .pc,.pclst
+ProjectFilter   = .pcprj
+ToolSet         = PC
+DefaultName     = Lib{0}.pc

@@ -1,0 +1,24 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Program Overview">
+    <FlowDocumentReader>
+        <FlowDocument>
+            <Paragraph Style="{StaticResource Header}">The Editor Menu</Paragraph>
+                <Paragraph>
+                <Image Source="/Help/Images/EditorMenu.png" Style="{StaticResource HelpImageStyle}" />
+                 </Paragraph>
+            <Paragraph>
+                Manage basic visible opitons in the editors.
+            </Paragraph>
+            <Paragraph>
+                Show and hide editor featurs for the following
+            </Paragraph>
+            <List>
+                <ListItem>
+                    <Paragraph>Show Line Numbers</Paragraph>
+                    <Paragraph TextIndent="5" FontSize="11">Display the line numbers in the left margin.</Paragraph>
+                </ListItem>
+            </List>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

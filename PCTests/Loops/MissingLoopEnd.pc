@@ -1,0 +1,20 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Loops   Problem #
+// 
+// Author:  Robert Steiner
+// Date:    3/1/2017
+// Class:   CSC119
+// 
+// Description:
+// 
+/////////////////////////////////////////////////////////////////////////////////
+
+Module main()
+    Declare Integer i=0
+    For i=0 To 10
+        While i<2
+            i=i+1
+     
+    End For
+        
+End Module

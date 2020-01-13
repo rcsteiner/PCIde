@@ -1,0 +1,29 @@
+﻿<v:ViewBase x:Class            ="LineCharts.ViewLineChart"
+        xmlns:lineChartControl ="clr-namespace:LineChartControl"
+            xmlns              ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x            ="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc           ="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d            ="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:v            ="clr-namespace:Views"
+            xmlns:viewModels   ="clr-namespace:ViewModels"
+            Background         ="White"
+            mc:Ignorable       ="d" 
+            d:DesignHeight     ="400"
+            d:DesignWidth      ="600"
+            >
+    <!--d:DataContext      ="{d:DesignInstance viewModels:ViewModelChart, IsDesignTimeCreatable=True}"-->
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        x:Name                 ="RootGrid" 
+       
+        >
+    </Grid>
+</v:ViewBase>
+<!--XMin            ="{Binding XMin}"
+XMax            ="{Binding XMax}"
+XTick           ="{Binding XTick}"
+YMin            ="{Binding YMin}"
+YMax            ="{Binding YMax}"
+YTick           ="{Binding YTick}"
+Title           ="{Binding Title}" 
+LegendEnable    ="{Binding LegendEnable}"
+LegendPosition  ="{Binding LegendPosition}"-->

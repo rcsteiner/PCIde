@@ -1,0 +1,22 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Program Overview">
+    <FlowDocumentReader>
+        <FlowDocument>
+            <Paragraph Style="{StaticResource Header}">The Tools Menu</Paragraph>
+            <Paragraph>
+                Properties and options are currently available on the tools menu.
+            </Paragraph>
+            <Paragraph>
+               Tools/Options/User
+            </Paragraph>
+            <Paragraph>
+                This dialog box allows you to set the user and class identifier used in bug reports and saving the exported zip file.
+            </Paragraph>
+            <Paragraph>
+                <Image Source="/Help/Images/OptionsUser.png" Stretch="None" Margin="10,0,10,0" />
+            </Paragraph>
+
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

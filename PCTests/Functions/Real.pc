@@ -1,0 +1,33 @@
+ //{"stringToReal"   ,new FunctionInfo("stringToReal",StringToReal,StoreEnum.REAL, StoreEnum.STRING)},
+ //{"isReal"         ,new FunctionInfo("isReal",IsReal,StoreEnum.BOOL, StoreEnum.STRING)},
+ //{"sqrt"           ,new FunctionInfo("sqrt",Sqrt,StoreEnum.REAL,StoreEnum.REAL)},
+ //{"sin"            ,new FunctionInfo("sin",Sin,StoreEnum.REAL,StoreEnum.REAL)},
+ //{"cos"            ,new FunctionInfo("cos",Cos ,StoreEnum.REAL,StoreEnum.REAL)},
+ //{"tan"            ,new FunctionInfo("tan",Tan,StoreEnum.REAL,StoreEnum.REAL)},
+ //{"abs"            ,new FunctionInfo("abs",Abs,StoreEnum.REAL,StoreEnum.REAL)},
+ //{"toInteger"      ,new FunctionInfo("toInteger",ToInteger,StoreEnum.INTEGER,StoreEnum.REAL)},
+ //{"toReal"         ,new FunctionInfo("toReal",ToReal,StoreEnum.REAL,StoreEnum.INTEGER)},
+ //{"round"          ,new FunctionInfo("round",Round,StoreEnum.INTEGER,StoreEnum.REAL)},
+ 
+Declare Real x=756.5
+
+If 901.5 == stringToReal("901.5") Then Display "stringToReal() Ok" Else Display "StringToReal() Failed" End If
+ 
+If isReal("901") Then Display "isReal() Ok" Else Display "isReal() Failed" End If
+If  isReal("901.01") Then Display "Real isReal() Ok" Else Display "Real isReal() Failed" End If
+If NOT isReal("test") Then Display "String isReal() Ok" Else Display "String isReal() Failed" End If
+
+If 756 == toInteger(756.5)  Then Display "toInteger() OK" Else Display  "toInteger() Failed:", toInteger(756.5)  End If
+
+
+If 757 == round(756.501)  Then Display "round() OK" Else Display  "round() Failed:", round(756.501)  End If
+
+If 5 == sqrt(25.0)  Then Display "sqrt() OK" Else Display  "sqrt() Failed:", sqrt(25.0)  End If
+
+If 25.0 == abs(25.0)  Then Display "abs() OK" Else Display  "abs() Failed:", abs(25.0)  End If
+
+If 25.0 == abs(-25.0)  Then Display "abs() OK" Else Display  "neg abs() Failed:", abs(-25.0)  End If
+ 
+If toInteger(1000*sin(45.0)) == 707  Then Display "sin() OK" Else Display  "sin() Failed:", sin(45.0)  End If
+If toInteger(1000*cos(45.0)) == 707  Then Display "cos() OK" Else Display  "cos() Failed:", cos(45.0)  End If
+If toInteger(round(1000*tan(45.0))) == 1000  Then Display "tan() OK" Else Display  "tan() Failed:", tan(45.0)  End If

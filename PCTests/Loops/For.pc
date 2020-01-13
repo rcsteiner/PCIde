@@ -1,0 +1,14 @@
+// Test for
+Declare Integer i
+
+For i=0 To 10
+    Display i
+End For
+
+For i=10 To 0 Step -1
+    Display i
+End For
+
+For i=1 To 10 Step 2
+    Display i
+End For

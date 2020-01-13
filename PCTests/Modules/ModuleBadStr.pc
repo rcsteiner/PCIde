@@ -1,0 +1,22 @@
+// bad parameter test
+
+Module main()
+    Call Test(300)
+    Declare String s = "any text"
+    Call Str(s)
+    Call Str(True)
+    Call Str('a')
+    Call Str(1000)
+    Call Str(3.34)
+    ExpectFail
+        Call Test(s)
+    End ExpectFail
+End Module
+
+Module Str(String v)
+    Display "String = ",v
+End Module
+
+Module Test(Integer v)
+    Display "Result is ",v
+End Module

@@ -1,0 +1,10 @@
+Declare Integer x,i
+
+For i=1 To 20
+  Display random(1,2)
+End For
+For i=0 To 20
+Set x = random(10,109)
+
+Display "x=",x
+End For

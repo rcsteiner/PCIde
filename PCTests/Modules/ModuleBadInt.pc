@@ -1,0 +1,9 @@
+// bad parameter test
+
+Module main()
+    Call Test(300) 
+End Module
+
+Module Test(Integer v)
+    Display "Result is ",v
+End Module

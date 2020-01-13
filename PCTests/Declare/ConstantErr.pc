@@ -1,0 +1,7 @@
+Constant Integer TAX=7
+Declare Real tax
+ExpectFail
+Set TAX = 23
+End ExpectFail
+
+Set tax = TAX*100

@@ -1,0 +1,17 @@
+ //{"stringToInteger",new FunctionInfo("stringToInteger",StringToInteger,StoreEnum.INTEGER, StoreEnum.STRING)},
+ //{"isInteger"      ,new FunctionInfo("isInteger",IsInteger,StoreEnum.BOOL, StoreEnum.STRING)},
+ //{"random"         ,new FunctionInfo("random",Random,StoreEnum.INTEGER,StoreEnum.INTEGER,StoreEnum.INTEGER)},
+ //{"toReal"         ,new FunctionInfo("toReal",ToReal,StoreEnum.REAL,StoreEnum.INTEGER)},
+ 
+ Declare Integer x=901, y=756
+ 
+ 
+If 901 == stringToInteger("901") Then Display "stringToInteger() Ok" Else Display "StringToInteger() Failed" End If
+ 
+If isInteger("901") Then Display "isInteger() Ok" Else Display "isInteger() Failed" End If
+If NOT isInteger("901.01") Then Display "Real isInteger() Ok" Else Display "Real isInteger() Failed" End If
+If NOT isInteger("test") Then Display "String isInteger() Ok" Else Display "String isInteger() Failed" End If
+
+If random(1,50) != random(1,50) Then Display "random() OK" Else Display  "random() Failed" End If
+
+If 756 == toReal(y)  Then Display "toReal() OK" Else Display  "toReal() Failed:", toReal(y)  End If

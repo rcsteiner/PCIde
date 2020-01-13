@@ -1,0 +1,8 @@
+﻿Name        = WorkspacePC
+Group       = PC
+Type        = Workspace
+DefaultName = Workspace{0}.pcsln
+ToolSet     = PC
+Description = This is a basic workspace for pseudo code.
+			= It provides a library folder to contain common code
+            = and allows projects to be added.  Projects are of type .pcprj.

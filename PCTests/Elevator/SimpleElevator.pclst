@@ -1,0 +1,125 @@
+﻿
+//====================================================================================================
+//  
+//  Listing for file: SimpleElevator   (   -  No Errors ) Pseudo Compiler V5.0.6825.27595
+//  
+//====================================================================================================
+
+
+====================================================================================================
+Pseudo Compiler version 5.0.6825.27595 Rendering of Program AST: 
+====================================================================================================
+
+Program Program_SimpleElevator
+    Constant Integer STOPPED = 0
+    Constant Integer DOWN = 1
+    Constant Integer UP = 2
+    Constant Integer FLOOR_COUNT = 4
+    Constant Real SPAWN_RATE = .5
+    Class Elevator
+        Public Integer currentDirection
+        Public Integer currentFloor
+        Public Boolean floorButtonPressedUp[FLOOR_COUNT]
+        Public Boolean floorButtonPressedDown[FLOOR_COUNT]
+        Public Boolean floorStops[FLOOR_COUNT]
+        Public Function Integer decideNextFloor(Elevator this)
+            Declare Integer i
+            Declare Integer floor
+            Display "dir=", currentDirection, " floor=", currentFloor
+            Set i = getNextFloorInDirection(this)
+            If (i != currentFloor) Then
+                Return i
+            End If
+            Set i = findNext(this, floorButtonPressedUp[], UP)
+            If (i != currentFloor) Then
+                Return i
+            End If
+            Set i = findNext(this, floorButtonPressedDown[], DOWN)
+            If (i != currentFloor) Then
+                Return i
+            End If
+            If (i != 0) Then
+                Return 0
+            End If
+            Display " goto=", i
+            Return i
+        End Function
+        Public Function Integer getNextFloorInDirection(Elevator this)
+            Select currentDirection
+Case UP:
+                Display "working on up"
+                Return findNext(this, floorStops[], currentDirection)
+Case DOWN:
+                Display "working on down"
+                Return findNext(this, floorStops[], currentDirection)
+Case STOPPED:
+                Return currentFloor
+End Select
+            Return currentFloor
+        End Function
+        Public Function Integer findNext(Elevator this, Boolean array, Integer direction)
+            Declare Integer floor
+            If (direction == UP) Then
+                For floor = (currentFloor + 1) To (FLOOR_COUNT - 1)
+                    If array[floor] Then
+                        Display "fu=", floor
+                        Return floor
+                    End If
+                End For
+            End If
+            For floor = (currentFloor - 1) To 0 Step  -1
+                If array[floor] Then
+                    Display "fd=", floor
+                    Return floor
+                End If
+            End For
+            Display "No floor"
+            Return currentFloor
+        End Function
+        Public Module Show(Elevator this)
+            Declare Integer i
+            For i = 0 To (FLOOR_COUNT - 1)
+                Set floorStops[i] = (random(0, 1) == 1)
+            End For
+            For i = 0 To (FLOOR_COUNT - 1)
+                Display i, ") ", floorStops[i]
+            End For
+            Display " show dir=", currentDirection, " floor=", currentFloor
+            Return
+        End Module
+    End Class
+    Public Module main()
+        Declare Elevator elevator = New  New Elevator(this)
+        Set elevator.currentDirection = UP
+        Call initElevator(FLOOR_COUNT, 1, 4, SPAWN_RATE, 100, elevator)
+        Call startElevator()
+        Return
+    End Module
+End Program
+
+====================================================================================================
+Symbol Table
+====================================================================================================
+   Scope      Type                    Name         Defined         Used In
+--------    -------  ---------------------------  --------  ---------------------------------
+  Global    Integer                      STOPPED        24  89
+  Global    Integer                         DOWN        25  65,84
+  Global    Integer                           UP        26  63,81,119,151
+  Global    Integer                  FLOOR_COUNT        27  43,44,45,121,136,140,153
+  Global       Real                   SPAWN_RATE        28  153
+Function    Integer              decideNextFloor        52  
+   Local   Elevator                         this        52  
+   Local    Integer                            i        53  61,62,63,64,65,66,67,69,70
+   Local    Integer                        floor        53  
+Function    Integer      getNextFloorInDirection        79  
+   Local   Elevator                         this        79  
+Function    Integer                     findNext       113  
+   Local   Elevator                         this       113  
+   Local    Boolean                        array       113  122,127
+   Local    Integer                    direction       113  119
+   Local    Integer                        floor       114  121,122,126,127
+  Module                                    Show       134  
+   Local   Elevator                         this       134  
+   Local    Integer                            i       135  136,137,140,141
+  Module                                    main       149  
+   Local   Elevator                     elevator       150  151,153

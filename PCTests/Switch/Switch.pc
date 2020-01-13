@@ -1,0 +1,36 @@
+Declare Integer x=-1
+
+Select(x)
+    Case 0:
+        Display "Is 0"
+ 
+    Case 1: 
+        Display "Is 1"
+        Display "line 2 case 1"
+    
+    Case 2:
+        Display "Case 2"
+        
+    Default:
+        Display "Default"
+
+End Select
+
+Declare String s="one"
+
+Select(s)
+    Case "one":
+        Display "1"
+ 
+    Case "two": 
+       Display "2"
+    
+    Case "three":
+        Display "3"
+
+End Select
+
+
+
+
+        

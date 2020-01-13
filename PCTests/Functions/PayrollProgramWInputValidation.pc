@@ -1,0 +1,52 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Homework7   Problem #1
+// 
+// Author:  Pedro Avitia
+// Date:    10/25/2016
+// Class:   CSC119
+// 
+// Description: Payroll Program that doesn't let user input hours greater than 40
+// and only pay rates between $7.50-$18.25
+// 
+/////////////////////////////////////////////////////////////////////////////////
+
+//Main Module calls all functions and runs the program
+Module main()
+// Declare variables
+Declare Real hours, payRate, grossPay,a=0,b=0,c=0
+
+//Get hours
+Set hours = getHours()
+//Get Rate
+Set payRate = getRate()
+//Calculate gross pay
+Set grossPay = hours * payRate
+
+//Display Gross Pay
+Display "The gross pay is ", currency(grossPay)
+
+End Module
+
+Module test(Real x)
+End Module
+
+//Get hours worked function
+Function Real getHours(Real hours)
+Display "Enter the number of hours worked."
+Input hours
+    While hours >40 OR hours <0
+    Display "Error: Hours cannot be greater than 40, or less than 0."
+    Input hours
+    End While
+End Function
+
+//Get pay rate function
+Function Real getRate()
+    Declare Real payRate
+Display "Enter hourly pay rate."
+Input payRate
+    While payRate > 18.25 OR payRate < 7.50
+    Display "Error: Pay rate must be between $7.50 & $18.25"
+    Input payRate
+    End While
+End Function

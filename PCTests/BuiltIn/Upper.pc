@@ -1,0 +1,18 @@
+Declare String x="This is a Test"
+
+Declare String y=toUpper(x)
+
+Display "Old=",x
+Display "New=",y
+Call xx()
+
+Module main()
+    Display "Hi"
+    Call  xx()
+Module xx()
+    Display "Xx"
+End Module
+End Module
+
+
+

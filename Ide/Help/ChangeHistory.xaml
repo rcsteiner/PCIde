@@ -1,0 +1,297 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Empty"
+      >
+    <FlowDocumentReader>
+        <FlowDocument>
+
+
+            <Paragraph  Style="{StaticResource Header}">Revision History Version 6</Paragraph>
+            <Paragraph  Style="{StaticResource H2}">Revision History Version 6.3</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed array problem in elevator.</Paragraph> 
+            <Paragraph  Style="{StaticResource Info}">Extended output to 300 lines from 100.</Paragraph> 
+            <Paragraph  Style="{StaticResource H2}">Revision History Version 6.2</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added seconds() built-in.</Paragraph> 
+            <Paragraph  Style="{StaticResource Fixed}">Elevator issue not notifying when passengers are available.</Paragraph> 
+            <Paragraph  Style="{StaticResource H2}"  >Version 6.0</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added elevator simulator.</Paragraph>
+            <Paragraph  Style="{StaticResource H2}"  >Version 5.0</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added chart (experimental).</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.7</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Internal compiler error when on object call without a method name.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.6</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed object table mapping causing problem with polymorphism.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.5</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Parameter mismatches could cause an untrapped exceptions. Improved diagnostics during compile.</Paragraph>
+           
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.4</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Updated pseudo code syntax to include new features in Display Statement.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Problem with parsing "-" introduced in 4.3 by not including " characters in string literals.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.3</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Error reporting an If Else If without a condition on the second If.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added escape \ character for \r CR \n  LF and \" DoubleQuote.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added CLR to clear the output.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added \uXXXX for unicode character display.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">NOTE: Include paths must use // instead of single / for path separator.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.2</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Converted HTML copy to be Word compatible for D2L import.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.1</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">FixedEnd Module missing.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed Debugger not tracking statments.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Invalid user name.</Paragraph>
+
+            <Paragraph  Style="{StaticResource Header}">Revision History Version 4</Paragraph>
+            <Paragraph  Style="{StaticResource H2}"  >Version 4.0</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added option "Set not required on assignment" and added parser support.</Paragraph>
+
+            <Paragraph  Style="{StaticResource Header}">Revision History Version 3</Paragraph>
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.9</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added shift opertors, bit AND and bit OR to the grammar.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.8</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Option/General/Auto Run if no compile Errors.  Runs application if there are no errors.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.7</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue polymorphic calls from base class.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.6</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with object call to super from derived.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.5</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">ForEach was altering the stack incorrectly after it ran, resulting in random variable changes.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.4</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Error caused by missing module check in version 3.3.</Paragraph>
+
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.3</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Added runtime check on function argument count.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.2</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed IsDirty flag issue when swithing documents but allows undos across saves.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added test for misc ';' appearing at end of lines.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added test for misc '{}' for blocks.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added test for misc 'Declare' on paramter lists.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added test for paramters missing type after first one. (Declare syntax).</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added test for missing commas in display and declare statements.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 3.0</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed Debug trace of variables.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed spelling error in .pc template.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem when Editor doesn't see changes and the code never compiles correctly. Paste Does not update IsModified Flags.</Paragraph>
+
+            <Paragraph  Style="{StaticResource Header}">Revision History Version 2</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.9</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Check for constants on the left of assignment.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Template File Header for .pc files. Changeable in the pc.zip file in the template folder.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.8</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Added Include "filepath".</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.7</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with ForEach loops not exiting function with a return in the loop.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with short circuit of OR not always working.</Paragraph>
+
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.6</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with unloadable workspace causing a save exception to be shown on file save.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added export to zip filters: .zip", ".obj", ".out", ".mf", ".xml", ".class", ".doc",".docx" ,".dll",".exe",".config",".html",".pclst",".jar",".txt".</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.5</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with passing a Ref argment to another module by value.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with debug variable format causing exception on some machines.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added record and playback.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.4</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with 'this' passed as first parameter in object calls.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Tab is now supported.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added CR for carrage return.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added BEL for carrage return.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Random now is inclusive of maximum value.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.3</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem when all workspace is closed and compile (or save/saveall) executes causing exception.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with return from call causing stack corruption on variable reset.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}" >Added Dispatcher exception catcher to show a better wpf message if possible.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.2</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem not reporting bad parameter count in known module call.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed stack problem on calls with local parameters reserving extra stack space.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Changed Return statement to NOT require a return value (for returning from module).</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.1</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem not reporting variables not declared.</Paragraph>
+
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 2.0</Paragraph>
+            <Paragraph  Style="{StaticResource Info}" >Added syntax help to Help Content.</Paragraph>
+
+            <Paragraph  Style="{StaticResource Header}">Revision History Version 1</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.28</Paragraph>
+            <Paragraph  Style="{StaticResource Info}" >Updated DependencyPropertyHelper menus. </Paragraph>
+            <Paragraph  Style="{StaticResource Info}" >Added string  [] to get string characters.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}" >Added beep(integer frequency, real seconds).</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}" >Collapsable regions for classes and public/private functions/methods. </Paragraph>
+
+            <Paragraph  Style="{StaticResource Broken}" >Fields not defined "</Paragraph>
+            <Paragraph  Style="{StaticResource Broken}" >Field declaration in single line not working </Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.27</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for Super keyword. </Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added BELL support to beep the console (backslash g) in a string by itself. </Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed initialization issue with object with no constructors.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.26</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for base class.  (Note object array elements cannot access members directly)"</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added format(args), same arguments as Display but returns the string result."</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added sleep(real seconds) function delays return until timeout."</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.25</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added startsWith(string,string)"</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for single Display (no arguments, to get a blank line)"</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added round(real value,integer digits) to round a real number to digits fraction.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.24</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed bug in declaration of boolean arrays (after execution it was set to array of objects instead of array of booleans"</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.23</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added test for passing arrays as array[] instead of just array..</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed bug if a function doesn't have any statments, causes IDE to die.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.22</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for array elements to be passed by ref.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issue with stack space allocated relative to baseptr instead of count causing rare stack overflows randomly.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed debug viewer showing arrays.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.21</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed debug issue with index out of range.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.20</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added initialization of array from a expression list.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed compiler not reporting using function as input variable.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed compiler not reporting intialized declarations of the wrong type</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.19</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added ForEach loop support to iterate over an array (single dimension only).</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.18</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with input timeout.  Now timer will stop waiting for input after 30secs and terminate the program.</Paragraph>
+           
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.17</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with compiler of bad test expression and extra End If.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with a return in a if statement inside a loop not returning.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added sort to projects and files.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.16</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with boolean compare to True/False not working correctly.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.15</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added currency(Real) converter.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Reference to a Reference returned the wrong value or throw an exception.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.14</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Tested all built in functions.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.13</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Array internal error</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Extra lines on output</Paragraph>
+           
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.12</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for arrays (simple and 2 dimensional.)</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added debug support forArrays.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added builtin function support Chapter 6 and Chapter 12.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for "\t" Tab .</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for "\r" Carriage Return.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for objects (basic methods and fields).</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Issue with left side Integer and Right side Real (resulted in integer, s/b Real)</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.11</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added support for Do/While While, Do/Until and For Loops.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed issues with math on integer vs real.  (integer math was done with floating point, giving wrong results for divide and multiply in some cases).</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.10</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with Else If being split across lines.</Paragraph>
+       
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.9</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Version number to status bar.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Open multiple files on Open File dialog.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Color highlights for change and modules in Variables View.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Breakpoints (Add/Remove/Enable/Disable).</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed multiple definition detection for variables.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed false input entry if stopped execution on input field.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.8</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added basic support for debugging.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Debug Variables window.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Debug call stack window.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with Constant X 4 (missing = caused stop of compilation).</Paragraph>            
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with logical AND and OR not compiling.</Paragraph>   
+	        <Paragraph  Style="{StaticResource Fixed}">Fixed problem with Select Case not working.</Paragraph>   
+		   
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.7</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Session Timer in status bar.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Line and column information in status bar.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Color coding to error pop-ups.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Improved error reporting.  Errors are shown in document immediately after running. Doesn't require window activation by clicking on document.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed double error on call stack overflow.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed exception on selection out of range.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.6</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed problem with multiple references on a module call.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed ^ exponent computation.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Test to check for parameter count and match.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.5</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added F3 Comment block insert.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed Project Delete.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.4</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Changed output window font to Consolas.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added MRU workspace to File Menu.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Completed Function support.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Completed If/else support.</Paragraph>
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.3</Paragraph>
+           
+            <Paragraph  Style="{StaticResource Fixed}">Fixed output window so Enter key completes the input field.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Multiple initialization on a line caused runtime errors.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Multiple declare names on single line - caused undefined variable errors.</Paragraph>
+            <Paragraph  Style="{StaticResource Fixed}">Fixed Modules to compile and run.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Detection of Main() and lower case main() handled</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Reference variable no longer require initializaton if used in input or method call as ref.</Paragraph>
+
+
+            <Paragraph  Style="{StaticResource H2}"  >Version 1.2</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Scaling to the output window to simplify demos.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Changed the zip file name to be User Name without spaces.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Changed the zip pathing to be shorter version (not full path)</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added auto run of Workspace options on startup if User Name is not set.</Paragraph>
+            <List >
+                <ListItem ><Paragraph Style="{StaticResource InfoL}">Added Logging of Message boxes that are recorded in error log of bug reports.</Paragraph></ListItem>
+                <ListItem ><Paragraph Style="{StaticResource InfoL}">Added exception logging to show message boxes</Paragraph></ListItem>
+                <ListItem ><Paragraph Style="{StaticResource InfoL}">Added messages for folder creation problems and template creation problems.</Paragraph></ListItem>
+                <ListItem ><Paragraph Style="{StaticResource InfoL}">Added user name and class to bug report</Paragraph></ListItem>
+                <ListItem ><Paragraph Style="{StaticResource InfoL}">Added date to bug report</Paragraph></ListItem>
+            </List>   
+            <Paragraph  Style="{StaticResource Info}">Modified setting to use a file in appdata\roaming\Company folder.  Keeps the info between builds.</Paragraph>
+            <Paragraph  Style="{StaticResource Info}">Added Reset View menu item.</Paragraph>
+
+     
+            <Paragraph Style="{StaticResource H2}"    >Version 1.1  </Paragraph>
+            <Paragraph Style="{StaticResource Info}"  >Added Folding for PC language  </Paragraph>
+            <Paragraph Style="{StaticResource Info}"  >Added Workspace options to control folding, error lists, opening last workspace and output view as a floating window.</Paragraph>
+            <Paragraph Style="{StaticResource Fixed}" >Fixed Problem with error markers moving during edits.</Paragraph>
+            <Paragraph Style="{StaticResource Info}"  >Added Change history to help content.</Paragraph>
+            <Paragraph Style="{StaticResource H2}"    >Version 1.0 </Paragraph>
+            <Paragraph Style="{StaticResource Info}"  >Initial Release of code.</Paragraph>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

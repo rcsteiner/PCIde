@@ -1,0 +1,4 @@
+Description     = This is a Pseudo code Lesson project.  Names are Normally Lesson1, Lesson2 etc.  Then the homework is: HW1.pc HW2.pc etc.
+FileFilter      = .pc,.pclst
+ProjectFilter   = .pcprj
+ToolSet         = PC

@@ -1,0 +1,55 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Global Constants for Assessment Fee and Property Tax
+/////////////////////////////////////////////////////////////////////////////////
+
+Constant Real ASSESSMENT_FEE = .60
+Constant Real PROPERTY_TAX = .64/100
+
+/////////////////////////////////////////////////////////////////////////////////
+// Main Module
+/////////////////////////////////////////////////////////////////////////////////
+Module main()
+        Declare Real value, assetValue
+    
+    Call introMessage()
+    
+    Display "First, enter the amount that your property is worth."
+    Input value
+    
+    Call calculateAssessmentValue(value, assetValue )
+    
+    Call calculatePropertyTax(assetValue)
+    
+End Module
+
+/////////////////////////////////////////////////////////////////////////////////
+// Intro Message Module
+/////////////////////////////////////////////////////////////////////////////////
+
+Module introMessage()
+    Display "This program will take a property's value and calculate how much"
+    Display "property tax is owed based on its assessment value."
+End Module
+
+/////////////////////////////////////////////////////////////////////////////////
+// Assessment Value Module
+/////////////////////////////////////////////////////////////////////////////////
+
+Module calculateAssessmentValue(Real propValue,Real Ref assessmentValue)
+   Display "An assessment value is based at 60% of a property's actual value."
+    Set assessmentValue =  propValue * ASSESSMENT_FEE
+    Display "If your property's value is $", propValue, " then the assessment value is"
+    Display "$" , assessmentValue
+End Module
+
+/////////////////////////////////////////////////////////////////////////////////
+// Property Tax Module
+/////////////////////////////////////////////////////////////////////////////////
+
+Module calculatePropertyTax(Real assessmentValue)
+    Declare Real propertyTax
+    Display "A property tax is then calculated by $0.64 for every $100."
+    Set propertyTax = assessmentValue * PROPERTY_TAX
+    Display "If your property's assessment value is $", assessmentValue, " then"
+    Display " your property tax will be $", propertyTax
+End Module

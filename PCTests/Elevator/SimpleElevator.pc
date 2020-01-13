@@ -1,0 +1,163 @@
+/////////////////////////////////////////////////////////////////////////////////
+// PlayZone   Problem Lift
+// 
+//  This project controls an elevator with the definition described by this class.
+//
+// Author:  Initial code Robert Steiner
+// Date:    4/25/2018
+// Class:   CSC119
+// 
+// Description:
+//
+// A starting class for the elevator Lift project.  This class defines the basics
+// for a single elevator.  It does not include the elevator control, just the decision
+// function for selecting the next floor AND a supporting function to find what is
+// set on each floor.  
+// 
+// You can assume that the arrays are maintained by the rest of the elevator simulator
+// and the simulator calls the decideNextFloor() function to determine where to go next.
+// If you return the currentFloor, the elevator will stop until a button is pressed (either
+// in the elevator because of a new passanger, or an up/down button is pressed on a floor.
+//
+/////////////////////////////////////////////////////////////////////////////////
+
+Constant Integer STOPPED     = 0      // elevator is stopped
+Constant Integer DOWN        = 1      // elevator is moving down
+Constant Integer UP          = 2      // elevator is moving up
+Constant Integer FLOOR_COUNT = 4      // the number of floors
+Constant Real    SPAWN_RATE  = .5     // spawn rage
+
+/////////////////////////////////////////////////////////////////////////////////
+// The elevator class support, holds the elevator state 
+// in a set of boolean arrays arrays
+//
+//  
+/////////////////////////////////////////////////////////////////////////////////
+
+Class Elevator
+
+    Public Integer currentDirection                        // Current direction up/down/stopped
+    Public Integer currentFloor                            // Current floor number
+    Public Boolean floorButtonPressedUp[FLOOR_COUNT]       // Up button by floor
+    Public Boolean floorButtonPressedDown[FLOOR_COUNT]     // Down button by floor
+    Public Boolean floorStops[FLOOR_COUNT]                 // List of buttons press
+    
+    
+    /////////////////////////////////////////////////////////////////////////////////
+    // Decide what floor to go to next.
+    // Returns a number between 1 and FloorCount  inclusively  (1 based floor number)
+    /////////////////////////////////////////////////////////////////////////////////
+    Public Function Integer decideNextFloor()
+    Declare Integer i,floor
+    Display "dir=",currentDirection," floor=", currentFloor
+//                For floor=currentFloor +1 To FLOOR_COUNT-1 
+//                If floorStops[floor-1] Then Display "Passanger ",floor,"=",floorStops[floor-1] End If
+//             End For
+ 
+        // really bad function, goto the next floor in direction
+        // TODO make it better
+        Set i = getNextFloorInDirection()
+        If i !=currentFloor Then Return i End If
+        Set i = findNext(floorButtonPressedUp, UP)
+        If i != currentFloor Then Return i End If
+        Set i = findNext(floorButtonPressedDown, DOWN)
+        If i != currentFloor Then Return i End If
+        If i != 0 Then Return 0 End If
+
+        Display " goto=",i
+        Return i
+    End Function
+    
+    /////////////////////////////////////////////////////////////////////////////////
+    // Get the next floor in the current direction from the floorStops array.
+    // Returns the next floor to go to, if the currentFloor is returned then the elavator
+    // will stop and wait.
+    /////////////////////////////////////////////////////////////////////////////////
+
+    Private Function Integer getNextFloorInDirection()
+        Select(currentDirection)
+            Case UP:
+                Display "working on up"
+                    Return findNext(floorStops,currentDirection)
+          Case DOWN:    
+               Display "working on down"
+                    Return findNext(floorStops,currentDirection)
+
+
+            Case STOPPED:
+                    // TODO, what to do if no floors are requested
+                    
+                    Return currentFloor     // cause the elevator to stop
+        End Select
+        Return currentFloor
+    End Function
+    
+
+    /////////////////////////////////////////////////////////////////////////////////
+    // Support Function to make it easy to scan and find the next value set in an array
+    // in a direction you pass in, starting from the currentFloor the elevator is on.
+    //
+    // You can use this function to scan any of the boolean arrays 
+    //             like:
+    //      floorButtonPressedUp
+    //      floorButtonPressedDown
+    //      floorStops
+    //
+    // Parameters:
+    //  array           The array to scan
+    //  direction       UP or DOWN indicating the direction to search.
+    /////////////////////////////////////////////////////////////////////////////////
+
+    Private Function Integer findNext(Boolean array[], Integer direction)
+        Declare Integer floor 
+       //      For floor=currentFloor +1 To FLOOR_COUNT-1 
+       //         If array[floor] Then Display floor,"=",array[floor] End If
+       //      End For
+        
+        If direction == UP Then
+                
+             For floor=currentFloor +1 To FLOOR_COUNT-1 
+                If array[floor] Then Display "fu=",floor Return floor End If
+             End For
+        End If
+        
+             For floor=currentFloor -1 To 0 Step -1
+                If array[floor] Then Display "fd=",floor Return floor End If
+             End For  
+Display "No floor"
+        Return currentFloor
+    End Function
+    
+    
+    Public Module Show()
+        Declare Integer i
+        For i=0 To FLOOR_COUNT-1
+           Set floorStops[i]= (random(0,1)==1)
+        End For
+        
+        For i=0 To FLOOR_COUNT-1
+            Display i,") ", floorStops[i]
+        End For
+           Display " show dir=",currentDirection," floor=", currentFloor
+    End Module
+    
+End Class
+
+
+Module main()
+    Declare Elevator elevator = New Elevator()
+    elevator.currentDirection = UP
+
+   Call initElevator(FLOOR_COUNT,1,4, SPAWN_RATE,100, elevator)
+   
+ //  Call elevator.Show()
+ //  Display "floor= ",elevator.decideNextFloor()
+   Call startElevator()
+
+  // isElevatorRunning()
+
+End Module
+
+    
+
+

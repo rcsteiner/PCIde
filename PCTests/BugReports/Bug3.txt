@@ -1,0 +1,13 @@
+Date=9/22/2015 4:11 PM
+Version=1.4  Built: Tuesday, September 22, 2015 3:11:12 PM
+UserName=Robert Steiner
+UserClass=CSC119
+Description=
+Error List:
+
+ERROR   :                                : Runtime error: Recursive depth exceeded.  Do you have a exit sentinel in the method?
+ERROR   :                                : Runtime error: Runtime exception. pc.Context.RuntimeError: Exception of type 'pc.Context.RuntimeError' was thrown.
+   at pc.PBlock.Execute() in d:\Research\Source\cs\Ide\pc\Statements\PBlock.cs:line 171
+   at pc.PModule.ExecuteBody() in d:\Research\Source\cs\Ide\pc\Statements\PModule.cs:line 233
+   at pc.PModule.Execute() in d:\Research\Source\cs\Ide\pc\Statements\PModule.cs:line 218
+   at pc.PProgram.Execute() in d:\Research\Source\cs\Ide\pc\Statements\PProgram.cs:line 107

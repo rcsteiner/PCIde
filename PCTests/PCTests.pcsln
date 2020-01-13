@@ -1,0 +1,5 @@
+Description     = This is a basic workspace for pseudo code.  It provides a library folder to contain common code and allows projects to be added.  Projects are of type .pcprj.
+FileFilter      = .pc,.pclst
+ProjectFilter   = .pcprj
+WorkspaceFilter = .pcsln
+ToolSet         = PC

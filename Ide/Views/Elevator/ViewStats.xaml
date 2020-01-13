@@ -1,0 +1,55 @@
+﻿<UserControl x:Class        ="Views.ViewStats"
+             xmlns          ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x        ="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc       ="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d        ="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lift     ="clr-namespace:Lift;assembly=LiftLib"
+             mc:Ignorable   ="d" 
+             Height         ="200"
+             Width          ="160"
+             Background     ="Black"
+             ToolTip        ="Statistics for current run" 
+             SizeChanged    ="UserControl_SizeChanged"
+                >
+    <Grid Margin="0,0,0,20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="30*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label    Grid.Row="0" Grid.Column="0" Content="Transported"     HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="#FFFDFBFB" />
+        <Label    Grid.Row="1" Grid.Column="0" Content="Elapsed Time"    HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="#FFFDFBFB"/>
+        <Label    Grid.Row="2" Grid.Column="0" Content="Transport/Sec"   HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="#FFFDFBFB"/>
+        <Label    Grid.Row="3" Grid.Column="0" Content="Avg wait time"   HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="#FFFDFBFB"/>
+        <Label    Grid.Row="4" Grid.Column="0" Content="Max wait time"   HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="#FFFDFBFB"/>
+        <Label    Grid.Row="5" Grid.Column="0" Content="Moves"           HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="#FFFDFBFB"/>
+
+        <TextBox  Grid.Row="0" Grid.Column="2" x:Name="txtTransported"    HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="The number of pasangers transported" />
+        <TextBox  Grid.Row="1" Grid.Column="2" x:Name="txtElapsedTime"    HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="The run time of this simulation"/>
+        <TextBox  Grid.Row="2" Grid.Column="2" x:Name="txtTransportSec"   HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Passengers transported per second"/>
+        <TextBox  Grid.Row="3" Grid.Column="2" x:Name="txtAvgWaitTiem"    HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Average Wait time of passengers"/>
+        <TextBox  Grid.Row="4" Grid.Column="2" x:Name="txMaxgWaitTiem"    HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Worst wait time of any passenger"/>
+        <TextBox  Grid.Row="5" Grid.Column="2" x:Name="txtMoves"          HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Number of floors the elevators have moved"/>
+
+        <!--<TextBox  Grid.Row="0" Grid.Column="2" x:Name="txtTransported"   Text="{Binding (lift:IStats.Transported),       Mode=OneWay, StringFormat=F1}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="The number of pasangers transported" />
+        <TextBox  Grid.Row="1" Grid.Column="2" x:Name="txtElapsedTime"   Text="{Binding (lift:IStats.ElapsedTime),       Mode=OneWay, StringFormat=F0}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="The run time of this simulation"/>
+        <TextBox  Grid.Row="2" Grid.Column="2" x:Name="txtTransportSec"  Text="{Binding (lift:IStats.TransportedPerSec), Mode=OneWay, StringFormat=F1}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Passengers transported per second"/>
+        <TextBox  Grid.Row="3" Grid.Column="2" x:Name="txtAvgWaitTiem"   Text="{Binding (lift:IStats.AvgWaitTime),       Mode=OneWay, StringFormat=F1}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Average Wait time of passengers"/>
+        <TextBox  Grid.Row="4" Grid.Column="2" x:Name="txMaxgWaitTiem"   Text="{Binding (lift:IStats.MaxWaitTime),       Mode=OneWay, StringFormat=F1}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Worst wait time of any passenger"/>
+        <TextBox  Grid.Row="5" Grid.Column="2" x:Name="txtMoves"         Text="{Binding (lift:IStats.Moves),             Mode=OneWay, StringFormat=F1}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"  Foreground="Yellow" Background="Black" ToolTip="Number of floors the elevators have moved"/>-->
+
+    </Grid>
+
+
+</UserControl>
+
+
+

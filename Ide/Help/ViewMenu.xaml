@@ -1,0 +1,25 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Program Overview">
+    <FlowDocumentReader>
+        <FlowDocument>
+            <Paragraph Style="{StaticResource Header}">The View Menu</Paragraph>
+
+            <Paragraph>
+                <Image Source="/Help/Images/ViewMenu.png" Style="{StaticResource HelpImageStyle}" />
+                </Paragraph> 
+            <Paragraph>
+                Manage what tools are visible in the IDE.
+            </Paragraph>
+            <Paragraph>
+                Show and hide views 
+            </Paragraph>
+            <List>
+                <ListItem>
+                    <Paragraph>Show Workspace</Paragraph>
+                    <Paragraph TextIndent="5" FontSize="11">Display the current workspace.</Paragraph>
+                </ListItem>
+            </List>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

@@ -1,0 +1,18 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Program Overview">
+    <FlowDocumentReader>
+        <FlowDocument>
+            <Paragraph Style="{StaticResource Header}">The Edit Menu</Paragraph>
+
+            <Paragraph>
+                <Image Source="/Help/Images/EditMenu.png" Style="{StaticResource HelpImageStyle}"/></Paragraph> 
+            <Paragraph>
+                Basic editor functions common to most word processors.
+            </Paragraph>
+            <Paragraph>
+                Cut,Copy and Paste operate the same as in standard word processors and editors.
+            </Paragraph>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

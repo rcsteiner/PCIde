@@ -1,0 +1,39 @@
+// test if statement
+Declare Char cx='a'
+Declare Integer c = 100
+Declare Integer d = 200
+Declare Boolean b = True
+Declare Boolean nb = False
+Declare Real x=1.1
+Declare Real y=1.12
+
+Display "Character=",cx
+
+If c< d Then Display "1 Integer < D is bigger correct" End If
+
+If d>c Then
+    Display "2 Integer > D is also bigger than c" 
+End If
+
+If d==d Then Display "3 Integer == D is same as D" End If
+If c!=d Then Display "4 Integer != C is not the same as D" End If
+If d>=c Then Display "5 Integer >= C is not the same as D" End If
+If c<=d Then Display "6 Integer <= C is not the same as D" End If
+
+If  NOT nb Then Display "1 Bool !False is true" End If
+If b Then Display "2 Bool True is true" End If
+
+If x < y Then Display "1 Real < is True" End If
+If x <= y Then Display"2 Real <= is True" End If
+If y > x Then Display "3 Real > is True" End If
+If y >= x Then Display"4 Real >= is True" End If
+If x != y Then Display"5 Real != is True" End If
+If x == x Then Display"6 Real == is True" End If
+
+Declare String s="test", t="test1"
+If s < t Then Display "1 String < is True" End If
+If s <= t Then Display"2 String <= is True" End If
+If t > s Then Display "3 String > is True" End If
+If t >= s Then Display"4 String >= is True" End If
+If s != t Then Display"5 String != is True" End If
+If s == s Then Display"6 String == is True" End If

@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Ide.Views.Main.MainToolBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+        <ToolBarTray DockPanel.Dock="Top" Background="{DynamicResource MenuBackground}" >
+            <ToolBar x:Name="toolBar" Background="{DynamicResource ButtonBackground}" >
+                <Button  Command="views:AppCommand.FolderNew">
+                    <Image Source="/Views/Images/FolderNew.ico"   Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button x:Name="cmdOpen" Command="Open">
+                    <Image Source="/Views/Images/FileOpen.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button x:Name="cmdSave" Command="Save" IsEnabled="{Binding IsEnabled, ElementName=cmdSave}">
+                    <Image Source="/Views/Images/Save.png"     Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button Command="views:AppCommand.SaveAll" >
+                    <Image Source="/Views/Images/SaveAll.png"   Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="Delete" >
+                    <Image Source="/Views/Images/EditDelete.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+                <Button  Command="Cut">
+                    <Image Source="/Views/Images/EditCut.png"    Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Copy">
+                    <Image Source="/Views/Images/EditCopy.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Paste">
+                    <Image Source="/Views/Images/EditPaste.png"  Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Undo">
+                    <Image Source="/Views/Images/EditUndo.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="Redo">
+                    <Image Source="/Views/Images/EditRedo.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Separator/>
+
+                <Button Command="views:AppCommand.EditSpellCheck">
+                    <Image Source="/Views/Images/spellcheck.ico"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+            </ToolBar>
+            <ToolBar x:Name="CompileToolBar"  Background="{DynamicResource ButtonBackground}" >
+                <Button Command="views:AppCommand.Build"  ToolTip="Compile the current file">
+                    <Image Source="/Views/Images/build.png"   Style="{StaticResource ImageEnabled}" />
+                </Button>
+                <Button  Command="views:AppCommand.BuildAll"  ToolTip="Compile the current file">
+                    <Image Source="/Views/Images/BuildAll.png"  Style="{StaticResource ImageEnabled}"/>
+                </Button>
+            </ToolBar>
+
+        </ToolBarTray>
+
+</UserControl>

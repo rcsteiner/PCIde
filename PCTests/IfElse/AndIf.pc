@@ -1,0 +1,31 @@
+// Test And
+
+Declare Integer i = 10
+Declare Integer t = 100
+
+If i>=10 AND t >=100 Then Display "1 OK And" End If
+If i>=10 AND t >=100 AND (i+t) == 110 Then  Display "1 OK And/And" End If
+
+
+If i<10 AND t >=100 Then Display "2 Fail And bad" Else Display "2 OK nand" End If
+If i>=10 AND t >=100 AND (i+t) != 110 Then  Display "2 Fail And/And" Else Display "2 OK And/And" End If
+
+
+If i>=10 OR t >=100 Then Display "3 OK one" End If
+If i>=10 OR t >100 Then Display "4 OK both" End If
+If i<10 OR t >100 Then Display "5 false not OR" Else Display "5 OK not OR" End If
+If i>=10 OR t >100 OR (i+t) != 110 Then  Display "6 OK 1 or" End If
+If i>10 OR t >=100 OR (i+t) != 110 Then  Display "7 OK 2 or" End If
+If i>10 OR t >100 OR (i+t) == 110 Then  Display "8 OK 3 or" End If
+
+If i>10 OR t >100 Then Display "9 fail one"  Else Display "9 OK not OR" End If
+If False OR False Then Display "10 FAIL both"  Else Display "10 OK not OR" End If
+If i<10 OR t >100 Then Display "11 FAIL not OR" Else Display "11 OK not OR" End If
+If i>10 OR t >100 OR (i+t)!= 110 Then  Display "12 FAIL 1 or"  Else Display "12 OK not OR" End If
+
+If i>10 OR t >=100 AND (i+t) != 110 Then  Display "13 FAIL 2 or and"  Else Display "13 OK not OR" End If
+If i>10 OR t >=100 AND (i+t) == 110 Then  Display "14 OK 2 or and"  Else Display "14 Failed not OR" End If
+If (i>=10 OR t >=100) AND (i+t) != 110 Then  Display "15 FAIL 2 or and"  Else Display "15 OK not OR" End If
+
+If i>10 OR t >100 AND (i+t) == 110 Then  Display "16 FAIL 3 or"  Else Display "16 OK not OR" End If
+If i>10 OR t >100 AND (i+t) != 110 Then  Display "17 FAIL 3 or"  Else Display "17 OK not OR" End If

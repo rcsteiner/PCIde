@@ -1,0 +1,5 @@
+Declare Integer x
+
+For x=0  To 10000000000
+    Display x;
+End For

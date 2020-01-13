@@ -1,0 +1,4 @@
+Declare Integer i
+For i=0 To 10
+    Display i,CR
+End For

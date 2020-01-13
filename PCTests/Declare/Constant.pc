@@ -1,0 +1,15 @@
+// constant tests
+Constant Integer int = 109*100
+Display "Integer=", int
+
+Constant Char x = 'a'
+
+Constant Real  dbl = 100.100
+Constant String s = "test only"
+Constant Integer i=dbl*1000
+
+Display "String=", s
+Display "Char=",x
+Display "Real=",dbl
+
+Display "I=", i

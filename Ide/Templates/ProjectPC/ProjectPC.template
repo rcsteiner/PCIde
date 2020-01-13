@@ -1,0 +1,6 @@
+﻿Name = ProjectPC
+Group = PC
+Type = Project
+DefaultName = Project{0}.pcprj
+ToolSet = PC
+Description = This is a basic project for pseudo code. Files are *.pc

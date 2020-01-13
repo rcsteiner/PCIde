@@ -1,0 +1,37 @@
+﻿
+//====================================================================================================
+//  
+//  Listing for file: RefDisplay   (   -  No Errors ) Pseudo Compiler V5.0.6825.26225
+//  
+//====================================================================================================
+
+
+====================================================================================================
+Pseudo Compiler version 5.0.6825.26225 Rendering of Program AST: 
+====================================================================================================
+
+Program Program_RefDisplay
+    Public Module main()
+        Declare Integer day = 3
+        Call DispTime(day)
+        Return
+    End Module
+    Public Module DispTime(Integer Ref day)
+        Declare Integer t
+        Set t = (1000 / 10)
+        Display t, day
+        Display t, 	, day
+        Return
+    End Module
+End Program
+
+====================================================================================================
+Symbol Table
+====================================================================================================
+   Scope      Type                    Name         Defined         Used In
+--------    -------  ---------------------------  --------  ---------------------------------
+  Module                                    main         3  
+   Local    Integer                          day         5  6
+  Module                                DispTime         9  
+   Local    Integer                          day         9  16,17
+   Local    Integer                            t        11  13,16,17

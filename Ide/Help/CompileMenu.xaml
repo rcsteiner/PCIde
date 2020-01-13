@@ -1,0 +1,37 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Program Overview">
+    <FlowDocumentReader>
+        <FlowDocument>
+            <Paragraph Style="{StaticResource Header}">The Compiler Menu and Toolbar </Paragraph>
+
+                <Paragraph>
+                    <Image Source="/Help/Images/CompileMenu.png" Stretch="None" Margin="10,0,10,0" />
+                    </Paragraph>
+            <Paragraph>
+                This file discusses the Compiler menu and toolbar.
+            </Paragraph>
+            <Paragraph>
+                There are two modes of compiling:
+            </Paragraph>
+            <List>
+                <ListItem>
+                    <Paragraph>Current File of type .pc <Image Source="/Views/Images/Build.png" Stretch="None"  Margin="10,0,10,0" />
+                    </Paragraph>
+                    <Paragraph TextIndent="5" FontSize="11">Compiles the currenly active document of type .pc and optionally writes the output list.  If the
+                    program is successfully compiled, then the Run button
+                        <Image Stretch="None" Source="/Views/Images/run.png" />
+                        and Debug button
+                        <Image Stretch="None" Source="/Views/Images/DebugRun.png" /> become active.</Paragraph>
+                </ListItem>
+            <ListItem>
+                    <Paragraph>All Files of type .pc
+                        <Image Source="/Views/Images/BuildAll.png"   Stretch="None" Margin="10,0,10,0" />
+                    </Paragraph>
+                    <Paragraph TextIndent="5" FontSize="11">Compiles all files in the workspace of type .pc and optionally writes the output list.</Paragraph>
+
+                </ListItem>
+            </List>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Page>

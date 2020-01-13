@@ -1,0 +1,33 @@
+// test simple modules
+Constant Real pi=3.141
+
+Module main()
+    Declare Integer ir = 72
+    Declare Integer t
+    
+    Set t=ir
+    Display "before ",t," ",ir
+    Call Ref2Call(ir)
+    Display "after ",t," ",ir
+  
+    Declare Real dr = 45.3
+    Declare String  sr = "last"
+   
+    Call Print(50,"test",3.14)
+
+End Module
+
+Module RefCall(Integer Ref ix)
+    Set ix = 16
+End Module
+
+Module Ref2Call(Integer Ref ix)
+    Display "Enter value for ix: ";
+    Input ix
+End Module
+
+Module Print(Integer v, String s, Real r)
+    Display "V=",v
+    Display "S=",s
+    Display "R=",r
+End Module

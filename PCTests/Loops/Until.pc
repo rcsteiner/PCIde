@@ -1,0 +1,7 @@
+// test Until loop
+Declare Integer i=0
+
+Do 
+    Display i
+    Set i=i+1
+Until i>10

@@ -1,0 +1,5 @@
+ //{"isLetter"       ,new FunctionInfo("isLetter",IsLetter,StoreEnum.BOOL, StoreEnum.CHAR)},
+ //{"isLower"        ,new FunctionInfo("isLower",IsLower,StoreEnum.BOOL, StoreEnum.CHAR)},
+ //{"isUpper"        ,new FunctionInfo("isUpper",IsUpper,StoreEnum.BOOL, StoreEnum.CHAR)},
+ //{"isWhitespace"   ,new FunctionInfo("isWhitespace",IsWhitespace,StoreEnum.BOOL, StoreEnum.CHAR)},
+ 

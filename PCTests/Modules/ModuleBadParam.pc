@@ -1,0 +1,15 @@
+// bad parameter test
+
+Module main()
+
+     Call Test(300)
+    
+    ExpectFail
+        Call Test(3.3)  // expects an integer, loss of precision with real
+
+    End ExpectFail
+End Module
+
+Module Test(Integer v)
+    Display "Result is ",v
+End Module

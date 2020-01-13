@@ -1,0 +1,12 @@
+Module main()
+    Declare Real y=098.01
+    Declare Real x=0
+    // runtime error y is not convertable.
+    Call Print("Test ",x,y)
+
+End Module
+
+Module Print(String format,Real Ref x,Integer Ref y)
+    Display format,x,y
+End Module
+

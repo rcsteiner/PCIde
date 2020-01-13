@@ -1,0 +1,158 @@
+﻿<?xml version="1.0"?>
+<SyntaxDefinition name="PC" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
+	<Color name="Comment" foreground="Green" />
+	<Color name="String" foreground="Indigo" />
+	
+	<!-- This is the main ruleset. -->
+	<RuleSet>
+		<Span color="Comment" begin="//" />
+		<Span color="Comment" multiline="true" begin="/\*" end="\*/" />
+		
+		<Span color="String">
+			<Begin>"</Begin>
+			<End>"</End>
+			<RuleSet>
+				<!-- nested span for escape sequences -->
+				<Span begin="\\" end="." />
+			</RuleSet>
+		</Span>
+		
+		<Keywords fontWeight="bold" foreground="Blue">
+      <Word>Declare</Word>
+      <Word>Set</Word>
+      <Word>Constant</Word>
+      <Word>End</Word>
+      <Word>Display</Word>
+      <Word>Input</Word>
+      <Word>Ref</Word>
+      <Word>Case</Word>
+      <Word>Select</Word>
+      <Word>Switch</Word>
+      <Word>If</Word>
+      <Word>Else</Word>
+      <Word>Function</Word>
+      <Word>Return</Word>
+      <Word>Call</Word>
+      <Word>Boolean</Word>
+      <Word>Then</Word>
+      <Word>Module</Word>
+      <Word>Program</Word>
+      <Word>Do</Word>
+      <Word>Until</Word>
+      <Word>While</Word>
+      <Word>For</Word>
+      <Word>To</Word>
+      <Word>Default</Word>
+      <Word>Class</Word>
+      <Word>Extends</Word>
+      <Word>Public</Word>
+      <Word>Private</Word>
+      <Word>Protected</Word>
+      <Word>New</Word>
+      <Word>Step</Word>
+      <Word>Assert</Word>
+      <Word>ExpectFail</Word>
+      <Word>IfNot</Word>
+      <Word>ForEach</Word>
+      <Word>In</Word>
+      <Word>Super</Word>
+      <Word>Include</Word>
+      <Word>Chart</Word>
+
+    </Keywords>
+		
+		<Keywords fontWeight="bold" fontStyle="italic" foreground="DarkBlue">
+      <Word>Real</Word>
+      <Word>Boolean</Word>
+      <Word>Integer</Word>
+      <Word>String</Word>
+      <Word>Char</Word>
+      <Word>Object</Word>
+    </Keywords>
+		
+		<Keywords fontWeight="bold" fontStyle="italic" foreground="DarkGreen">
+      <Word>AND</Word>
+      <Word>OR</Word>
+      <Word>NOT</Word>
+      <Word>MOD</Word>
+    </Keywords>
+		
+		<Keywords fontWeight="bold" fontStyle="italic" foreground="DarkRed">
+      <Word>True</Word>
+      <Word>False</Word>
+      <Word>-></Word>
+
+    </Keywords>
+ 		
+		<Keywords fontWeight="bold" fontStyle="italic" foreground="Brown">
+      <Word>X</Word>
+      <Word>Y</Word>
+      <Word>XY</Word>
+
+    </Keywords>
+   
+		<Keywords fontWeight="bold" fontStyle="italic" foreground="Purple">
+      <Word>this</Word>
+      <Word>append</Word>
+      <Word>beep</Word>
+      <Word>length</Word>
+      <Word>toUpper</Word>
+      <Word>toLower</Word>
+      <Word>subString</Word>
+      <Word>contains</Word>
+      <Word>insert</Word>
+      <Word>delete</Word>
+      <Word>stringToInteger</Word>
+      <Word>charToString</Word>
+      <Word>stringToReal</Word>
+      <Word>isInteger</Word>
+      <Word>isReal</Word>
+      <Word>isDigit</Word>
+      <Word>isLetter</Word>
+      <Word>isLower</Word>
+      <Word>isUpper</Word>
+      <Word>isWhitespace</Word>
+      <Word>random</Word>
+      <Word>sqrt</Word>
+      <Word>sin</Word>
+      <Word>cos</Word>
+      <Word>tan</Word>
+      <Word>abs</Word>
+      <Word>toInteger</Word>
+      <Word>toReal</Word>
+      <Word>round</Word>
+      <Word>currency</Word>
+      <Word>format</Word>
+      <Word>sleep</Word>
+      <Word>Tab</Word>
+      <Word>CR</Word>
+      <Word>BEL</Word>
+      <Word>CLR</Word>
+		  <Word>Title</Word>
+		  <Word>XLabels</Word>
+		  <Word>YLabels</Word>
+		  <Word>XTitle</Word>
+		  <Word>YTitle</Word>
+		  <Word>Grid</Word>
+		  <Word>initElevator</Word>
+		  <Word>startElevator</Word>
+		  <Word>isElevatorRunning</Word>
+		  <Word>seconds</Word>
+
+    </Keywords>
+    
+    <Rule foreground="Red">
+      -+\^
+    </Rule>
+    
+				<!-- Digits -->
+		<Rule foreground="DarkBlue">
+            \b0[xX][0-9a-fA-F]+  # hex number
+        |    \b
+            (    \d+(\.[0-9]+)?   #number with optional floating point
+            |    \.[0-9]+         #or just starting with floating point
+            )
+            ([eE][+-]?[0-9]+)? # optional exponent
+        </Rule>
+	</RuleSet>
+</SyntaxDefinition>

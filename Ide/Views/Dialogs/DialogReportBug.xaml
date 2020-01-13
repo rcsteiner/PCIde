@@ -1,0 +1,43 @@
+﻿<views:ViewBase x:Class           ="Ide.DialogReportBug"
+             xmlns                ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x              ="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc             ="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d              ="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views          ="clr-namespace:Views"
+             xmlns:ide            ="clr-namespace:Ide"
+             mc:Ignorable         ="d" 
+             d:DesignHeight       ="309" 
+             d:DesignWidth        ="754">
+
+
+    <DockPanel  Name="dockPanel" LastChildFill="True" ForceCursor="False" MaxHeight="700">
+        <Label  Background="{StaticResource TitleBackground}" Height="40" Name="labelTitle" DockPanel.Dock="Top" Content="{Binding Title}" FontSize="24" FontStyle="Italic" Foreground="White" ForceCursor="False" FontWeight="Bold" Padding="10,0" />
+        <DockPanel MinWidth="40" HorizontalAlignment="Stretch" Height="40" DockPanel.Dock="Bottom" LastChildFill="True">
+            <Button Content="_Cancel" IsCancel="True"  Command="{Binding Path=CancelCommand, Mode=OneTime}"  Style="{StaticResource DialogButtonStyle}" ToolTip="Send the message to development."/>
+            <Button Content="_Ok"    IsDefault="True"  Command="{Binding Path=OkCommand, Mode=OneTime}"      Style="{StaticResource DialogButtonStyle}"  ToolTip="Don't finish and ignore this report."/>
+            <Label Content  ="{Binding SolutionPath}" Height="32" Foreground="#FF307496" ToolTip="Current worspace that manifests the bug described above." />
+        </DockPanel>
+        <Grid Margin="3" >
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="150" Height="250*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="361" Width="Auto" />
+                <ColumnDefinition MinWidth="250" Width="*" />
+            </Grid.ColumnDefinitions>
+            <ide:TextBoxWithWatermark 
+                Margin              ="5"
+                LabelTextBox        ="Bug Description"
+                Watermark           ="Enter bug descripton here"
+                AllowDrop           ="true" 
+                Text                ="{Binding Description, Mode=TwoWay}" 
+                ToolTip             ="Enter the problem description" 
+                VerticalAlignment   ="Stretch"
+                HorizontalAlignment ="Stretch"
+                AcceptsReturn       ="True"
+                />
+            <Image  Grid.Column="1" Source="{Binding ScreenShot}" Stretch="Uniform"  Margin="10,26,10,25" ToolTip="Captured Image of screen to help with diagnostics."/>
+
+        </Grid>
+    </DockPanel>
+</views:ViewBase>

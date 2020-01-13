@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A945F207-93D9-48A8-8A67-9A717E00FBB1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ide</RootNamespace>
+    <AssemblyName>Ide</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>ftp://ftp.advancedperformance.ddns.net/var/www/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SuiteName>PCIde</SuiteName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Ide.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CompilerTool.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>AABF1AFB5F9D351741382000A3273D67E32FC5EA</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Ide_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controller\ControllerIde.cs" />
+    <Compile Include="Controller\ControllerIde.Execute.cs">
+      <DependentUpon>ControllerIde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ControllerIde.Builder.cs">
+      <DependentUpon>ControllerIde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ControllerIde.File.cs">
+      <DependentUpon>ControllerIde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ControllerIde.Run.cs">
+      <DependentUpon>ControllerIde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\StepEnum.cs" />
+    <Compile Include="Help\HelpWindow.cs" />
+    <Compile Include="Models\Options\AppSettings.cs" />
+    <Compile Include="Models\Solution\ModelFile.cs" />
+    <Compile Include="Models\Solution\ModelFilePath.cs" />
+    <Compile Include="Models\Solution\ModelFolder.cs" />
+    <Compile Include="Models\Solution\ModelProject.cs" />
+    <Compile Include="Models\Solution\ModelSolution.cs" />
+    <Compile Include="Models\Solution\ModelWorkspace.cs" />
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Services\ServiceCompiler.cs" />
+    <Compile Include="Services\ServiceRun.cs" />
+    <Compile Include="Services\ServiceUser.cs" />
+    <Compile Include="Support\BindableCommand.cs" />
+    <Compile Include="Support\Constants.cs" />
+    <Compile Include="Support\ObservableCollectionEx.cs" />
+    <Compile Include="Support\Settings.cs" />
+    <Compile Include="Support\StringRangeValidationRule.cs" />
+    <Compile Include="Support\UserMessage.cs" />
+    <Compile Include="Templates\Template.cs" />
+    <Compile Include="Templates\TemplateList.cs" />
+    <Compile Include="ViewModels\About\ViewModelAbout.cs" />
+    <Compile Include="ViewModels\Base\ViewModelIconItem.cs" />
+    <Compile Include="ViewModels\Base\ViewModelPane.cs" />
+    <Compile Include="ViewModels\Base\ViewModelTool.cs" />
+    <Compile Include="ViewModels\Debuging\ViewModelDebugStack.cs" />
+    <Compile Include="ViewModels\Debuging\ViewModelDebugVariables.cs" />
+    <Compile Include="ViewModels\Debuging\ViewModelModule.cs" />
+    <Compile Include="ViewModels\Debuging\ViewModelVariable.cs" />
+    <Compile Include="ViewModels\Debuging\ViewModelVariableObject.cs" />
+    <Compile Include="ViewModels\Debuging\ViewModelVariableArray.cs" />
+    <Compile Include="ViewModels\Dialogs\ViewModelDialog.cs" />
+    <Compile Include="ViewModels\Dialogs\ViewModelNew.cs" />
+    <Compile Include="ViewModels\Dialogs\ViewModelNewProject.cs" />
+    <Compile Include="ViewModels\Dialogs\ViewModelNewWorkspace.cs" />
+    <Compile Include="ViewModels\Dialogs\ViewModelReportBug.cs" />
+    <Compile Include="ViewModels\FileEdit\EditorOptions.cs" />
+    <Compile Include="ViewModels\Output\OutputItem.cs" />
+    <Compile Include="ViewModels\Output\ViewModelElevator.cs" />
+    <Compile Include="ViewModels\Output\ViewModelChart.cs" />
+    <Compile Include="ViewModels\Output\ViewModelOutput.cs" />
+    <Compile Include="Models\Options\ModelOption.cs" />
+    <Compile Include="Models\Options\ModelWorkspaceOptions.cs" />
+    <Compile Include="ViewModels\Output\ViewModelStats.cs" />
+    <Compile Include="Views\Base\MouseDoubleClick.cs" />
+    <Compile Include="Views\Elevator\BuildingControl.xaml.cs">
+      <DependentUpon>BuildingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Converters\BoolWithParamToVisibilityConverter.cs" />
+    <Compile Include="Views\Converters\NullTextDocumentConverter.cs" />
+    <Compile Include="Views\Debuging\ViewDebugVariables.xaml.cs">
+      <DependentUpon>ViewDebugVariables.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Debuging\ViewDebugStack.xaml.cs">
+      <DependentUpon>ViewDebugStack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogBase.xaml.cs">
+      <DependentUpon>DialogBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogNew.xaml.cs">
+      <DependentUpon>DialogNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\DialogNewProject.xaml.cs" />
+    <Compile Include="Views\Dialogs\DialogNewWorkspace.xaml.cs" />
+    <Compile Include="Views\Dialogs\DialogReportBug.xaml.cs">
+      <DependentUpon>DialogReportBug.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Elevator\ViewStats.xaml.cs">
+      <DependentUpon>ViewStats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Elevator\ViewElevator.xaml.cs">
+      <DependentUpon>ViewElevator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\ChartStyle.cs" />
+    <Compile Include="Views\LineChartControl\ChartStyleGridlines.cs" />
+    <Compile Include="Views\LineChartControl\DataCollection.cs" />
+    <Compile Include="Views\LineChartControl\DataSeries.cs" />
+    <Compile Include="Views\LineChartControl\GridlinePatternEnum.cs" />
+    <Compile Include="Views\LineChartControl\Interactions\AutomaticTicks.xaml.cs">
+      <DependentUpon>AutomaticTicks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\Interactions\ChartPanning.xaml.cs">
+      <DependentUpon>ChartPanning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\Interactions\ChartZooming.xaml.cs">
+      <DependentUpon>ChartZooming.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\Interactions\MouseWheelZooming.xaml.cs">
+      <DependentUpon>MouseWheelZooming.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\Interactions\RetrieveChartData.xaml.cs">
+      <DependentUpon>RetrieveChartData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\Legend.cs" />
+    <Compile Include="Views\LineChartControl\LegendPositionEnum.cs" />
+    <Compile Include="Views\LineChartControl\ViewLineChart.xaml.cs">
+      <DependentUpon>ViewLineChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\LineChartControlLib.xaml.cs">
+      <DependentUpon>LineChartControlLib.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LineChartControl\LinePatternEnum.cs" />
+    <Compile Include="Views\LineChartControl\Symbols.cs" />
+    <Compile Include="Views\LineChartControl\SymbolTypeEnum.cs" />
+    <Compile Include="Views\Main\UserWindowSettings.cs" />
+    <Compile Include="Views\Options\OptionsUser.xaml.cs">
+      <DependentUpon>OptionsUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Options\OptionsGeneral.xaml.cs">
+      <DependentUpon>OptionsGeneral.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Options\ViewWorkspaceOptions.xaml.cs">
+      <DependentUpon>ViewWorkspaceOptions.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Output\ViewOutput.xaml.cs">
+      <DependentUpon>ViewOutput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Errors\ViewModelErrorList.cs" />
+    <Compile Include="ViewModels\FileEdit\EditorOptionEnum.cs" />
+    <Compile Include="ViewModels\Main\ViewModelMain.Layout.cs" />
+    <Compile Include="Controller\ControllerIde.Solution.cs">
+      <DependentUpon>ControllerIde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Tree\ViewModelTreeFile.cs" />
+    <Compile Include="ViewModels\Tree\ViewModelTreeFolder.cs" />
+    <Compile Include="ViewModels\Tree\ViewModelTreePath.cs" />
+    <Compile Include="ViewModels\Main\ViewModelMain.cs" />
+    <Compile Include="Services\ServiceFile.cs" />
+    <Compile Include="Support\ObservableObject.cs" />
+    <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="Support\Delegates.cs" />
+    <Compile Include="App\App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Workspace\Constants.cs" />
+    <Compile Include="ViewModels\FileEdit\ViewModelFileEdit.cs" />
+    <Compile Include="ViewModels\Workspace\ViewModelProject.cs" />
+    <Compile Include="ViewModels\Workspace\ViewModelSolution.cs" />
+    <Compile Include="ViewModels\Dialogs\ViewModelWorkspaceOptions.cs" />
+    <Compile Include="ViewModels\Workspace\ViewModelWorkspace.cs" />
+    <Compile Include="Views\About\ViewAbout.xaml.cs">
+      <DependentUpon>ViewAbout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Base\IView.cs" />
+    <Compile Include="Views\Base\OnWindowClose.cs" />
+    <Compile Include="Views\Base\ViewBase.cs" />
+    <Compile Include="Views\Behaviors\AvalonDockLayoutSerializer.cs" />
+    <Compile Include="Views\Behaviors\LayoutInitializer.cs" />
+    <Compile Include="Views\Commands\AppCommand.cs" />
+    <Compile Include="Views\Commands\RelayCommand.cs" />
+    <Compile Include="Views\Converters\ActiveDocumentConverter.cs" />
+    <Compile Include="Views\Converters\CountToVisibilityHiddenConverter.cs" />
+    <Compile Include="Views\Converters\ErrorLevelToIconFilenameConverter.cs" />
+    <Compile Include="Views\Converters\NullToFalseBooleanConverter.cs" />
+    <Compile Include="Views\Converters\NullToHiddenVisibilityConverter.cs" />
+    <Compile Include="Views\DesignTime\DesignTimeData.cs" />
+    <Compile Include="Views\ErrorList\ViewErrorList.xaml.cs">
+      <DependentUpon>ViewErrorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ViewMain.xaml.cs">
+      <DependentUpon>ViewMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertyGrid\Converters.cs" />
+    <Compile Include="Views\PropertyGrid\PropertyGrid.xaml.cs">
+      <DependentUpon>PropertyGrid.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\PropertyGrid\TreeListView.cs" />
+    <Compile Include="Views\PropertyGrid\TreeListWindow.cs" />
+    <Compile Include="Views\Solution\ViewSolutionTree.xaml.cs">
+      <DependentUpon>ViewSolutionTree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Support\MRUList.cs" />
+    <Compile Include="Views\Support\PanesStyleSelector.cs" />
+    <Compile Include="Views\Support\PanesTemplateSelector.cs" />
+    <Compile Include="Views\Support\ViewModelMRU.cs" />
+    <Compile Include="Views\TextBlock\EditBlock.xaml.cs">
+      <DependentUpon>EditBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WatermarkTextBox\TextBoxWithWatermark.cs" />
+    <Compile Include="Views\WatermarkTextBox\WatermarkHelper.cs" />
+    <Compile Include="Views\Window\ViewWindow.xaml.cs">
+      <DependentUpon>ViewWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Ide_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Templates\LessonPC\pc.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\LessonPC\LessonPC.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\LessonPC\LessonPC.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\LessonPC\pc.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ProjectPC\ProjectPC.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ProjectPC\ProjectPC.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\WorkspacePC\WorkspacePC.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\WorkspacePC\WorkspacePC.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Help\TopicSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App\App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lift\LiftLib\LiftLib.csproj">
+      <Project>{6C3F4206-4A00-4BE0-9833-F234DAF31A0E}</Project>
+      <Name>LiftLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AvalonDock\AvalonDock.csproj">
+      <Project>{DB81988F-E0F2-45A0-A1FD-8C37F3D35244}</Project>
+      <Name>AvalonDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AvalonEdit\AvalonEdit.csproj">
+      <Project>{68fddc32-cd6e-4388-aa8a-78820719ea42}</Project>
+      <Name>AvalonEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IdeEditor\IdeEditor.csproj">
+      <Project>{13a5b497-ba12-45ae-9033-22620c3153fb}</Project>
+      <Name>IdeEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\pc\pc.csproj">
+      <Project>{12df0a3a-1ea1-4db5-beaa-2e9f4e7cfd04}</Project>
+      <Name>pc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Support\Support.csproj">
+      <Project>{426D0770-3E13-4763-9ABE-740CF682F3D8}</Project>
+      <Name>Support</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Help\Copyright.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\ChangeHistory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\PseudoSyntax.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\Special.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Help\ViewMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\EditorMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\DebugMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\CompileMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\EditMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\ToolsMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\FileMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\Empty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\HelpMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\Overview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Help\HelpWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Elevator\BuildingControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Debuging\ViewDebugVariables.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Debuging\ViewDebugStack.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\DialogBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\DialogNew.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\DialogReportBug.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Elevator\ViewStats.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Elevator\ViewElevator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LineChartControl\Interactions\AutomaticTicks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LineChartControl\Interactions\ChartPanning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LineChartControl\Interactions\ChartZooming.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LineChartControl\Interactions\MouseWheelZooming.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LineChartControl\Interactions\RetrieveChartData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LineChartControl\ViewLineChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LineChartControl\LineChartControlLib.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Options\OptionsUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Options\OptionsGeneral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Options\ViewWorkspaceOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Output\ViewOutput.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\About\ViewAbout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorList\ViewErrorList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Main\ViewMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PropertyGrid\PropertyGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertyGrid\TreeListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Solution\ViewSolutionTree.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TextBlock\EditBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Window\ViewWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\application_exit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\browse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DriveCDROM.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DriveFixed.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DriveFloppy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DriveNetwork.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DriveRAM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DriveUSB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditCopy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditCut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditFind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditGoto.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditHTMLSource.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditInformation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditPaste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditRedo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditTask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditUndo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\error.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Event.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\FileOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\FolderClosed.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\FolderNew.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\FolderOpen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Footprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Help_About32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\help_hint.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Help_Hint32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\HTabGroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\IgnoreIssue_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\InternalError.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Lock-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Policy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Grammar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\RefreshArrow_Green24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\SaveAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\ShowEnter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\ShowLineNumber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\ShowSpaces.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\ShowTabs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\ShowWordWrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\spellcheck.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Start.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\VTabGroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\warning.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\WordWrap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Break.png" />
+    <Resource Include="Views\Images\Breakdark.png" />
+    <Resource Include="Views\Images\breakPoint.png" />
+    <Resource Include="Views\Images\BreakPointDark.png" />
+    <Resource Include="Views\Images\currentLine.png" />
+    <Resource Include="Views\Images\currentLineDark.png" />
+    <Resource Include="Views\Images\Debug.png" />
+    <Resource Include="Views\Images\disconnect.png" />
+    <Resource Include="Views\Images\disconnectDisabled.png" />
+    <Resource Include="Views\Images\Monitor.png" />
+    <Resource Include="Views\Images\MonitorDisabled.png" />
+    <Resource Include="Views\Images\resume.png" />
+    <Resource Include="Views\Images\resumeDisabled.png" />
+    <Resource Include="Views\Images\run.png" />
+    <Resource Include="Views\Images\runDisabled.png" />
+    <Resource Include="Views\Images\stack.png" />
+    <Resource Include="Views\Images\DebugStepInto.png" />
+    <Resource Include="Views\Images\DebugStepOver.png" />
+    <Resource Include="Views\Images\DebugStepReturn.png" />
+    <Resource Include="Views\Images\DebugPause.png" />
+    <Resource Include="Views\Images\terminate.png" />
+    <Resource Include="Views\Images\trash.png" />
+    <Resource Include="Views\Images\TrashDisabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Book.32.png" />
+    <Resource Include="Views\Images\Book.png" />
+    <Resource Include="Views\Images\Build.png" />
+    <Resource Include="Views\Images\BuildAll.png" />
+    <Resource Include="Views\Images\BuildProject.png" />
+    <Resource Include="Views\Images\Camera.png" />
+    <Resource Include="Views\Images\Clock.32.png" />
+    <Resource Include="Views\Images\History.png" />
+    <Resource Include="Views\Images\lightbulb.png" />
+    <Resource Include="Views\Images\MoveDown.png" />
+    <Resource Include="Views\Images\Properties.png" />
+    <Resource Include="Views\Images\RecentWorkspaces.png" />
+    <Resource Include="Views\Images\Recurse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditReplace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\pc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\PcSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\pclist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Project.png" />
+    <Resource Include="Views\Images\ProjectChanged.png" />
+    <Resource Include="Views\Images\ProjectChangedRO.png" />
+    <Resource Include="Views\Images\ProjectWarning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\workspace.png" />
+    <Resource Include="Views\Images\workspace32.png" />
+    <Resource Include="Views\Images\WorkspaceClose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\compress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\SaveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Stopsign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DebugRun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DebugStepRun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\ProjectNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\CompilerTool.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="CompilerTool.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\no.ico" />
+    <Resource Include="Views\Images\Not.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\NewDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\NewProject.png" />
+    <Resource Include="Views\Images\NewWorkspace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\HelpBugReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Printing\Print.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\NewBlank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\Solution.png" />
+    <Resource Include="Views\Images\Solution32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\IgnoreIssue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Help\HelpContents.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\HelpImageClosedBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\HelpImageOpenBook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\HelpImageQuestionMark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DefaultLayout.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Help\Images\CompileMenu.png" />
+    <Resource Include="Help\Images\EditMenu.png" />
+    <Resource Include="Help\Images\EditorMenu.png" />
+    <Resource Include="Help\Images\FileMenu.png" />
+    <Resource Include="Help\Images\HelpMenu.png" />
+    <Resource Include="Help\Images\Ide.png" />
+    <Resource Include="Help\Images\ViewMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\EditOutine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DebugAuto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\DebugStack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\BreakClear.png" />
+    <Resource Include="Views\Images\BreakDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Images\BreakAdd.png" />
+    <Resource Include="Views\Images\BreakRemove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Help\Images\DebugMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Help\Images\OptionsUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pseudo Code Syntax.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Views\Images\stopwatch.png" />
+    <Resource Include="Views\Images\elevator.png" />
+    <Resource Include="Views\Images\elevator_man.png" />
+    <Resource Include="Views\Images\Graph.png" />
+    <Resource Include="Views\Images\PlaybackOneLine.png" />
+    <Resource Include="Views\Images\RecordAndClear.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

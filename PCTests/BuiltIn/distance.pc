@@ -1,0 +1,25 @@
+Constant Real GRAVITY = 9.8
+Constant Integer MAX = 10
+Constant String Tab = "\t"
+
+Module main()
+    Declare Real distance
+    Declare Real time
+    
+    Display "Time", Tab, "Distance"
+    Display "----------------" 
+    
+    For time = 1 To MAX
+        Set distance = fallingDistance(time)
+        
+        Display time, Tab, distance
+    End For
+End Module
+
+Function Real fallingDistance(Real time)
+    Declare Real fallDistance
+    
+    Set fallDistance = (1.0/2.0) * GRAVITY * (time^2)
+    
+    Return fallDistance
+End Function

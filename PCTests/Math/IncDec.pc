@@ -1,0 +1,6 @@
+Declare Integer x, i=0
+
+Display i,Tab,i++
+Set x = i++
+Display "x=",x, "  should be 2  i=",i
+

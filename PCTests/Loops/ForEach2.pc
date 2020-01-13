@@ -1,0 +1,21 @@
+//Authored By Kade Stephan
+
+Declare Integer index,str, int, arr[5] = 1, 2, 3, 4, 5
+
+ForEach int In arr
+    Display int
+End ForEach
+
+Declare String ar2[5]
+
+For index = 0 To 4
+    str = ar2[index]
+    Display "Input a string -"
+    Input str
+    Display str     //it seems that Input is not storing values, as this displays 0 always
+End For
+
+// This does not work; claims that str was not initialized
+ForEach str In ar2
+    Display str
+End ForEach

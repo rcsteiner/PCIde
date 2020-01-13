@@ -1,0 +1,16 @@
+Module main()
+    Declare Real y = 10
+    Declare Real x
+    Display "Testing"
+    Set x = square(square(y)*square(y))
+    Display "y=",y," x=",x
+    Display "Test without using result"
+    Call square(x)
+    Display "x=",x
+    Set x= square(x*2)
+    Display "x=",x
+End Module
+
+Function Real square(Real y)
+    Return y^2
+End Function

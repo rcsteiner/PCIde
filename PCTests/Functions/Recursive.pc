@@ -1,0 +1,16 @@
+Module main()
+    Declare Real y = 10
+    Declare Real x
+    Display "Recursive"
+    Set x = square(y)
+    Display "y=",y," x=",x
+    Display "Test without using result"
+    Call square(x)
+    Display "x=",x
+End Module
+
+Function Real square(Real y)
+    Display y
+    Set y = square(y+2)
+    Return y*y
+End Function

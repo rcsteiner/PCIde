@@ -1,0 +1,15 @@
+Declare Integer x[5][3],i,j
+
+For i=0 To 4
+    For j= 0 To 2
+        Set x[i][j]=i
+   End For
+End For
+    
+For i=0 To 4
+    For j= 0 To 2
+    Display "[",i,",",j,"]=",x[i][j]
+        Set x[i][j]=i
+   End For
+End For
+

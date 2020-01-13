@@ -1,0 +1,14 @@
+
+
+
+Declare Boolean ret = True
+
+Declare Integer number = 34
+Declare Integer i
+
+For i=2 To number/2
+    Display i,",",number,",",i," ", number MOD i
+    If number MOD i == 0 Then Set ret = False End If
+End For
+
+Display ret

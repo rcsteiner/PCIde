@@ -1,0 +1,17 @@
+// error message testing
+
+Declare String s = 1  
+Declare Integer i = "test"
+Declare Boolean b = False
+Declare Boolean bb = 'c'
+Declare Integer ii = 23
+Declare Integer iii = 23.0
+Declare Real x = 1
+Declare Real xx = 1.01
+Declare Real xxx = "t"
+Char c = 'a'
+Display c
+
+Set x = 100
+Display x
+  

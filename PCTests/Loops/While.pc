@@ -1,0 +1,8 @@
+// TEst while loop
+
+Declare Integer i = 10
+
+While i>0
+    Display i
+    Set i = i-1
+End While

@@ -1,0 +1,2 @@
+Display "Test",Tab,"Big"
+Display "Test",tab,"Big"

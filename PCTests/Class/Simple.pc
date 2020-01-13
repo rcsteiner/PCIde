@@ -1,0 +1,84 @@
+
+Module main()
+    Declare CTest test
+    Declare CTest old
+    Declare Integer y 
+    
+    Set test = New CTest()
+    Assert test.x==3 IfNot "Failed test.x init"
+    Assert test.flag IfNot "Failed test.flag init"
+    
+    test.SetAll(False,333)
+
+    //test.Print("test")
+    
+    Set old = New CTest()
+    old.Print("old")
+    
+    
+    Set old.x = 101
+    
+    test.Print("test")
+    old.Print("old")
+    
+    Display test.x,test.flag
+    
+    Set test.x = 100 
+    Set test.flag = True
+    Assert test.x==100 IfNot "Failed test.x 100"
+    Assert test.flag IfNot "Failed test.flag true"    
+  
+  test.Print("test")    
+    Call test.SetFlag(False)
+    test.Print("test")
+    Call test.SetAll(True,15)
+    test.Print("test")   
+    
+    Display "Test.x=",test.x, " flag=",test.flag
+
+    Set old = New CTest()
+    old.Print("old")
+    old.x = 33
+    old.flag = False
+    old.Print("old")
+    test.Print("test")
+    Display "Old.x=",old.x
+    test.x = 7
+    Set y =3
+    test.Print("test")
+    Display "y should be 3, y=",y
+    Display "test.x s/b  7, x=",test.x
+    test.Print("test")
+    Set y = test.x
+    Display "Test.x=",test.x
+    Display "y=",y
+    test.Print("test")
+    old.Print("old")    
+End Module
+    
+  
+Class CTest
+    Public Integer x
+    Private Boolean flag
+    Public Module CTest()
+        Set x = 3
+        Set flag = True
+    End Module
+    
+    Public Module SetFlag(Boolean value)
+        Set flag = value
+    End Module
+
+    Public Function Boolean getFlag()
+        Return flag
+    End Function
+    
+    Public Module SetAll(Boolean f, Integer v)
+        Set x = v
+        Set flag =f
+    End Module
+    
+    Public Module Print(String name)
+        Display name," x=",x,"  flag=",flag
+    End Module
+End Class

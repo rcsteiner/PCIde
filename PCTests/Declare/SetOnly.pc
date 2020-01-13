@@ -1,0 +1,5 @@
+// test set only 
+
+Declare Integer x
+Set x = 100
+Display x 

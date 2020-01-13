@@ -1,0 +1,7 @@
+// test input only
+Declare Integer age
+Set age=10
+Declare String gender
+Display "What is your age: "
+Input age, gender
+Display "Your age is: ",age," : ",gender

@@ -1,0 +1,7 @@
+﻿Name =pc
+Group = PC
+Type = File
+DefaultName = Problem
+DefaultFile = pc.pc
+ToolSet = PC
+Description = This is the template for .pc files 

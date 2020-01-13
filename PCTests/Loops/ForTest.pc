@@ -1,0 +1,45 @@
+//constant 
+Constant Integer SIZE = 7
+
+//emplyoees numbers 
+Declare Real numbers[SIZE]= 56588 , 45201, 78951, 87775, 84512, 13028, 75804
+
+
+
+//variable
+Module main()
+    Declare Real grosspay, employees, number 
+    //HOURS
+    Declare Real hours[SIZE]
+    Set employees = employeesHours(numbers, SIZE)
+    
+    Set grosspay = grossPay(hours, SIZE)
+End Module 
+
+Function Integer employeesHours(Real array[], Integer numberSize)
+    Declare Real employees, hours = array
+    Declare Integer index
+    For index = 0 To numberSize - 1
+        //display emloyee number 
+        Display "Enter emloyee number: ", numbers[index] 
+           
+        Display "Enter the hours worked"
+        Input hours[index]
+    End For 
+    For index = 0 To numberSize - 1 
+        Display numbers[index], ":",hours[index]
+    End For
+End Function
+
+Function Integer grossPay(Real array[], Integer numberSIZE)
+    Declare Integer payrate, grosspay, number, index
+    Display "Enter the hourly pay rate"
+    Input payrate
+    
+    Display "here is each employee gross pay"
+    For index = 0 To numberSIZE - 1 
+        Set grosspay = array[index] * payrate 
+        Display numbers[index], ":",currency(toReal( grosspay ))
+    End For
+End Function 
+ 

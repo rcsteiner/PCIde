@@ -1,0 +1,15 @@
+Module main()
+
+    Declare Real total
+    Call Total(total)
+
+End Module
+
+Module Total(Real Ref t)
+    Set t=100
+    Call Output(t)
+End Module
+
+Module Output(Real t)
+    Display "t (100) = ",t
+End Module

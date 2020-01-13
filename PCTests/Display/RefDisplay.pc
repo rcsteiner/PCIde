@@ -1,0 +1,20 @@
+// runtime error day not defined.
+
+Module main()
+
+    Declare Integer day=3
+    Call DispTime(day)
+    
+End Module
+Module DispTime(Integer Ref day)
+
+    Declare Integer t
+    
+    Set t = 1000 / 10
+    
+    // day is not initialized
+    Display t,day
+    Display t,Tab,day
+
+End Module
+

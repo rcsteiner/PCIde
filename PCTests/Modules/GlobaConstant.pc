@@ -1,0 +1,10 @@
+// test global variables
+Constant Real RATE = .05
+
+Module main()
+    Declare Real value = 1000
+    Declare Reals total
+    Display RATE
+    Set total = value * RATE
+    Display total
+End Module

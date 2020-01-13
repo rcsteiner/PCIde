@@ -1,0 +1,206 @@
+﻿<v:ViewBase x:Class         ="Views.ViewDebugVariables"
+             xmlns          ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x        ="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc       ="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d        ="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm       ="clr-namespace:ViewModels"
+             xmlns:pc       ="clr-namespace:pc;assembly=PC"
+             xmlns:v        ="clr-namespace:Views"
+             mc:Ignorable   ="d" 
+             d:DesignHeight ="200"
+             d:DesignWidth  ="800"
+             >
+
+    <!--Resources-->
+    <v:ViewBase.Resources>
+
+        <Style x:Key="NameStyle" TargetType="TextBlock">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="5,0,10,0" />
+        </Style>
+
+        <Style x:Key="TypeStyle" TargetType="TextBlock">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="10,0,5,0" />
+        </Style>
+
+        <Style x:Key="LineStyle" TargetType="Line">
+            <Setter Property="Stroke" Value="Gray" />
+            <Setter Property="DockPanel.Dock" Value="Bottom" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="StrokeThickness" Value=".5" />
+            <Setter Property="X1" Value="0" />
+            <Setter Property="Y1" Value="0" />
+            <Setter Property="Y2" Value="0" />
+        </Style>
+
+        <Style x:Key="ValueStyle" TargetType="TextBlock">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Setter Property="MinWidth" Value="150" />
+            <Setter Property="v:MouseDoubleClick.Command" Value="{Binding ItemActivateCommand}" />
+            <Setter Property="v:MouseDoubleClick.CommandParameter" Value="{Binding}" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <!--<Setter Property="ToolTip" Value="{Binding Path=Description, Mode=OneWay}"/>-->
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Changed}" Value="True">
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        
+    </v:ViewBase.Resources>
+    
+    <!--Top level panel-->
+    <DockPanel VerticalAlignment="Stretch" LastChildFill="True">
+        <DockPanel.LayoutTransform>
+            <ScaleTransform
+                    CenterX="0" CenterY="0"
+                    ScaleX="{Binding ScaleFactor, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                    ScaleY="{Binding ScaleFactor, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" />
+        </DockPanel.LayoutTransform>
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="LightSteelBlue">
+            <StackPanel.Resources>
+                <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="MinWidth" Value="150" />
+                    <Setter Property="Margin" Value="10,0,0,0" />
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Property" Style="{StaticResource TextBlockStyle}" />
+            <TextBlock Text="Value" Style="{StaticResource TextBlockStyle}" />
+            <TextBlock Text="Type" Style="{StaticResource TextBlockStyle}" />
+        </StackPanel>
+        <TreeView Margin="2"
+                  x:Name="DebugVariablesView"
+                  ItemsSource="{Binding VariableList}"
+                  SelectedValuePath="{Binding SelectedItem}"
+                  MinHeight="32"
+                  VerticalAlignment="Stretch"
+                  HorizontalAlignment="Stretch"
+                  >
+
+            <TreeView.Resources>
+                <!--folder view-->
+                <ContextMenu x:Key="VariableContext">
+                    <MenuItem Command="{Binding DeleteCommand}" Header="_Delete Folder"
+                              ToolTip="Delete this folder and all files in the folder.">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Images/EditDelete.png" Style="{StaticResource ImageEnabled}" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </ContextMenu>
+
+                <!--Variable List-->
+                <HierarchicalDataTemplate DataType="{x:Type vm:ViewModelDebugVariables}" ItemsSource="{Binding VariableList}" >
+                    <StackPanel Orientation="Horizontal" ContextMenu="{StaticResource VariableContext}">
+                        <TextBlock Text="Global" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <!--Modules-->
+                <HierarchicalDataTemplate DataType="{x:Type vm:ViewModelModule}" ItemsSource="{Binding Variables}">
+                    <StackPanel Orientation="Horizontal" ContextMenu="{StaticResource VariableContext}">
+                        <TextBlock Text="{Binding Name, Mode=OneWay}" FontWeight="Bold" Foreground="Blue" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <!--Variable Array-->
+                <HierarchicalDataTemplate DataType="{x:Type vm:ViewModelVariableArray}"  ItemsSource="{Binding Array}">
+                    <StackPanel Orientation="Vertical" Name="VariableArrayPanel">
+                        <StackPanel Orientation="Horizontal" ContextMenu="{StaticResource VariableContext}">
+
+                            <TextBlock Text="{Binding Name, Mode=OneWay}" Style="{StaticResource NameStyle}" />
+                            <TextBlock Text="" Style="{StaticResource ValueStyle}" />
+                            <TextBlock Text="{Binding Type, Mode=OneWay}" Style="{StaticResource TypeStyle}" />
+                        </StackPanel>
+                        <Line Style="{StaticResource LineStyle}"
+                              X2="{Binding  ElementName=VariableArrayPanel, Path=ActualWidth}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+         
+                <!--Variable object-->
+                <HierarchicalDataTemplate DataType="{x:Type vm:ViewModelVariableObject}"  ItemsSource="{Binding Fields}">
+                    <StackPanel Orientation="Vertical" Name="VariableObjectPanel">
+                        <StackPanel Orientation="Horizontal" ContextMenu="{StaticResource VariableContext}">
+
+                            <TextBlock Text="{Binding Name, Mode=OneWay}" Style="{StaticResource NameStyle}" />
+                            <TextBlock Text="" Style="{StaticResource ValueStyle}" />
+                            <TextBlock Text="{Binding Type, Mode=OneWay}" Style="{StaticResource TypeStyle}" />
+                        </StackPanel>
+                        <Line Style="{StaticResource LineStyle}"
+                              X2="{Binding  ElementName=VariableObjectPanel, Path=ActualWidth}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <!--Variable-->
+                <HierarchicalDataTemplate DataType="{x:Type vm:ViewModelVariable}">
+                    <StackPanel Orientation="Vertical" Name="VariablePanel">
+                        <StackPanel Orientation="Horizontal" ContextMenu="{StaticResource VariableContext}">
+                            <StackPanel.Resources>
+                                <Style x:Key="XValueStyle" TargetType="TextBlock"  BasedOn="{StaticResource ValueStyle}">
+                                    <Setter Property="ToolTip" Value="{Binding Path=Description, Mode=OneWay}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Changed}" Value="True">
+                                        <Setter Property="FontWeight" Value="Bold" />
+                                        <Setter Property="Foreground" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock Text="{Binding Name, Mode=OneWay}"      Style="{StaticResource NameStyle}"  />
+                            <TextBlock Text="{Binding ValueText, Mode=OneWay}" Style="{StaticResource XValueStyle}" />
+                            <TextBlock Text="{Binding Type, Mode=OneWay}"      Style="{StaticResource TypeStyle}" />
+                        </StackPanel>
+                        <Line Style="{StaticResource LineStyle}"
+                              X2="{Binding  ElementName=VariablePanel, Path=ActualWidth}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                
+                <!--Accumulator-->
+                <HierarchicalDataTemplate DataType="{x:Type pc:Accumulator}">
+                    <StackPanel Orientation="Vertical" Name="AccPanel">
+
+                        <StackPanel Orientation="Horizontal" ContextMenu="{StaticResource VariableContext}">
+                            <StackPanel.Resources>
+                                <Style x:Key="XValueStyle" TargetType="TextBlock"  BasedOn="{StaticResource ValueStyle}">
+                                    <Setter Property="ToolTip" Value="{Binding Path=Description, Mode=OneWay}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Changed}" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                            <Setter Property="Foreground" Value="Red" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Resources>
+                            <TextBlock Text="{Binding ValueText, Mode=OneWay}"       Style="{StaticResource XValueStyle}" />
+                            <TextBlock Text="{Binding Type, Mode=OneWay}"            Style="{StaticResource TypeStyle}" />
+                        </StackPanel>
+                        <Line X2="{Binding  ElementName=AccPanel, Path=ActualWidth}" Style="{StaticResource LineStyle}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+
+
+
+            <TreeView.ItemContainerStyle>
+              
+                <!--This Style binds a TreeViewItem to a TreeViewItemViewModel.-->
+                <Style TargetType="{x:Type TreeViewItem}">
+                  <Setter Property="FontWeight" Value="Normal" />
+                    <Setter Property="IsExpanded" Value="true" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.ItemContainerStyle>
+        </TreeView>
+    </DockPanel>
+</v:ViewBase>

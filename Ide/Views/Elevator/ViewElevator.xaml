@@ -1,0 +1,26 @@
+﻿<views:ViewBase x:Class     ="Views.ViewElevator"
+             xmlns          ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x        ="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc       ="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d        ="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:views="clr-namespace:Views"
+             mc:Ignorable   ="d" 
+             >
+
+
+    <Grid Name="MyGrid">
+        <!--<Grid.LayoutTransform>
+            <ScaleTransform 
+                CenterX="0" CenterY="0"
+                ScaleX="{Binding  RelativeSource={RelativeSource  AncestorType=UserControl},  Path=ScaleFactor}"
+                ScaleY="{Binding  RelativeSource={RelativeSource  AncestorType=UserControl},  Path=ScaleFactor}"
+            />
+        </Grid.LayoutTransform>-->
+
+        <!--<views:ViewStats Name="StatsControl" HorizontalAlignment="Right" VerticalAlignment="Top"> </views:ViewStats>--> 
+    </Grid>
+
+</views:ViewBase>
+
+
+

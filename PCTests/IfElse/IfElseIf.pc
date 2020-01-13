@@ -1,0 +1,30 @@
+// If/If Else
+Display "Test 1 ";
+If 1 < 2 Then Display "1 Test first Ok"
+Else If 1 < 2 Then Display "1 Error"
+Else If True Then Display "1 Error 2"
+Else Display "1 Bad Else"
+End If
+
+Display "Test 2 ";
+If 1 > 2 Then Display "2 Error Second"
+Else If True Then Display "2 Test Second Ok"
+Else If True Then Display "2 Error 2"
+Else Display "2 Bad Else"
+End If
+
+
+Display "Test 3 ";
+If 1 > 2 Then Display "3 Error Second"
+Else If NOT True Then Display "3 Error one "
+Else If NOT (1<1) Then Display "3 Test 3 Ok"
+Else Display "3 Bad Else"
+End If
+
+
+Display "Test 4 ";
+If 1 > 2 Then Display "4 Error Second"
+Else If False Then Display "4 Error one "
+Else If (1<1) Then Display "4 Error three"
+Else Display "4 Else OK"
+End If

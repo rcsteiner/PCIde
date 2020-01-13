@@ -1,0 +1,69 @@
+/////////////////////////////////////////////////////////////////////////////////
+// main module
+/////////////////////////////////////////////////////////////////////////////////
+Module main()
+
+    
+    // class variable to hold a pet
+    Declare Pet Animal
+    
+    // create a Pet object
+    Set Animal = New Pet()
+    
+
+    Animal.setName("billy")
+    Animal.setType("pig")
+    Animal.setAge(10)
+    
+    // Show values for this pet
+    Display "The pet name is ",Animal.getName()
+    Display "The pet type is ",Animal.getType()
+    Display "The pet age is ",Animal.getAge()
+
+End Module
+
+/////////////////////////////////////////////////////////////////////////////////
+// Class Pet, defines info about a pet
+/////////////////////////////////////////////////////////////////////////////////
+
+Class Pet
+    // Fields
+    Private String name
+    Private String type
+    Private Integer age
+
+    // Constructor
+    Public Module Pet(String n, String t, Integer a)
+        Set name = n
+        Set type = t
+        Set age = a
+    End Module
+
+    // Mutators
+    Public Module setName(String n)
+        Set name = n
+    End Module
+
+    Public Module setType(String t)
+        Set type = t
+    End Module
+
+    Public Module setAge(Integer a)
+        Set age = a
+    End Module
+
+    // Accessors
+    Public Function String getName()
+        Return name
+    End Function
+
+    Public Function String getType()
+        Return type
+    End Function
+
+    Public Function Integer getAge()
+        Return age
+    End Function
+
+End Class
+

@@ -1,0 +1,7 @@
+// Declare test
+Declare Char c = 'a'
+Display c
+Declare Integer a,b,x=3,e
+Display "X=",x
+Set a=x
+Display "A=",a

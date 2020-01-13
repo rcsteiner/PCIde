@@ -1,0 +1,16 @@
+Declare Integer a[10],i
+
+For i = 0 To 9
+   Set a[i] = i*2+100
+End For
+
+ 
+For i = 0 To 9
+   Display a[i] 
+End For
+
+ForEach i In a
+    Display "foreach:" ,i
+End ForEach
+
+

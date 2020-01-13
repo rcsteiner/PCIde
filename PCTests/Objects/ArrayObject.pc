@@ -1,0 +1,45 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Objects   Problem #
+// 
+// Author:  Robert Steiner
+// Date:    4/2/2018
+// Class:   CSC119
+// 
+// Description:
+// 
+/////////////////////////////////////////////////////////////////////////////////
+
+Class Man
+    Public Integer Age
+    Public Integer YearsSchool
+
+    Public Function Integer yearsOutOfSchool()
+        Return Age-YearsSchool + 5
+    End Function
+    
+    Public Module Man(Integer age)
+        Age = age
+        YearsSchool=12
+    End Module
+End Class
+
+
+Module main()
+    Declare Man  man = New Man(20)
+    Declare  Man men[11]
+    man.YearsSchool =12
+    man.Age=23
+    Display "Years since: ", man.yearsOutOfSchool()
+    
+    Declare Integer i
+    For i=0 To 10
+        men[i]=New Man(i+21)
+    End For
+
+    For i=0 To 10
+        men[i]=New Man(i+21)
+        man = men[i]
+        Display "Years since: ", men[i].yearsOutOfSchool(), " age=", man.Age
+    End For
+
+End Module 

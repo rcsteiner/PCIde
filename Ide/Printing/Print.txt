@@ -1,0 +1,1434 @@
+﻿AvalonEdit Printing:
+
+This solution comprises of a few classes to extend Avalon functionality without altering the original source code
+
+-           WPF PrintPreviewDialog class
+
+-           PrintPreviewDocumentViewer class
+
+-           DocumentPaginatorWrapper class
+
+-           static Printing class with extensions for ICSharpCode.AvalonEdit
+
+ 
+
+How to use:
+
+editor.PageSetupDialog();              // .NET dialog
+
+editor.PrintPreviewDialog();           // WPF print preview dialog
+
+editor.PrintPreviewDialog(filename);   // WPF print preview dialog, filename as document title
+
+editor.PrintDialog();                   // WPF print dialog
+
+editor.PrintDialog(filename);          // WPF print dialog, filename as document title
+
+editor.PrintDirect()                   // prints to default or previously selected printer
+
+editor.PrintDirect(filename)           // prints to default or previously selected printer, filename as document title
+
+ 
+ 
+
+PrintEngine.PrintPreview.xaml
+
+<Window x:Class="PrintEngine.PrintPreviewDialog"
+
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+    xmlns:local="clr-namespace:PrintEngine"
+
+    Title="Print Preview" 
+
+        Height="600" 
+
+        Width="400"
+
+        WindowState="Maximized"
+
+        WindowStartupLocation="CenterOwner">
+
+    <Grid>
+
+        <local:PrintPreviewDocumentViewer x:Name="documentViewer"  Grid.Row="0"/>
+
+        <WrapPanel FlowDirection="RightToLeft" Grid.Row="1">
+
+            <Button Click="closeButton_Click" Margin="7" >Cancel</Button>
+
+        </WrapPanel>
+
+    </Grid>
+
+</Window>
+
+ 
+
+PrintEngine.PrintPreview.xaml.cs
+
+using System;
+
+using System.IO;
+
+using System.Printing;              // this *** needs System.Printing reference
+
+using System.Windows;
+
+using System.Windows.Controls;
+
+using System.Windows.Documents;
+
+using System.Windows.Xps;
+
+using System.Windows.Xps.Packaging; // these bastards are hidden in the ReachFramework reference
+
+ 
+
+namespace PrintEngine
+
+{
+
+    /// <summary>
+
+    /// Represents the PrintPreviewDialog class to preview documents 
+
+    /// of type FlowDocument, IDocumentPaginatorSource or DocumentPaginatorWrapper
+
+    /// using the PrintPreviewDocumentViewer class.
+
+    /// </summary>
+
+    public partial class PrintPreviewDialog : Window
+
+    {
+
+        private object m_Document;
+
+ 
+
+        /// <summary>
+
+        /// Initialize a new instance of the PrintEngine.PrintPreviewDialog class.
+
+        /// </summary>
+
+        public PrintPreviewDialog()
+
+        {
+
+            InitializeComponent();
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Gets or sets the document viewer.
+
+        /// </summary>
+
+        public PrintPreviewDocumentViewer DocumentViewer
+
+        {
+
+            get { return documentViewer; }
+
+            set { documentViewer = value; }
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Loads the specified FlowDocument document for print preview.
+
+        /// </summary>
+
+        public void LoadDocument(FlowDocument document)
+
+        {
+
+            m_Document = document;
+
+            string temp = System.IO.Path.GetTempFileName();
+
+ 
+
+            if (File.Exists(temp) == true)
+
+                File.Delete(temp);
+
+ 
+
+            XpsDocument xpsDoc = new XpsDocument(temp, FileAccess.ReadWrite);
+
+            XpsDocumentWriter xpsWriter = XpsDocument.CreateXpsDocumentWriter(xpsDoc);
+
+            xpsWriter.Write(((FlowDocument)document as IDocumentPaginatorSource).DocumentPaginator);
+
+ 
+
+            documentViewer.Document = xpsDoc.GetFixedDocumentSequence();
+
+ 
+
+            xpsDoc.Close();
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Loads the specified DocumentPaginatorWrapper document for print preview.
+
+        /// </summary>
+
+        public void LoadDocument(DocumentPaginatorWrapper document)
+
+        {
+
+            m_Document = document;
+
+            string temp = System.IO.Path.GetTempFileName();
+
+ 
+
+            if (File.Exists(temp) == true)
+
+                File.Delete(temp);
+
+ 
+
+            XpsDocument xpsDoc = new XpsDocument(temp, FileAccess.ReadWrite);
+
+            XpsDocumentWriter xpsWriter = XpsDocument.CreateXpsDocumentWriter(xpsDoc);
+
+            xpsWriter.Write(document);
+
+ 
+
+            documentViewer.Document = xpsDoc.GetFixedDocumentSequence();
+
+ 
+
+            xpsDoc.Close();
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Loads the specified IDocumentPaginatorSource document for print preview.
+
+        /// </summary>
+
+        public void LoadDocument(IDocumentPaginatorSource document)
+
+        {
+
+            m_Document = document;
+
+            
+
+            documentViewer.Document = (IDocumentPaginatorSource)document;
+
+        }
+
+ 
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+
+        {
+
+            Close();
+
+        }
+
+ 
+
+    }
+
+ 
+
+    /// <summary>
+
+    /// Represents the PrintPreviewDocumentViewer class with PrintQueue and PrintTicket properties for the document viewer.
+
+    /// </summary>
+
+    public class PrintPreviewDocumentViewer : DocumentViewer
+
+    {
+
+        private PrintQueue m_PrintQueue = LocalPrintServer.GetDefaultPrintQueue();
+
+        private PrintTicket m_PrintTicket;
+
+ 
+
+        /// <summary>
+
+        /// Gets or sets the print queue manager.
+
+        /// </summary>
+
+        public PrintQueue PrintQueue
+
+        {
+
+            get { return m_PrintQueue; }
+
+            set { m_PrintQueue = value; }
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Gets or sets the print settings for the print job.
+
+        /// </summary>
+
+        public PrintTicket PrintTicket
+
+        {
+
+            get { return m_PrintTicket; }
+
+            set { m_PrintTicket = value; }
+
+        }
+
+ 
+
+        protected override void OnPrintCommand()
+
+        {
+
+            // get a print dialog, defaulted to default printer and default printer's preferences.
+
+            PrintDialog printDialog = new PrintDialog();
+
+            printDialog.PrintQueue = m_PrintQueue;
+
+            printDialog.PrintTicket = m_PrintTicket;
+
+ 
+
+            if (printDialog.ShowDialog() == true)
+
+            {
+
+                m_PrintQueue = printDialog.PrintQueue;
+
+                m_PrintTicket = printDialog.PrintTicket;
+
+ 
+
+                printDialog.PrintDocument(this.Document.DocumentPaginator, "PrintPreviewJob");
+
+            }
+
+        }
+
+    }
+
+}
+
+ 
+
+DocumentPaginatorWrapper.cs
+
+using System;
+
+using System.IO;
+
+using System.Printing;
+
+using System.Drawing.Printing;
+
+using System.Windows;
+
+using System.Windows.Media;
+
+using System.Windows.Documents;
+
+ 
+
+namespace PrintEngine
+
+{
+
+    /// <summary>
+
+    /// Represents the DocumentPaginatorWrapper adding headers and footers to the document.
+
+    /// </summary>
+
+    public class DocumentPaginatorWrapper : DocumentPaginator
+
+    {
+
+        string m_Title;
+
+        Margins m_Margins;
+
+        Size m_PageSize;
+
+        DocumentPaginator m_Paginator;
+
+        Typeface m_Typeface;
+
+ 
+
+        #region Properties
+
+ 
+
+        /// <summary>
+
+        /// Sets the header title for each document page.
+
+        /// </summary>
+
+        public string Title
+
+        {
+
+            set { m_Title = value; }
+
+        }
+
+ 
+
+        public override bool IsPageCountValid
+
+        {
+
+            get { return m_Paginator.IsPageCountValid; }
+
+        }
+
+ 
+
+        public override int PageCount
+
+        {
+
+            get { return m_Paginator.PageCount; }
+
+        }
+
+ 
+
+        public override Size PageSize
+
+        {
+
+            get { return m_Paginator.PageSize; }
+
+            set { m_Paginator.PageSize = value; }
+
+        }
+
+ 
+
+        public override IDocumentPaginatorSource Source
+
+        {
+
+            get { return m_Paginator.Source; }
+
+        }
+
+ 
+
+        #endregion
+
+ 
+
+        public DocumentPaginatorWrapper(DocumentPaginator paginator, PageSettings pageSettings, PrintTicket printTicket, FontFamily headerFooterfontFamily)
+
+        {
+
+            m_Margins = ConvertMarginsToPx(pageSettings.Margins);
+
+ 
+
+            if (pageSettings.Landscape)
+
+                m_PageSize = new Size((int)printTicket.PageMediaSize.Height, (int)printTicket.PageMediaSize.Width);
+
+            else
+
+                m_PageSize = new Size((int)printTicket.PageMediaSize.Width, (int)printTicket.PageMediaSize.Height);
+
+ 
+
+            m_Paginator = paginator;
+
+            m_Paginator.PageSize = new Size(m_PageSize.Width - m_Margins.Left - m_Margins.Right, m_PageSize.Height - m_Margins.Top - m_Margins.Bottom);
+
+ 
+
+            m_Typeface = new Typeface(headerFooterfontFamily, FontStyles.Normal, FontWeights.Normal, FontStretches.Normal);
+
+        }
+
+ 
+
+        Rect Move(Rect rect)
+
+        {
+
+            if (rect.IsEmpty)
+
+            {
+
+                return rect;
+
+            }
+
+            else
+
+            {
+
+                return new Rect(rect.Left + m_Margins.Left, rect.Top + m_Margins.Top, rect.Width, rect.Height);
+
+            }
+
+        }
+
+ 
+
+ 
+
+        public override DocumentPage GetPage(int pageNumber)
+
+        {
+
+            DocumentPage page = m_Paginator.GetPage(pageNumber);
+
+ 
+
+            ContainerVisual newpage = new ContainerVisual();
+
+            //
+
+            // Header
+
+            //
+
+            DrawingVisual header = new DrawingVisual();
+
+            using (DrawingContext ctx = header.RenderOpen())
+
+            {
+
+                DrawPath(ctx, m_Margins.Top - 20, m_Title, TextAlignment.Left);
+
+                DrawText(ctx, m_Margins.Top - 20, String.Format("{0}", DateTime.Now), TextAlignment.Right);
+
+                DrawLine(ctx, m_Margins.Top - 5, 0.5);
+
+            }
+
+            //
+
+            // Footer
+
+            //
+
+            DrawingVisual footer = new DrawingVisual();
+
+            using (DrawingContext ctx = footer.RenderOpen())
+
+            {
+
+                DrawText(ctx, m_PageSize.Height - m_Margins.Bottom + 5, "-" + (pageNumber + 1) + "-", TextAlignment.Center);
+
+                DrawLine(ctx, m_PageSize.Height - m_Margins.Bottom + 5, 0.5);
+
+            }
+
+ 
+
+            ContainerVisual pageVisual = new ContainerVisual();
+
+            pageVisual.Children.Add(page.Visual);
+
+ 
+
+            newpage.Children.Add(header);
+
+            newpage.Children.Add(pageVisual);
+
+            newpage.Children.Add(footer);
+
+ 
+
+            return new DocumentPage(newpage, m_PageSize, Move(page.BleedBox), Move(page.ContentBox));
+
+        }
+
+ 
+
+ 
+
+        /// <summary>
+
+        /// Draws a text at specified y-postion with specified text alignment.
+
+        /// </summary>
+
+        void DrawText(DrawingContext ctx, double yPos, string text, TextAlignment alignment)
+
+        {
+
+            if (string.IsNullOrEmpty(text))
+
+                return;
+
+ 
+
+            if (m_Typeface == null)
+
+            {
+
+                m_Typeface = new Typeface("Times New Roman");
+
+            }
+
+ 
+
+            FormattedText formattedText = new FormattedText(text,
+
+                    System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
+
+                    m_Typeface, 12, Brushes.Black);
+
+            
+
+            if (alignment == TextAlignment.Left)
+
+            {
+
+                formattedText.TextAlignment = TextAlignment.Left;
+
+                formattedText.MaxTextWidth = m_PageSize.Width * 2 / 3;
+
+                formattedText.MaxTextHeight = 16;
+
+                formattedText.Trimming = TextTrimming.WordEllipsis;
+
+                ctx.DrawText(formattedText, new Point(m_Margins.Left, yPos));
+
+            }
+
+            else if (alignment == TextAlignment.Right)
+
+            {
+
+                formattedText.TextAlignment = TextAlignment.Right;
+
+                ctx.DrawText(formattedText, new Point(m_PageSize.Width - m_Margins.Right, yPos));
+
+            }
+
+            else if (alignment == TextAlignment.Center)
+
+            {
+
+                formattedText.TextAlignment = TextAlignment.Center;
+
+                ctx.DrawText(formattedText, new Point(m_PageSize.Width / 2, yPos));
+
+            }
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Draws a path as document title.
+
+        /// </summary>
+
+        void DrawPath(DrawingContext ctx, double yPos, string text, TextAlignment alignment)
+
+        {
+
+            if (string.IsNullOrEmpty(text))
+
+                return;
+
+ 
+
+            if (!File.Exists(text))
+
+            {
+
+                DrawText(ctx, yPos, text, alignment);
+
+                return;
+
+            }
+
+ 
+
+            if (m_Typeface == null)
+
+            {
+
+                m_Typeface = new Typeface("Times New Roman");
+
+            }
+
+ 
+
+            double textWidth;
+
+            FormattedText formattedText = new FormattedText(text,
+
+                    System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
+
+                    m_Typeface, 12, Brushes.Black);
+
+            textWidth = formattedText.Width;
+
+ 
+
+            double maxTextLength = m_PageSize.Width * 2 / 3;
+
+ 
+
+            if (textWidth < maxTextLength)
+
+            {
+
+                ctx.DrawText(formattedText, new Point(m_Margins.Left, yPos));
+
+                return;
+
+            }
+
+            //
+
+            // if someone has a more clever solution
+
+            // to do WordEllipsis trimming for paths, please shout
+
+            //
+
+            string path = Path.GetDirectoryName(text);
+
+            string fileName = "\\" + Path.GetFileName(text);
+
+ 
+
+            // get the length of the trimmed file name
+
+            formattedText = new FormattedText(fileName,
+
+                    System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
+
+                    m_Typeface, 12, Brushes.Black);
+
+            formattedText.MaxTextWidth = maxTextLength - 100;
+
+            formattedText.MaxTextHeight = 16;
+
+            formattedText.Trimming = TextTrimming.WordEllipsis;
+
+            textWidth = formattedText.Width;
+
+ 
+
+            // draw the path
+
+            formattedText = new FormattedText(path,
+
+                    System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
+
+                    m_Typeface, 12, Brushes.Black);
+
+            formattedText.MaxTextWidth = maxTextLength - textWidth;
+
+            formattedText.MaxTextHeight = 16;
+
+            formattedText.Trimming = TextTrimming.WordEllipsis;
+
+            ctx.DrawText(formattedText, new Point(m_Margins.Left, yPos));
+
+            textWidth = formattedText.Width;
+
+ 
+
+            // draw the file name
+
+            formattedText = new FormattedText(fileName,
+
+                    System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
+
+                    m_Typeface, 12, Brushes.Black);
+
+            formattedText.MaxTextWidth = maxTextLength - textWidth;
+
+            formattedText.MaxTextHeight = 16;
+
+            formattedText.Trimming = TextTrimming.WordEllipsis;
+
+            ctx.DrawText(formattedText, new Point(m_Margins.Left + textWidth, yPos));
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Draws a line form left to right margin at specified y-postion.
+
+        /// </summary>
+
+        void DrawLine(DrawingContext ctx, double yPos, double thickness)
+
+        {
+
+            ctx.DrawLine(new Pen(new SolidColorBrush(Colors.Black), thickness),
+
+                    new Point(m_Margins.Left, yPos),
+
+                    new Point(m_PageSize.Width - m_Margins.Right, yPos));
+
+        }
+
+ 
+
+ 
+
+        /// <summary>
+
+        /// Converts specified Margins (hundredths of an inch) to pixel margin (px).
+
+        /// </summary>
+
+        Margins ConvertMarginsToPx(Margins margins)
+
+        {
+
+            margins.Left = ConvertToPx(margins.Left);
+
+            margins.Top = ConvertToPx(margins.Top);
+
+            margins.Right = ConvertToPx(margins.Right);
+
+            margins.Bottom = ConvertToPx(margins.Bottom);
+
+            return margins;
+
+        }
+
+ 
+
+ 
+
+        /// <summary>
+
+        /// Converts specified inch (hundredths of an inch) to pixels (px).
+
+        /// </summary>
+
+        int ConvertToPx(double inch)
+
+        {
+
+            return (int)(inch * 0.96);
+
+        }
+
+ 
+
+       
+
+    }
+
+}
+
+ 
+
+Printing.cs
+
+using System;
+
+using System.Drawing.Printing;
+
+using System.Printing;
+
+using System.Windows;
+
+using System.Windows.Controls;
+
+using System.Windows.Documents;
+
+using System.Windows.Forms;
+
+ 
+
+using ICSharpCode.AvalonEdit.Highlighting;
+
+using ICSharpCode.AvalonEdit.Document;
+
+ 
+
+using PrintEngine;
+
+ 
+
+namespace ICSharpCode.AvalonEdit
+
+{
+
+    public static class Printing
+
+    {
+
+        private static PageSettings m_PageSettings;
+
+        private static PrintQueue m_PrintQueue = LocalPrintServer.GetDefaultPrintQueue();
+
+        private static PrintTicket m_PrintTicket = m_PrintQueue.DefaultPrintTicket;
+
+        private static string m_DocumentTitle;
+
+ 
+
+        /// <summary>
+
+        /// Invokes a Windows.Forms.PrintPreviewDialog.
+
+        /// </summary>
+
+        public static void PageSetupDialog(this TextEditor textEditor)
+
+        {
+
+            PageSetupDialog();
+
+        }
+
+ 
+
+ 
+
+        /// <summary>
+
+        /// Invokes a Windows.Forms.PrintPreviewDialog.
+
+        /// </summary>
+
+        public static void PageSetupDialog()
+
+        {
+
+            InitPageSettings();
+
+ 
+
+            if (m_PrintTicket.PageOrientation == PageOrientation.Landscape)
+
+                m_PageSettings.Landscape = true;
+
+            else
+
+                m_PageSettings.Landscape = false;
+
+ 
+
+            PageSetupDialog setup = new PageSetupDialog();
+
+            setup.EnableMetric = true;
+
+            setup.PageSettings = m_PageSettings;
+
+ 
+
+            if (setup.ShowDialog() == DialogResult.OK)
+
+            {
+
+                m_PageSettings = setup.PageSettings;
+
+                m_PrintTicket.PageOrientation = (m_PageSettings.Landscape ? PageOrientation.Landscape : PageOrientation.Portrait);
+
+                m_PrintTicket.PageMediaSize = ConvertPaperSizeToMediaSize(m_PageSettings.PaperSize);
+
+            }
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Invokes a PrintEngine.PrintPreviewDialog to print preview the TextEditor.Document.
+
+        /// </summary>
+
+        public static void PrintPreviewDialog(this TextEditor textEditor)
+
+        {
+
+            PrintPreviewDialog(textEditor, "");
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Invokes a PrintEngine.PrintPreviewDialog to print preview the TextEditor.Document with specified title.
+
+        /// </summary>
+
+        public static void PrintPreviewDialog(this TextEditor textEditor, string title)
+
+        {
+
+            m_DocumentTitle = title;
+
+ 
+
+            InitPageSettings();
+
+ 
+
+            PrintEngine.PrintPreviewDialog printPreview = new PrintEngine.PrintPreviewDialog();
+
+            printPreview.DocumentViewer.FitToMaxPagesAcross(1);
+
+ 
+
+            printPreview.DocumentViewer.PrintQueue = m_PrintQueue;
+
+ 
+
+            if (m_PageSettings.Landscape)
+
+                m_PrintTicket.PageOrientation = PageOrientation.Landscape;
+
+ 
+
+            printPreview.DocumentViewer.PrintTicket = m_PrintTicket;
+
+            printPreview.DocumentViewer.PrintQueue.DefaultPrintTicket.PageOrientation = m_PrintTicket.PageOrientation;
+
+ 
+
+            printPreview.LoadDocument(CreateDocumentPaginatorToPrint(textEditor));
+
+ 
+
+            // this is stupid, but must be done to view a whole page:
+
+            DocumentViewer.FitToMaxPagesAcrossCommand.Execute("1", printPreview.DocumentViewer);
+
+ 
+
+            // we never get a return code 'true', since we keep the DocumentViewer open, until user closes the window
+
+            printPreview.ShowDialog();
+
+ 
+
+            m_PrintQueue = printPreview.DocumentViewer.PrintQueue;
+
+            m_PrintTicket = printPreview.DocumentViewer.PrintTicket;
+
+        }
+
+ 
+
+        
+
+        /// <summary>
+
+        /// Invokes a System.Windows.Controls.PrintDialog to print the TextEditor.Document.
+
+        /// </summary>
+
+        public static void PrintDialog(this TextEditor textEditor)
+
+        {
+
+            PrintDialog(textEditor, "");
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Invokes a System.Windows.Controls.PrintDialog to print the TextEditor.Document with specified title.
+
+        /// </summary>
+
+        public static void PrintDialog(this TextEditor textEditor, string  title)
+
+        {
+
+            m_DocumentTitle = title;
+
+ 
+
+            InitPageSettings();
+
+ 
+
+            System.Windows.Controls.PrintDialog printDialog = new System.Windows.Controls.PrintDialog();
+
+ 
+
+            printDialog.PrintQueue = m_PrintQueue;
+
+ 
+
+            if (m_PageSettings.Landscape)
+
+                m_PrintTicket.PageOrientation = PageOrientation.Landscape;
+
+ 
+
+            printDialog.PrintTicket = m_PrintTicket;
+
+            printDialog.PrintQueue.DefaultPrintTicket.PageOrientation = m_PrintTicket.PageOrientation;
+
+ 
+
+            if (printDialog.ShowDialog() == true)
+
+            {
+
+                m_PrintQueue = printDialog.PrintQueue;
+
+                m_PrintTicket = printDialog.PrintTicket;
+
+ 
+
+                printDialog.PrintDocument(CreateDocumentPaginatorToPrint(textEditor), "PrintJob");
+
+            }
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Prints the the TextEditor.Document to the current printer (no dialogs).
+
+        /// </summary>
+
+        public static void PrintDirect(this TextEditor textEditor)
+
+        {
+
+            PrintDirect(textEditor, "");
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Prints the the TextEditor.Document to the current printer (no dialogs) with specified title.
+
+        /// </summary>
+
+        public static void PrintDirect(this TextEditor textEditor, string title)
+
+        {
+
+            m_DocumentTitle = title;
+
+ 
+
+            InitPageSettings();
+
+ 
+
+            System.Windows.Controls.PrintDialog printDialog = new System.Windows.Controls.PrintDialog();
+
+ 
+
+            printDialog.PrintQueue = m_PrintQueue;
+
+ 
+
+            if (m_PageSettings.Landscape)
+
+                m_PrintTicket.PageOrientation = PageOrientation.Landscape;
+
+ 
+
+            printDialog.PrintTicket = m_PrintTicket;
+
+            printDialog.PrintQueue.DefaultPrintTicket.PageOrientation = m_PrintTicket.PageOrientation;
+
+ 
+
+            printDialog.PrintDocument(CreateDocumentPaginatorToPrint(textEditor), "PrintDirectJob");
+
+        }
+
+ 
+
+ 
+
+        /// <summary>
+
+        /// If not initialized, initialize a new instance of the PageSettings and sets the default margins.
+
+        /// </summary>
+
+        static void InitPageSettings()
+
+        {
+
+            if (m_PageSettings == null)
+
+            {
+
+                m_PageSettings = new PageSettings();
+
+                m_PageSettings.Margins = new Margins(40, 40, 40, 40);
+
+            }
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Creates a DocumentPaginatorWrapper from TextEditor text to print.
+
+        /// </summary>
+
+        static DocumentPaginatorWrapper CreateDocumentPaginatorToPrint(TextEditor textEditor)
+
+        {
+
+            // this baby adds headers and footers
+
+            IDocumentPaginatorSource dps = CreateFlowDocumentToPrint(textEditor);
+
+            DocumentPaginatorWrapper dpw = new DocumentPaginatorWrapper(dps.DocumentPaginator, m_PageSettings, m_PrintTicket, textEditor.FontFamily);
+
+            dpw.Title = m_DocumentTitle;
+
+ 
+
+            return dpw;
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Creates a FlowDocument from TextEditor text to print.
+
+        /// </summary>
+
+        static FlowDocument CreateFlowDocumentToPrint(TextEditor textEditor)
+
+        {
+
+            // this baby has all settings to be printed or previewed in the PrintEngine.PrintPreviewDialog
+
+            FlowDocument doc = CreateFlowDocumentForEditor(textEditor);
+
+ 
+
+            doc.ColumnWidth = m_PageSettings.PrintableArea.Width;
+
+            doc.PageHeight = (m_PageSettings.Landscape ? (int)m_PrintTicket.PageMediaSize.Width : (int)m_PrintTicket.PageMediaSize.Height);
+
+            doc.PageWidth = (m_PageSettings.Landscape ? (int)m_PrintTicket.PageMediaSize.Height : (int)m_PrintTicket.PageMediaSize.Width);
+
+            doc.PagePadding = ConvertPageMarginsToThickness(m_PageSettings.Margins);
+
+            doc.FontFamily = textEditor.FontFamily;
+
+            doc.FontSize = textEditor.FontSize;
+
+            
+
+            return doc;
+
+        }
+
+ 
+
+        
+
+        /// <summary>
+
+        /// Creates a FlowDocument from TextEditor text.
+
+        /// </summary>
+
+        static FlowDocument CreateFlowDocumentForEditor(TextEditor editor)
+
+        {
+
+            // ref.:  http://community.sharpdevelop.net/forums/t/12012.aspx
+
+ 
+
+            IHighlighter highlighter = editor.TextArea.GetService(typeof(IHighlighter)) as IHighlighter;
+
+            FlowDocument doc = new FlowDocument(ConvertTextDocumentToBlock(editor.Document, highlighter));
+
+            
+
+            return doc;
+
+        }
+
+ 
+
+ 
+
+        /// <summary>
+
+        /// Converts a TextDocument to Block.
+
+        /// </summary>
+
+        static Block ConvertTextDocumentToBlock(TextDocument document, IHighlighter highlighter)
+
+        {
+
+            // ref.:  http://community.sharpdevelop.net/forums/t/12012.aspx
+
+ 
+
+            if (document == null)
+
+                throw new ArgumentNullException("document");
+
+ 
+
+            Paragraph p = new Paragraph();
+
+ 
+
+            foreach (DocumentLine line in document.Lines)
+
+            {
+
+                int lineNumber = line.LineNumber;
+
+                HighlightedInlineBuilder inlineBuilder = new HighlightedInlineBuilder(document.GetText(line));
+
+                if (highlighter != null)
+
+                {
+
+                    HighlightedLine highlightedLine = highlighter.HighlightLine(lineNumber);
+
+                    int lineStartOffset = line.Offset;
+
+                    foreach (HighlightedSection section in highlightedLine.Sections)
+
+                        inlineBuilder.SetHighlighting(section.Offset - lineStartOffset, section.Length, section.Color);
+
+                }
+
+                p.Inlines.AddRange(inlineBuilder.CreateRuns());
+
+                p.Inlines.Add(new LineBreak());
+
+            }
+
+ 
+
+            return p;
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Converts PaperSize (hundredths of an inch) to PageMediaSize (px).
+
+        /// </summary>
+
+        static PageMediaSize ConvertPaperSizeToMediaSize(PaperSize paperSize)
+
+        {
+
+            return new PageMediaSize(ConvertToPx(paperSize.Width), ConvertToPx(paperSize.Height));
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Converts specified Margins (hundredths of an inch) to Thickness (px).
+
+        /// </summary>
+
+        static Thickness ConvertPageMarginsToThickness(Margins margins)
+
+        {
+
+            Thickness thickness = new Thickness();
+
+            thickness.Left = ConvertToPx(margins.Left);
+
+            thickness.Top = ConvertToPx(margins.Top);
+
+            thickness.Right = ConvertToPx(margins.Right);
+
+            thickness.Bottom = ConvertToPx(margins.Bottom);
+
+            return thickness;
+
+        }
+
+ 
+
+        /// <summary>
+
+        /// Converts specified inch (hundredths of an inch) to pixels (px).
+
+        /// </summary>
+
+        static double ConvertToPx(double inch)
+
+        {
+
+            return inch * 0.96;
+
+        }
+
+ 
+
+    }
+
+}
+
+ 

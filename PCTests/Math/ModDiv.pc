@@ -1,0 +1,14 @@
+Declare Integer x=665,m,v,r
+
+Set v = x / 60
+Set r = v*60
+Set m = x - (v*60)
+Set r = x MOD 60
+
+Display " x=",x," v=",v," m=",m, " r=",r
+
+Declare Real z=99
+Set z = z MOD 10
+Display z
+
+

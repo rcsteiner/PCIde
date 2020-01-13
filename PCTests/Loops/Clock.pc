@@ -1,0 +1,9 @@
+Declare Integer h,m,s
+
+For h=0 To 59
+    For m = 0 To 59
+        For s = 0 To 59
+            Display h,":",m,":",s,"\r"
+        End For
+    End For
+End For

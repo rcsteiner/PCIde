@@ -1,0 +1,24 @@
+<HelpContents xmlns="">
+    <Topic Header="Copyright Information" Source="/Help/Copyright.xaml" />
+    <Topic Header="Change history" Source="/Help/ChangeHistory.xaml" />
+    <Topic Header="Program Overview" Source="/Help/Overview.xaml" />
+    <Topic Header="The Menu">
+        <Topic Header="The File Menu"   Source="/Help/FileMenu.xaml" />
+        <Topic Header="The Edit Menu"   Source="/Help/EditMenu.xaml" />
+        <Topic Header="The Tools Menu"  Source="/Help/ToolsMenu.xaml" />
+        <Topic Header="The View Menu"   Source="/Help/ViewMenu.xaml" />
+      <Topic Header="The Compiler Menu" Source="/Help/CompileMenu.xaml" />
+      <Topic Header="The Debug Menu" Source="/Help/DebugMenu.xaml" />
+        <Topic Header="The Editor Menu" Source="/Help/EditorMenu.xaml" />
+      <Topic Header="The Help Menu"   Source="/Help/HelpMenu.xaml">
+          <Topic Header="The Help Content"   Source="/Help/HelpMenu.xaml" />
+          <Topic Header="Report a bug"   Source="/Help/Empty.xaml" />
+          <Topic Header="About"   Source="/Help/Empty.xaml" />
+        </Topic>
+    </Topic>
+  <Topic Header="Special Functions" Source="/Help/Special.xaml"/>
+  <Topic Header="Updating" Source="/Help/Empty.xaml"/>
+  <Topic Header="Compiling Your First Program" Source="/Help/Empty.xaml"/>
+  <Topic Header="Zooming" Source="/Help/Empty.xaml"/>
+  <Topic Header="Pseudo Code Syntax" Source="/Help/PseudoSyntax.xaml"/>
+</HelpContents>

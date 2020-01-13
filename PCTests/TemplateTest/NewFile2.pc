@@ -1,0 +1,17 @@
+/////////////////////////////////////////////////////////////////////////////////
+// $PROJNAME   Prooblem #
+// 
+// Author:  $USER
+// Date:    $DATE
+// Class:   $CLASS
+// 
+// Description: ripti kkgj,
+// 
+/////////////////////////////////////////////////////////////////////////////////
+Display "Hello","one", 3,8x
+Declare Real x=3 z 4
+Set z=x 3
+Function Integer test(Declare Integer x, Integer y, z){
+}
+End Function
+

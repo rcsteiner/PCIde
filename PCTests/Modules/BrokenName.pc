@@ -1,0 +1,36 @@
+Module main()
+
+Declare Integer value=2
+
+Call while( value )
+Call if( value )
+Call for(1,2,3)
+
+End Module
+
+Module while(Integer x)
+
+    While x<10
+        Display " 32 "
+        Set x=10
+    End While
+
+End Module
+
+Module if(Integer x)
+
+    If x>= 10 Then
+        Display " thats not three "
+    End If
+    
+End Module
+
+Module for(Integer x, Integer y=0, Integer i)
+
+    For i= 1 To 5
+        Display " Enter Value "
+        Input x
+        Set y = y + x
+    End For 
+    
+End Module

@@ -1,0 +1,7 @@
+﻿Name = LessonPC
+Group = PC
+Type = Project
+DefaultName = Lesson{0}.pcprj
+DefaultFile = HWX-Y.pc
+ToolSet = PC
+Description = This is Lesson project for pseudo code assignments and homework. Files are *.pc

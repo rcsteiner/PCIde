@@ -1,0 +1,14 @@
+// test simple modules
+
+Module main()
+    Declare String z = "test"
+    Call Print(50,z,3.14)
+
+End Module
+
+Module Print(Integer v, String s, Real r)
+    Display "V=",v
+    Display "S=",s
+    Display "R=",r
+End Module
+

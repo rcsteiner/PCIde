@@ -1,0 +1,46 @@
+
+Declare Integer c = 100
+Declare Integer d = 200
+Declare Boolean b = True
+Declare Boolean nb = False
+Declare Real x=1.1
+Declare Real y=1.12
+
+If NOT (!nb) Then Display "Error" Else Display  "Bool !False is true" End If
+If NOT (b) Then Display "Error" Else Display  "Bool True is true" End If
+
+If !(c< d) Then Display "Error" Else Display  "1 Integer < D is bigger correct" End If
+
+If NOT (d>c) Then 
+Display "Error"
+Else
+    Display "2 Integer > D is also bigger than c" 
+End If
+
+If NOT (True) Then 
+Display "Error"
+Else
+    Display "3 NOT True" 
+End If
+
+If NOT (d==d) Then Display "Error" Else Display  "4 Integer == D is same as D" End If
+If NOT (c!=d) Then Display "Error" Else Display  "5 Integer != C is not the same as D" End If
+If NOT (d>=c) Then Display "Error" Else Display  "6 Integer >= C is not the same as D" End If
+If NOT (c<=d) Then Display "Error" Else Display  "7 Integer <= C is not the same as D" End If
+
+
+
+If NOT (x < y) Then Display "Error" Else Display  "Real < is True" End If
+If NOT (x <= y) Then Display "Error" Else Display "Real <= is True" End If
+If NOT (y > x) Then Display "Error" Else Display  "Real > is True" End If
+If NOT (y >= x) Then Display "Error" Else Display "Real >= is True" End If
+If NOT (x != y) Then Display "Error" Else Display "Real != is True" End If
+If NOT (x == x) Then Display "Error" Else Display "Real == is True" End If
+
+Declare String s="test", t="test1"
+If NOT (s < t) Then Display "Error" Else Display  "String < is True" End If
+If NOT (s <= t) Then Display "Error" Else Display "String <= is True" End If
+If NOT (t > s) Then Display "Error" Else Display  "String > is True" End If
+If NOT (t >= s) Then Display "Error" Else Display "String >= is True" End If
+If NOT (s != t) Then Display "Error" Else Display "String != is True" End If
+If NOT (s == s) Then Display "Error" Else Display "String == is True" End If

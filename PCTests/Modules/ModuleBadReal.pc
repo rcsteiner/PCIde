@@ -1,0 +1,13 @@
+// bad parameter test
+
+Module main()
+    Call Test(300)
+    Call Test('a')
+    ExpectFail
+        Call Test(3.3)
+    End ExpectFail
+End Module
+
+Module Test(Integer v)
+    Display "Result is ",v
+End Module

@@ -1,0 +1,12 @@
+// bad parameter test
+
+Module main()
+    Call Test(30)
+    Call Test("one")
+    Call Test('@')
+    Call Test(3.0)
+End Module
+
+Module Test(String v)
+    Display "Result is ",v
+End Module

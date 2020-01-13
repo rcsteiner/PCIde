@@ -1,0 +1,187 @@
+﻿<views:ViewBase
+    x:Class              ="Ide.DialogNew"
+        xmlns            ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x          ="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d          ="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc         ="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views      ="clr-namespace:Views"
+        xmlns:ide        ="clr-namespace:Ide"
+        mc:Ignorable     ="d"
+        d:DesignHeight   ="391" 
+        d:DesignWidth    ="504" 
+        >
+    <!--Resources used for these windows-->
+    <views:ViewBase.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Margin" Value="4,0,0,0" />
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="4,0,0,0" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+
+        <!--<LinearGradientBrush x:Key="TitleBackground" EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF219AB8" Offset="0" />
+            <GradientStop Color="#FFCDFFFF" Offset="1" />
+        </LinearGradientBrush>-->
+
+        <DataTemplate x:Key="FormatTemplates">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </views:ViewBase.Resources>
+    <DockPanel  LastChildFill="True" ForceCursor="False">
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" VerticalAlignment="Center" Background="{StaticResource TitleBackground}">
+            <Image Source="/Views/Images/Start.ico"  SnapsToDevicePixels="True" Stretch="Uniform" Height="32" Width="32" Margin="10,4,18,4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Label  Height="35"   Content="{Binding Title}" FontSize="24" FontStyle="Italic" Foreground="White" ForceCursor="False" FontWeight="Bold" Padding="10,0" />
+        </StackPanel>
+        <DockPanel  DockPanel.Dock="Bottom"  MinWidth="40" HorizontalAlignment="Stretch" Height="40" Background="{StaticResource TitleBackground}">
+            <Button Content="_Cancel" IsCancel="True"  Command="{Binding Path=CancelCommand, Mode=OneTime}"  Style="{StaticResource DialogButtonStyle}"/>
+            <Button Content="_Ok"    IsDefault="True"  Command="{Binding Path=OkCommand, Mode=OneTime}"      Style="{StaticResource DialogButtonStyle}" />
+            <Label Content="{Binding Message}" Height="32" Foreground="#FF307496" />
+        </DockPanel>
+
+
+        <StackPanel Orientation="Vertical">
+            <ListView  Margin="9" ItemsSource="{Binding TemplateList}" SelectedItem="{Binding NewTemplate}" MinHeight="100">
+                <ListView.View >
+                    <GridView >
+                        <!--<GridViewColumn Header="Type"   >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImageName, Converter={StaticResource IconConverter}}" Height="16" Width="16"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>-->
+                        <GridViewColumn Header="Type"       Width="Auto"  DisplayMemberBinding="{Binding Type}" />
+                        <GridViewColumn Header="Name"       Width="Auto"  DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Group"      Width="Auto"  DisplayMemberBinding="{Binding Group}" />
+                        <GridViewColumn Header="Description" Width="Auto" DisplayMemberBinding="{Binding Description}">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" ToolTip="{Binding Description}" TextWrapping="Wrap"  HorizontalAlignment="Stretch"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Grid Height="65" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="16" Height="Auto" />
+                    <!--<RowDefinition MinHeight="16" Height="27*" />
+                    <RowDefinition MinHeight="16" Height="*" />-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="40" Width="112*" />
+                    <ColumnDefinition MinWidth="60" Width="134*" />
+                </Grid.ColumnDefinitions>
+                <!--<Label   Grid.Row="0" Grid.Column="0" Content="Name"   Style="{StaticResource LabelStyle}" />
+                <Label   Grid.Row="0" Grid.Column="1" Content="Description (Optional)" Style="{StaticResource LabelStyle}" />-->
+                <ide:TextBoxWithWatermark
+                                          Grid.Column  ="0"
+                                          LabelTextBox ="Name"
+                                           Watermark   ="{Binding NameWatermark, Mode=TwoWay}"
+                                          Text         ="{Binding Name, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"   
+                                          MinWidth     ="60"
+                                          ToolTip      ="Enter the name, this will be used as a file name too."
+                                          VerticalAlignment   ="Stretch"
+                                          HorizontalAlignment ="Stretch"
+                                          />
+                <ide:TextBoxWithWatermark 
+                                          Grid.Column  ="1"
+                                          LabelTextBox ="Description (Optional)"
+                                          Watermark   = "{Binding DescriptionWatermark}"
+                                          Text         ="{Binding Description,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=False}"
+                                          MinWidth     ="60"
+                                          Margin       ="4,0,4,0" 
+                                          VerticalAlignment   ="Stretch"
+                                          HorizontalAlignment ="Stretch"
+                                          ToolTip      ="Enter the description to help remember what this is to be used for." 
+
+                                           />
+            </Grid>
+
+            <!--Destination folder-->
+
+            <StackPanel Orientation="Vertical" Visibility="{Binding ShowFolder, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToVisibilityConverter}}">
+                <!--<Label Content="Folder" Style="{StaticResource LabelStyle}" />-->
+                <StackPanel Orientation="Horizontal">
+                    <ide:TextBoxWithWatermark
+                        Text          ="{Binding Folder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" 
+                        LabelTextBox  ="Target Folder"
+                        Watermark     ="Folder to use for destination"
+                        Margin        ="4,0,5,8" 
+                        VerticalAlignment   ="Stretch"
+                        HorizontalAlignment ="Stretch"
+                        Width         ="464"
+                       />
+                    <Button Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="27" Padding="0" Command="{Binding BrowseFolderCommand}" RenderTransformOrigin="0.531,0.812" Panel.ZIndex="2" ToolTip="Browse for a folder." Background="{x:Null}" Margin="0,0,0,8">
+                        <Image Source="/Views/Images/browse.png" ToolTip="Browse for Folder" Margin="0" VerticalAlignment="Top" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!--<ListView DockPanel.Dock="Top" VerticalContentAlignment="Stretch"  ItemsSource="{Binding TemplateList}" >
+
+            -->
+        <!-- 
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Name}" Header="Name"  />
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Description}" Header="Description" />
+                 </GridView>
+            </ListView.View>
+            -->
+        <!--
+            <ListView.Resources>
+                <DataTemplate x:Key="IconTemplate">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="\Views\Images\browse.png"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.Resources>
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" FontSize="15"   Text="{Binding Group}"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="BorderThickness" Value="1" />
+                    <Setter Property="Width" Value="Auto" />
+                    <Setter Property="FontSize" Value="12.4"  />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn CellTemplate="{StaticResource IconTemplate}" Header="Name"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Size}" Header="Size"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Type}" Header="Type"/>
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+    </DockPanel>
+</views:ViewBase>

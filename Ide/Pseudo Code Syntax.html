@@ -1,0 +1,2679 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2E74B5;
+	font-weight:bold;
+	font-style:italic;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:-.05in;
+	margin-bottom:.0001pt;
+	text-indent:-.25in;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#0D0D0D;
+	font-weight:bold;
+	text-decoration:underline;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#1F4D78;
+	font-weight:normal;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2E74B5;
+	font-weight:normal;
+	font-style:italic;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.MsoIntenseEmphasis
+	{color:#5B9BD5;
+	font-style:italic;}
+span.MsoBookTitle
+	{letter-spacing:.25pt;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Calibri Light",sans-serif;
+	color:#2E74B5;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Calibri Light",sans-serif;
+	color:#0D0D0D;
+	font-weight:bold;
+	text-decoration:underline;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Calibri Light",sans-serif;
+	color:#1F4D78;}
+p.Description, li.Description, div.Description
+	{mso-style-name:Description;
+	mso-style-link:"Description Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	font-style:italic;}
+p.Example, li.Example, div.Example
+	{mso-style-name:Example;
+	margin-top:8.0pt;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:150%;
+	background:#FFFFD1;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:Consolas;}
+p.ExampleCxSpFirst, li.ExampleCxSpFirst, div.ExampleCxSpFirst
+	{mso-style-name:ExampleCxSpFirst;
+	margin-top:8.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:150%;
+	background:#FFFFD1;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:Consolas;}
+p.ExampleCxSpMiddle, li.ExampleCxSpMiddle, div.ExampleCxSpMiddle
+	{mso-style-name:ExampleCxSpMiddle;
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:150%;
+	background:#FFFFD1;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:Consolas;}
+p.ExampleCxSpLast, li.ExampleCxSpLast, div.ExampleCxSpLast
+	{mso-style-name:ExampleCxSpLast;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:150%;
+	background:#FFFFD1;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:Consolas;}
+p.Syntax, li.Syntax, div.Syntax
+	{mso-style-name:Syntax;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:Consolas;}
+span.Keyword
+	{mso-style-name:Keyword;
+	color:#1F4E79;
+	font-weight:bold;}
+p.Element, li.Element, div.Element
+	{mso-style-name:Element;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+span.Member
+	{mso-style-name:Member;
+	color:#833C0B;
+	font-weight:bold;}
+span.ProductionName
+	{mso-style-name:ProductionName;
+	color:#538135;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Calibri Light",sans-serif;
+	color:#2E74B5;
+	font-style:italic;}
+p.ExampleFun, li.ExampleFun, div.ExampleFun
+	{mso-style-name:ExampleFun;
+	mso-style-link:"ExampleFun Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:9.0pt;
+	font-family:"Calibri",sans-serif;}
+span.DescriptionChar
+	{mso-style-name:"Description Char";
+	mso-style-link:Description;
+	font-style:italic;}
+span.ExampleFunChar
+	{mso-style-name:"ExampleFun Char";
+	mso-style-link:ExampleFun;
+	font-style:normal;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<h1>EBNF Pseudo Code Syntax</h1>
+
+<p class=Description>This document defines the syntax and features of the
+Pseudo language used for Introduction to Programming class.</p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Lexical</h2>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>Letter</span>      :=  <span
+style='background:white'>'a'-'z' | 'A'-'Z'</span></p>
+
+<p class=Syntax><span class=ProductionName>Digit</span><span style='background:
+white'>       :=  '0'-'9'</span></p>
+
+<p class=Syntax><span class=ProductionName>Name</span><span style='background:
+white'>        := </span><span class=ProductionName>Letter</span><span
+style='background:white'> (</span><span class=ProductionName>Letter</span><span
+style='background:white'> | </span><span class=ProductionName>Digit</span><span
+style='background:white'> | '_' )*</span></p>
+
+<p class=Syntax><span class=ProductionName>String</span><span style='background:
+white'>      := '&quot;'  <span style='color:#AEAAAA'>&lt; <i>any characters
+but double quote</i> &gt; </span>'&quot;'</span></p>
+
+<p class=Syntax><span class=ProductionName>Character</span><span
+style='background:white'>   := '\'' <span style='color:#AEAAAA'>&lt; <i>any
+character but single quote</i> &gt; </span></span>'\''</p>
+
+<p class=Syntax><span class=ProductionName>Number</span><span style='background:
+white'>      :='.'   </span><span class=ProductionName>Digit</span><span
+style='background:white'>+ | ( </span><span class=ProductionName>Digit</span><span
+style='background:white'>+ [ '.' </span><span class=ProductionName>Digit</span><span
+style='background:white'>+])</span></p>
+
+<p class=Syntax><span class=ProductionName>Type</span>        :=  &quot;<span
+class=Keyword>Real</span><span class=Keyword><span style='font-weight:normal'>&quot;</span></span>
+| &quot;<span class=Keyword>Integer</span><span class=Keyword><span
+style='font-weight:normal'>&quot;</span></span> | &quot;<span class=Keyword>String</span><span
+class=Keyword><span style='font-weight:normal'>&quot;</span></span> | &quot;<span
+class=Keyword>Boolean</span><span class=Keyword><span style='font-weight:normal'>&quot;
+| &quot;</span></span><span class=Keyword>Character</span><span class=Keyword><span
+style='font-weight:normal'>&quot;</span></span> </p>
+
+<p class=Syntax><span class=ProductionName>Literal</span>     := <span
+class=ProductionName>Number</span> | <span class=ProductionName>String </span>|<span
+class=ProductionName> Character</span></p>
+
+<p class=Syntax><span class=ProductionName>BoolValue   </span>:= &quot;<span
+class=Keyword>True</span>&quot; | &quot;<span class=Keyword>False</span>&quot;</p>
+
+<p class=Syntax><span class=ProductionName>Comment</span>     := &quot;//&quot;
+<span style='color:#AEAAAA;background:white'>&lt; <i>any characters but \n</i>
+&gt; </span>'\n'</p>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span style='font-family:Consolas'>&nbsp;</span></p>
+
+<p class=Syntax>&nbsp;</p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Assert</h2>
+
+<p class=MsoNormal>A run-time test to verify correct operation.  Can display a
+message like a Display.</p>
+
+<h3><strong><span style='font-family:"Courier New";color:#2B78E4'>&nbsp;</span></strong>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>Assert</span>  :=  <span
+class=ProductionName>Expression</span> &quot;<span class=Keyword>IfNot</span>&quot;
+<span class=ProductionName>Expression+</span>            </p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=Example style='background:#FFFFD1;border:none;padding:0in'><strong><span
+style='font-family:"Courier New";color:blue'>Set</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> x&nbsp;&nbsp;&nbsp; = </span></strong><strong><span
+style='font-family:"Courier New";color:darkblue'>100</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'>&nbsp;</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+</span></b><strong><span style='font-family:"Courier New";color:blue'>Set</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> flag = </span></strong><strong><i><span
+style='font-family:"Courier New";color:darkred'>True</span></i></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+</span></b><strong><span style='font-family:"Courier New";color:blue'>Assert</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> x==</span></strong><strong><span
+style='font-family:"Courier New";color:darkblue'>100</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> </span></strong><strong><span
+style='font-family:"Courier New";color:blue'>IfNot</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> </span></strong><strong><span
+style='font-family:"Courier New";color:indigo'>&quot;Failed x, x=&quot;,x</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+</span></b><strong><span style='font-family:"Courier New";color:blue'>Assert</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> flag&nbsp;&nbsp; </span></strong><strong><span
+style='font-family:"Courier New";color:blue'>IfNot</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> </span></strong><strong><span
+style='font-family:"Courier New";color:indigo'>&quot;Failed flag true&quot;</span></strong></p>
+
+</div>
+
+<h3><strong><span style='font-family:"Courier New";color:#2B78E4'>&nbsp;</span></strong></h3>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Bool Expression</h2>
+
+<p class=Description>A <span class=Member>Boolean</span> expression can be only
+<span class=Member>True</span> or <span class=Member>False</span> and includes
+the comparison operators and the logical <span class=Member>AND</span>, <span
+class=Member>OR</span> operators.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>BoolExpression</span>  := <span
+class=ProductionName>BoolValue</span>                                |<br>
+                   <span class=ProductionName>Expression</span> <span
+class=ProductionName>CompareOperator</span> <span class=ProductionName>Expression</span>
+   |<br>
+                   <span class=ProductionName>BoolExpression</span> &quot;<span
+class=Keyword>OR</span>&quot; <span class=ProductionName>BoolExpression</span>       |<br>
+                   <span class=ProductionName>BoolExpression</span> &quot;<span
+class=Keyword>AND</span><span class=Keyword>&quot;</span> <span
+class=ProductionName>BoolExpression      </span>|<br>
+                   &quot;<span class=Keyword>NOT</span>&quot; <span
+class=ProductionName>BoolExpression</span></p>
+
+<p class=Syntax><span class=ProductionName>CompareOperator </span>:=<span
+class=ProductionName> </span>&quot;&lt;&quot; | &quot;&lt;=&quot; |
+&quot;==&quot; | &quot;&gt;=&quot; | &quot;&gt;&quot; | &quot;!=&quot;</p>
+
+<h4>Examples<span class=ProductionName><span style='font-style:normal'>:</span></span></h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'>&quot;Bob&quot;
+&gt; &quot;Ted&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>True</span></p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'>A
+&gt; B <span class=Keyword>AND</span> (C &lt;= D)</p>
+
+</div>
+
+<p class=MsoNormal><i>&nbsp;</i></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Call</h2>
+
+<p class=Description>Transfer control to a <span class=Member>Module</span>
+with optional arguments that match the Modules parameters by <span
+class=Member>Type</span>.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>CallStatement</span> := &quot;<span
+class=Keyword>Call</span>&quot; '(' <span class=ProductionName>Argument</span>*
+')'</p>
+
+<p class=Syntax><span class=ProductionName>Argument</span>  := <span
+class=ProductionName>Name</span> | <span class=ProductionName>Expression</span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'>       
+<span class=Keyword>Call</span>  getWeight(weight)</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>  
+     <span class=Keyword>Call</span>  getHeight(height)</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'>       
+<span class=Keyword>Call</span>  showBMI(weight, height)</p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:107%;font-family:
+Consolas'>&nbsp;</span></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Class</h2>
+
+<p class=Description>Defines a description of an object with methods and
+fields.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>ClassStatement</span> := &quot;<span
+class=Keyword>Class</span>&quot; <span class=ProductionName>Name</span></p>
+
+<p class=Syntax><span class=Keyword>                    (</span><span
+class=ProductionName>MethodStatement</span><span class=Keyword> | </span><span
+class=ProductionName>FunctionStatement</span><span class=Keyword>    | </span><span
+class=ProductionName>FieldStatement </span><span class=Keyword>| </span><span
+class=ProductionName>ConstantStatement)*</span></p>
+
+<p class=Syntax style='margin-left:1.0in;text-indent:.5in'><span class=Keyword>&quot;End&quot;
+&quot;Class&quot;</span><span class=Member> </span> </p>
+
+<p class=Syntax><span class=ProductionName>FieldStatement</span>    := (&quot;<span
+class=Keyword>Private</span>&quot; | &quot;<span class=Keyword>Public</span>&quot;
+) <span class=ProductionName>DeclareStatement</span></p>
+
+<p class=Syntax><span class=ProductionName>MethodStatement</span>   := (&quot;<span
+class=Keyword>Private</span>&quot; | &quot;<span class=Keyword>Public</span>&quot;
+) (<span class=ProductionName>FunctionStatement</span> | <span
+class=ProductionName>ModuleStatement</span>)</p>
+
+<h4>Examples:</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Class</span> CellPhone   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'>/<span style='color:#70AD47'>/ Field declarations  </span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Private</span> <span
+class=Keyword>String</span> manufacturer   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Private</span> <span
+class=Keyword>String</span> modelNumber   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Private</span> <span
+class=Keyword>Real</span> retailPrice   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span style='color:#70AD47'>// Method definitions   </span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Public</span> <span class=Keyword>Module</span>
+setManufacturer(String manufact)     </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>  Set</span> manufacturer =
+manufact   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>End</span> <span class=Keyword>Module</span>  
+</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Public</span> <span class=Keyword>Module</span>
+setModelNumber(String modNum)      </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>  Set</span> modelNumber = modNum  
+</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>End</span> <span class=Keyword>Module</span>  
+</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Public</span> <span class=Keyword>Module</span>
+setRetailPrice(Real retail)      </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>  Set</span> retailPrice =
+retail   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>End</span> <span class=Keyword>Module</span>  
+</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Public</span> <span class=Keyword>Function</span>
+<span class=Keyword>String</span> getManufacturer()      </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>  Return</span> manufacturer   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>End</span> <span class=Keyword>Function</span>  
+</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Public</span> <span class=Keyword>Function</span>
+<span class=Keyword>String</span> getModelNumber()      </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>  Return</span> modelNumber   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>End</span> <span class=Keyword>Function</span>  
+</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Public</span> <span class=Keyword>Function</span>
+<span class=Keyword>Real</span> getRetailPrice()      </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>  Return</span> retailPrice   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>End</span> <span class=Keyword>Function</span>  
+</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>Class</span></p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Calibri Light",sans-serif;color:#0D0D0D'><span style='text-decoration:
+ none'>&nbsp;</span></span></u></b></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Chart</h2>
+
+<p class=MsoNormal>Display a chart in the output panel.  </p>
+
+<p class=Syntax><span class=ProductionName>Chart       </span>:=<span
+class=ProductionName> &quot;</span><span class=Keyword>Chart&quot; </span><span
+class=ProductionName>Data </span>(','<span class=ProductionName> Data</span>)*  
+(<span class=ProductionName>Title </span>|<span class=ProductionName> </span> <span
+class=ProductionName>XTitle </span>|<span class=ProductionName> YTitle </span>|<span
+class=ProductionName> Grid</span>)*</p>
+
+<p class=Syntax><span class=ProductionName>XLables     </span>:= <span
+class=ProductionName> </span>',' <span class=Keyword>&quot;XLabels&quot;</span><span
+class=ProductionName> </span>'='<span class=ProductionName>  Array   </span></p>
+
+<p class=Syntax><span class=ProductionName>YLables     </span>:=<span
+class=ProductionName> </span>',' <span class=ProductionName> </span><span
+class=Keyword>&quot;YLabels&quot;</span><span class=ProductionName> </span>'='<span
+class=ProductionName> Array    </span></p>
+
+<p class=Syntax><span class=ProductionName>XTitle      </span>:=<span
+class=ProductionName> </span>','<span class=ProductionName> </span><span
+class=Keyword>&quot;XTitle&quot;</span><span class=ProductionName> </span>'='<span
+class=ProductionName> Expression</span></p>
+
+<p class=Syntax><span class=ProductionName>YTitle      </span>:=<span
+class=ProductionName> </span>','<span class=ProductionName> </span><span
+class=Keyword>&quot;YTitle&quot;</span><span class=ProductionName> </span>'='<span
+class=ProductionName> Expression</span></p>
+
+<p class=Syntax><span class=ProductionName>Title       </span>:= ','<span
+class=ProductionName> </span><span class=Keyword>&quot;Title&quot;</span><span
+class=ProductionName> </span>'='<span class=ProductionName> Expression</span></p>
+
+<p class=Syntax><span class=ProductionName>Grid        </span>:= ','<span
+class=ProductionName> </span><span class=Keyword>&quot;Grid&quot;</span><span
+class=ProductionName> </span>'='<span class=ProductionName> (</span><span
+class=Keyword>&quot;X&quot;</span><span class=ProductionName> </span>|<span
+class=ProductionName> </span><span class=Keyword>&quot;Y&quot; | &quot;XY&quot;</span><span
+class=ProductionName>)</span></p>
+
+<p class=Syntax><span class=ProductionName>Data        </span>:=<span
+class=ProductionName> Array <s><span style='background:yellow'>Color</span></s></span><s><span
+style='background:yellow'>?<span class=ProductionName> Pattern</span>?<span
+class=ProductionName> Thickness</span>?</span></s></p>
+
+<p class=Syntax><span class=ProductionName><s><span style='background:yellow'>Color      
+:= {standard color name}</span></s></span></p>
+
+<p class=Syntax><span class=ProductionName><s><span style='background:yellow'>Pattern    
+:= </span></s></span><span class=Keyword><s><span style='background:yellow'>&quot;DOT&quot;</span></s></span><span
+class=ProductionName><s><span style='background:yellow'> </span></s></span><s><span
+style='background:yellow'>|<span class=ProductionName> </span><span
+class=Keyword>&quot;DASH&quot;</span></span></s></p>
+
+<p class=Syntax><span class=ProductionName><s><span style='background:yellow'>Thickness  
+:= </span></s></span><span class=Keyword><s><span style='background:yellow'>&quot;Width&quot;
+</span></s></span><s><span style='background:yellow'>'='<span
+class=ProductionName> Expression</span></span></s></p>
+
+<p class=Syntax><span class=ProductionName>Array       := Expression                 </span><span
+class=DescriptionChar>// expression must evaluate to an 2+ dimensional array,
+array[0,i] is the x, array[1,i] is y1, etc.</span></p>
+
+<div>
+
+<table cellspacing=0 cellpadding=0 hspace=0 vspace=0 align=left>
+ <tr>
+  <td valign=top align=left style='padding-top:0in;padding-right:.1in;
+  padding-bottom:0in;padding-left:.1in'>
+  <div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+  background:#FFFFD1'>
+  <p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+  class=Keyword>Declare</span><span class=DescriptionChar>  </span><span
+  class=Keyword>Integer</span><span class=DescriptionChar> y[8]=
+  1,3,5,8,20,2,3,4</span></p>
+  <p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+  class=Keyword>Chart</span><span class=DescriptionChar> y BLUE DOT 2, </span><span
+  class=Keyword>Title</span><span class=DescriptionChar>=&quot;My Data&quot;, </span><span
+  class=Keyword>XTitle</span><span class=DescriptionChar>=&quot;X data&quot;, </span><span
+  class=Keyword>YTitle</span><span class=DescriptionChar>=&quot;Y data&quot;, </span><span
+  class=Keyword>Grid</span><span class=DescriptionChar>=</span><span
+  class=Keyword>XY</span></p>
+  </div>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=Syntax><span class=ProductionName>&nbsp;</span></p>
+
+<p class=Syntax><span class=ProductionName>                      </span></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Constant</h2>
+
+<p class=Description>Used to create a constant variable that cannot be changed.</p>
+
+<h3>Syntax:   </h3>
+
+<p class=Syntax><span class=ProductionName>ConstantStatement</span><span
+class=Keyword><span style='font-weight:normal'> := &quot;</span></span><span
+class=Keyword>Constant</span><span class=Keyword><span style='font-weight:normal'>&quot;</span></span>
+<span class=ProductionName>Type</span> <span class=ProductionName>Name</span>
+'=' <span class=ProductionName>Expression</span></p>
+
+<h4>Examples:</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Constant</span> <span class=Keyword>Integer</span>
+SECONDS_IN_MINUTE = 60</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Constant</span> <span class=Keyword>String</span> Title =
+&quot;Test of Time&quot;</p>
+
+</div>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>8.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Declare</h2>
+
+<p class=Description>Used to create variables of a specific type.</p>
+
+<h3>Syntax:   </h3>
+
+<p class=Syntax><span class=ProductionName>DeclareStatement</span><span
+class=Keyword><span style='font-weight:normal'>  := &quot;</span></span><span
+class=Keyword>Declare</span><span class=Keyword><span style='font-weight:normal'>&quot;</span></span>
+<span class=ProductionName>TypeClause</span> (',' <span class=ProductionName>TypeClause</span>)*</p>
+
+<p class=Syntax><span class=ProductionName>TypeClause</span>        := <span
+class=ProductionName>Type</span> <span class=ProductionName>NameClause</span>
+(',' <span class=ProductionName>SimpleClause | ArrayClause</span>)*</p>
+
+<p class=Syntax><span class=ProductionName>SimpleClause</span>      := <span
+class=ProductionName>Name </span>['=' <span class=ProductionName>Expression </span>]</p>
+
+<p class=Syntax><span class=ProductionName>ArrayClause</span>       := <span
+class=ProductionName>Name</span>'[' <span class=ProductionName>Number</span>
+']' ['=' <span class=ProductionName>Expression </span>(','<span
+class=ProductionName> Expression</span>)*</p>
+
+<h4>Examples:</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword><span style='font-weight:normal'>Declare</span></span> <span
+class=Keyword><span style='font-weight:normal'>Real</span></span> Seconds, BMI</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword><span style='font-weight:normal'>Declare</span></span> <span
+class=Keyword><span style='font-weight:normal'>Integer</span></span> Weight =
+100, <span class=Keyword><span style='font-weight:normal'>Real</span></span>
+Speed = 10.0, <span class=Keyword><span style='font-weight:normal'>String</span></span>
+Name = &quot;Test of Time&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword><span style='font-weight:normal'>Constant</span></span> <span
+class=Keyword><span style='font-weight:normal'>Integer</span></span> SIZE = 5</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword><span style='font-weight:normal'>Declare</span></span> <span
+class=Keyword><span style='font-weight:normal'>Integer</span></span>
+numbers[SIZE] = 5, 10, 15, 20, 25</p>
+
+</div>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>9.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp; </span></span>Display</h2>
+
+<p class=Description>Used to output to the console.  Strings can contain \ to
+escape the following:  \r == <span class=Keyword>CR,</span> \f == <span
+class=Keyword>CLR,</span> \a == <span class=Keyword>BEL, </span>\&quot; ==
+&quot;, \uXXXX is a Unicode character of 4 hex digits.</p>
+
+<p class=Description><span class=Keyword>CR</span> is carriage return<br>
+<span class=Keyword>CLR</span> is clear output screen<br>
+<span class=Keyword>BEL</span> is sound bell</p>
+
+<h3>Syntax:   </h3>
+
+<p class=Syntax><span class=ProductionName>DisplayStatement</span>  :=<span
+class=Keyword> &quot;Display&quot;</span> <span class=ProductionName>Argument</span>
+(',' <span class=ProductionName>Argument</span>)*</p>
+
+<p class=Syntax><span class=ProductionName>Argument</span>          := <span
+class=ProductionName>Name</span> | <span class=ProductionName>Expression </span>|
+<span class=ProductionName>CR </span>|<span class=ProductionName> CLR </span>| <span
+class=ProductionName>BEL </span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Display</span> &quot;This is a message&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Display</span> MyVariable, MyOtherVariable, 10, &quot;Test
+Message&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Display</span> 10*56+1</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Display </span>&quot;Your weight is optimal.&quot;</p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Unicode box characters can be defined like this:</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+VERT_BAR         = &quot;\u2502&quot;  </p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+HORZ_BAR         = &quot;\u2500&quot;</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+CROSS_BAR        = &quot;\u253C&quot;</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+LEFT_TOP_CORNER  = &quot;\u250C&quot;</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+LEFT_BOT_CORNER  = &quot;\u2514&quot;</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+RIGHT_TOP_CORNER = &quot;\u2510&quot;</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+RIGHT_BOT_CORNER = &quot;\u2518&quot;</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+RIGHT_MID_T      = &quot;\u251C&quot;</p>
+
+<p class=MsoNormal>        <span class=Keyword> Constant String</span>
+LEFT_MID_T       = &quot;\u2524&quot;<br clear=all style='page-break-before:
+always'>
+</p>
+
+<p class=Description>&nbsp;</p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>10.</span>Do-Until</h2>
+
+<p class=Description>Loop over statement(s) until the <span
+class=ProductionName><span style='font-style:normal'>BoolExpression</span></span>
+is true (continue while it is false). Executes statements at least once.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>DoUntilStatement</span> := &quot;<span
+class=Keyword>Do</span>&quot; <br>
+                        <span class=ProductionName>Statement</span>*<br>
+                    &quot;<span class=Keyword>Until</span>&quot; <span
+class=ProductionName>BoolExpression</span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Set</span> count = 10</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Do</span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> count    </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Set</span> count = count - 1</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Until</span> count == 0</p>
+
+</div>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>11.</span>Do-While</h2>
+
+<p class=Description>Loop over statement(s) while the <span
+class=ProductionName><span style='font-style:normal'>BoolExpression</span></span>
+is true (continue while it is true). Executes statements at least once.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>DoWhiletatement</span> := &quot;<span
+class=Keyword>Do</span>&quot; <br>
+                        <span class=ProductionName>Statement</span>*<br>
+                    &quot;<span class=Keyword>While</span>&quot; <span
+class=ProductionName>BoolExpression</span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Set</span><span class=Keyword><span style='font-weight:normal'>
+count = 10</span></span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Do</span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span><span class=Keyword><span
+style='font-weight:normal'> count    </span></span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Set</span><span class=Keyword><span
+style='font-weight:normal'> count = count - 1</span></span></p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>While</span><span class=Keyword><span style='font-weight:normal'>
+count &gt; 0</span></span></p>
+
+</div>
+
+<span class=Keyword><span style='font-size:11.0pt;line-height:107%;font-family:
+"Calibri",sans-serif;font-weight:normal'><br clear=all style='page-break-before:
+always'>
+</span></span>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:107%;font-family:
+Consolas'>&nbsp;</span></p>
+
+<p class=MsoNormal><span class=Keyword><span style='font-size:10.0pt;
+line-height:107%;font-family:Consolas'>&nbsp;</span></span></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>12.</span>ExpectFail</h2>
+
+<p class=MsoNormal>A run-time testing structure to trap run-time errors and report
+that the error occurred.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>ExpectFail</span>  := &quot;<span
+class=Keyword>ExpectFail</span>&quot;  <span class=ProductionName>Statement+</span>
+&quot;<span class=Keyword>End ExpectFail</span>&quot;          </p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=Example style='background:#FFFFD1;border:none;padding:0in'><strong><span
+style='font-family:"Courier New";color:#2B78E4'>&nbsp;</span></strong><strong><span
+style='font-family:"Courier New";color:blue'>Module</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> main()</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+<strong><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></span></b><strong><span
+style='font-family:"Courier New";color:blue'>Call</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> Test(</span></strong><strong><span
+style='font-family:"Courier New";color:darkblue'>300</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'>)</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+<strong><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></span></b><strong><span
+style='font-family:"Courier New";color:blue'>ExpectFail</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+<strong><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></span></b><strong><span
+style='font-family:"Courier New";color:blue'>Call</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> Test(</span></strong><strong><span
+style='font-family:"Courier New";color:darkblue'>3.3</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'>) </span></strong><strong><span
+style='font-family:"Courier New";color:green'>// expects an integer, loss of
+precision with real</span></strong><b><span style='font-family:"Courier New";
+color:#2B78E4'><br>
+<strong><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></span></b><strong><span
+style='font-family:"Courier New";color:blue'>End</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> </span></strong><strong><span
+style='font-family:"Courier New";color:blue'>ExpectFail</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+</span></b><strong><span style='font-family:"Courier New";color:blue'>End</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> </span></strong><strong><span
+style='font-family:"Courier New";color:blue'>Module</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+<br>
+</span></b><strong><span style='font-family:"Courier New";color:blue'>Module</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> Test(</span></strong><strong><i><span
+style='font-family:"Courier New";color:darkblue'>Integer</span></i></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> v)</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+<strong><span style='font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;</span></strong></span></b><strong><span
+style='font-family:"Courier New";color:blue'>Display</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> </span></strong><strong><span
+style='font-family:"Courier New";color:indigo'>&quot;Result is &quot;</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'>,v</span></strong><b><span
+style='font-family:"Courier New";color:#2B78E4'><br>
+</span></b><strong><span style='font-family:"Courier New";color:blue'>End</span></strong><strong><span
+style='font-family:"Courier New";color:#2B78E4'> </span></strong><strong><span
+style='font-family:"Courier New";color:blue'>Module</span></strong></p>
+
+</div>
+
+<p>&nbsp;</p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>13.</span>Expression</h2>
+
+<p class=Description>A <span class=Member>mathematical</span> expression can be
+a variable <span class=Member>Name</span>, a <span class=Member>Literal</span>
+or a binary operation or a unary operation. Precidence is controlled by
+parentheses. </p>
+
+<h3>Syntax:</h3>
+
+<h4><span class=ProductionName><span style='font-style:normal'>Expression       :=
+Name           <br>
+                           Name  '[' Expression ']' ['[' Expression ']']                             
+    |<br>
+                           Literal                                                                                    |<br>
+                           Expression ('</span></span><span class=Keyword>+</span><span
+class=ProductionName><span style='font-style:normal'>' | '</span></span><span
+class=Keyword>-</span><span class=ProductionName><span style='font-style:normal'>'
+| '</span></span><span class=Keyword>*</span><span class=ProductionName><span
+style='font-style:normal'>' | '/' | '</span></span><span class=Keyword>^</span><span
+class=ProductionName><span style='font-style:normal'>' | &quot;</span></span><span
+class=Keyword>MOD</span><span class=ProductionName><span style='font-style:
+normal'>&quot;) Expression                |<br>
+                           '+' Expression                                                                         |<br>
+                           '-' Expression                                                                         |<br>
+                           '(' Expression ')'</span></span><br>
+Examples<span class=ProductionName><span style='font-style:normal'>:</span></span></h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'>&quot;Test
+Message&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Declare</span> <span class=Keyword>Real</span> Weight=1, <span
+class=Keyword>Real</span> Height = 100, <span class=Keyword>Real</span>
+duration= -5, <span class=Keyword>Real</span> Array[50],<span class=Keyword>Integer</span>
+x=1, Integer Array2[5][3]</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>(Weight+100)*10
+/ (Height ^ 2)</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>+10
+– ( -duration)</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>Array[x]
+*10</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'>Array2[1][x]
++ 100</p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:107%;font-family:
+Consolas'>&nbsp;</span></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>14.</span>For</h2>
+
+<p class=Description>Loops over a range of values defined by an initial
+expression and a final expression.  Each time the statements are evaluated with
+the variable Name, having initially the starting value, then incrementing by 1,
+and the statements execute again.  This loops until the value of Name is equal
+the final expression. </p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>ForStatement</span>  := &quot;<span
+class=Keyword>For</span>&quot; <span class=ProductionName>Name</span> '=' <span
+class=ProductionName>Expression</span> &quot;<span class=Keyword>To</span>&quot;
+<span class=ProductionName>Expression </span>[<span class=ProductionName>
+&quot;</span><span class=Keyword>Step</span><span class=ProductionName>&quot;
+Expression</span>]<br>
+                        <span class=ProductionName>Statement</span>*<br>
+                  &quot;<span class=Keyword>End</span>&quot; &quot;<span
+class=Keyword>For</span>&quot;</p>
+
+<p class=Syntax>            </p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Declare</span><span class=Keyword><span style='font-weight:normal'>
+</span></span><span class=Keyword>Integer</span><span class=Keyword><span
+style='font-weight:normal'> counter</span></span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>For</span> counter = 1 <span class=Keyword>To</span> 10 </p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Display</span> &quot;Hello world: &quot;,counter</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>For</span></p>
+
+</div>
+
+<p class=MsoNormal><span class=Keyword><span style='font-size:10.0pt;
+line-height:107%;font-family:Consolas'>&nbsp;</span></span></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>15.</span>ForEach</h2>
+
+<p class=Description>Loops over all members of an array, assigning the Name the
+value of each member of the array and executing the Statements in the body. 
+The loop may have an optional step to add to the counter on each iteration.  A
+negative step causes the counter to run backwards, initial value is greater
+than the Test expression (final value).</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>ForStatement</span>  := &quot;<span
+class=Keyword>ForEach</span>&quot; <span class=ProductionName>Name</span> '=' <span
+class=ProductionName>ArrayName<br>
+</span>                        <span class=ProductionName>Statement</span>*<br>
+                  &quot;<span class=Keyword>End</span>&quot; &quot;<span
+class=Keyword>For</span><span class=Keyword>Each</span>&quot;</p>
+
+<p class=Syntax><span class=ProductionName>ArrayName</span>     := <span
+class=ProductionName>Name</span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>       Constant</span> <span class=Keyword>Integer</span> SIZE =
+5</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Declare</span> <span class=Keyword>Integer</span> numbers[SIZE] =
+5, 10, 15, 20, 25</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Declare</span> <span class=Keyword>Integer</span> num</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>For</span> <span class=Keyword>Each</span> num <span
+class=Keyword>In</span> numbers   </p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>              <span
+class=Keyword>Display</span> num</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>       End</span> <span class=Keyword>For</span><span
+class=Keyword>Each</span></p>
+
+</div>
+
+<span class=Keyword><span style='font-size:11.0pt;line-height:107%;font-family:
+"Calibri",sans-serif'><br clear=all style='page-break-before:always'>
+</span></span>
+
+<p class=MsoNormal><span class=Keyword><span style='font-size:10.0pt;
+line-height:107%;font-family:Consolas'>&nbsp;</span></span></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>16.</span>Function</h2>
+
+<p class=Description>Transfer control to a <span class=Member>Function</span>
+with optional arguments that match the <span class=Member>Functions</span>
+parameters by <span class=Member>Type</span>. A value is returned by the <span
+class=Member>Return</span> statement in the function and the returned type is
+defined in the Function declaration.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>FunctionStatement</span> := &quot;<span
+class=Keyword>Function</span>&quot; <span class=ProductionName>Type</span> <span
+class=ProductionName>Name</span> '<span class=Keyword>'(' </span><span
+class=ProductionName>Parameter</span><span class=Keyword> (',' </span><span
+class=ProductionName>Parameter</span><span class=Keyword>)* ')'</span></p>
+
+<p class=Syntax style='margin-left:1.5in;text-indent:.5in'><span class=Keyword> (</span><span
+class=ProductionName>Statement | ReturnStatement)*</span><span class=Keyword> </span></p>
+
+<p class=Syntax style='margin-left:1.5in'><span class=Keyword>   
+&quot;End&quot; &quot;Function&quot;</span><span class=Member> </span> </p>
+
+<p class=Syntax><span class=ProductionName>Parameter</span>         := <span
+class=ProductionName>Type</span> [&quot;<span class=Keyword>Ref</span>&quot;] <span
+class=ProductionName>Name</span> </p>
+
+<p class=Syntax><span class=ProductionName>ReturnStatement</span>   := &quot;<span
+class=Keyword>Return</span>&quot; <span class=ProductionName>Expression</span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Function</span> <span class=Keyword>Integer</span> sum(<span
+class=Keyword>Integer</span> num1, <span class=Keyword>Integer</span> num2)   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Declare</span> Integer result   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'>S<span class=Keyword>e</span>t result = num1 + num2   </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Return</span> result</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>Function</span></p>
+
+</div>
+
+<span class=Keyword><span style='font-size:11.0pt;line-height:107%;font-family:
+"Calibri",sans-serif'><br clear=all style='page-break-before:always'>
+</span></span>
+
+<p class=MsoNormal><span class=Keyword><span style='font-size:10.0pt;
+line-height:107%;font-family:Consolas'>&nbsp;</span></span></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>17.</span>If</h2>
+
+<p class=Description>Transfer control to a <span class=Member>Module</span>
+with optional arguments that match the Modules parameters by <span
+class=Member>Type</span>.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>IfStatement</span>     := &quot;<span
+class=Keyword>If</span>&quot; <span class=ProductionName>BoolExpression</span>
+&quot;<span class=Keyword>Then</span>&quot;<br>
+                        <span class=ProductionName>Statement</span>+<br>
+                   [&quot;<span class=Keyword>Else</span>&quot; [&quot;<span
+class=Keyword>If</span>&quot; <span class=ProductionName>BoolExpression</span>
+&quot;<span class=Keyword>Then</span>&quot;] <span class=ProductionName>Statement</span>+
+]<br>
+                   &quot;<span class=Keyword>End</span>&quot; &quot;<span
+class=Keyword>If</span>&quot;</p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+style='color:#70AD47'>// If Form</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>If</span> sales &gt; 50000 <span class=Keyword>Then</span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Set</span> bonus = 500.0</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Set</span> commissionRate = 0.12</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> &quot;You've met
+your sales quota!&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>If</span>  </p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>&nbsp;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+style='color:#70AD47'>// If-Else form</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>If</span> temperature &lt; 40 <span class=Keyword>Then</span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> &quot;A little cold,
+isn't it?&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Else</span></p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> &quot;Nice weather
+we're having.&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>If</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+style='color:#70AD47'>// If-Else-If form</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>If</span> x &lt; 10 <span class=Keyword>Then</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Display</span> &quot;x is less than 10&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Else</span> <span class=Keyword>If</span> x &lt; 20 <span
+class=Keyword>Then</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Display</span> &quot;x is less than 20 and greater than or equal
+to 10&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Else</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Display</span> &quot;x is greater than or equal to 20&quot;</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>If</span></p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+background:lightgrey'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%;
+font-family:"Calibri Light",sans-serif;color:#0D0D0D;background:lightgrey'>&nbsp;</span></b></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>18.</span>Input</h2>
+
+<p class=Description>Used to get input from the console.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>InputStatement</span><span
+class=Keyword> := &quot;Input&quot;</span> <span class=ProductionName>Name</span>
+(',' <span class=ProductionName>Name</span>)*</p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Input</span> MyVariable1, MyVariable2</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Input</span> Weight</p>
+
+</div>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>19.</span>Module</h2>
+
+<p class=Description>Used to define a computational unit or a component of a
+program.<span class=Member> Parameter</span> defines a <span class=Member>Type</span>
+optional <span class=Member>Ref</span> and the <span class=Member>Name</span>
+of the variable.  Separated by commas.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>ModuleStatement</span><span
+class=Keyword> := &quot;Module&quot; '(' </span><span class=ProductionName>Parameter</span><span
+class=Keyword> (',' </span><span class=ProductionName>Parameter</span><span
+class=Keyword>)* ')' </span><span class=ProductionName>Statement*</span><span
+class=Keyword> &quot;End&quot; &quot;Module&quot;</span><span class=Member> </span> </p>
+
+<p class=Syntax><span class=ProductionName>Parameter</span> := <span
+class=ProductionName>Type</span> [&quot;<span class=Keyword>Ref</span>&quot;] <span
+class=ProductionName>Name</span> </p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Module</span> getWeight (<span class=Keyword>Real</span> <span
+class=Keyword>Ref</span> weight)</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Display</span> &quot;Enter your weight in pounds: &quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Input</span> weight</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End Module</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Module</span> showTime (<span class=Keyword>Integer</span>
+Seconds, <span class=Keyword>Integer</span> Days, <span class=Keyword>Integer</span>
+Hours, <span class=Keyword>Integer</span> Minutes)</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> &quot;Days: &quot;,
+Days</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> &quot;Hours:
+&quot;, Hours</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> &quot;Minutes:
+&quot;, Minutes</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> &quot;Seconds:
+&quot;, Seconds</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>Module</span></p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+background:lightgrey'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%;
+font-family:"Calibri Light",sans-serif;color:#0D0D0D;background:lightgrey'>&nbsp;</span></b></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>20.</span>Program</h2>
+
+<p class=MsoNormal>A list of statements to execute.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>Program</span>           := [&quot;<span
+class=Keyword>Program</span>&quot;]  <span class=ProductionName>Statement</span>*
+[&quot;<span class=Keyword>End</span>&quot; &quot;<span class=Keyword>Program</span>&quot;]</p>
+
+<p class=Syntax><span class=ProductionName>Statement</span>         := <span
+class=ProductionName>DeclareStatement</span>     |<br>
+                     <span class=ProductionName>InputStatement</span>       |<br>
+                     <span class=ProductionName>DisplayStatement</span>     |<br>
+                     <span class=ProductionName>SetStatement</span>         |<br>
+                     <span class=ProductionName>ModuleStatement</span>      |<br>
+                     <span class=ProductionName>CallStatement</span>        |<br>
+                     <span class=ProductionName>IfStatement</span>          |<br>
+                     <span class=ProductionName>SelectStatement</span>      |<br>
+                     <span class=ProductionName>WhileStatement</span>       |<br>
+                     <span class=ProductionName>DoWhileStatement</span>     |<br>
+                     <span class=ProductionName>DoUntilStatement</span>     |<br>
+                     <span class=ProductionName>ForStatement</span>         |<br>
+                     <span class=ProductionName>ForEachStatement</span>     |<br>
+                     <span class=ProductionName>ClassStatement</span>       |<br>
+                     <span class=ProductionName>FunctionStatement</span>   </p>
+
+<h4>Examples<span class=ProductionName><span style='font-style:normal'>:</span></span></h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Program</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>       <span
+class=Keyword>Display</span> &quot;Hello World&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>Program</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>&nbsp;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+style='color:#70AD47'>// without Program syntax</span></p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'>&nbsp;</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Display</span> &quot;Hello World&quot;</p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:107%;font-family:
+Consolas'>&nbsp;</span></p>
+
+<p class=Description>&nbsp;</p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>21.</span>Select</h2>
+
+<p class=Description>Allows the selection of code to execute based on a set of
+matching values along with a default (nothing matches option).</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>SelectStatement</span> := &quot;<span
+class=Keyword>Select</span>&quot; <span class=ProductionName>Expression</span> <br>
+                        (<span class=ProductionName>CaseStatement</span> | <span
+class=ProductionName>DefaultStatement</span>)*<br>
+                    &quot;<span class=Keyword>End</span>&quot; &quot;<span
+class=Keyword>Select</span>&quot;</p>
+
+<p class=Syntax><span class=ProductionName>CaseStatement     </span>:=<span
+class=ProductionName> &quot;</span><span class=Keyword>Case</span><span
+class=ProductionName>&quot; Literal ':' Statement*</span></p>
+
+<p class=Syntax><span class=ProductionName>DefaultStatement  </span>:=<span
+class=ProductionName> &quot;</span><span class=Keyword>Default</span><span
+class=ProductionName>&quot; ':' Statements*</span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Select</span> month</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Case</span> 1:</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>       Display</span>
+&quot;January&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>       Case</span> 2:</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>       Display</span>
+&quot;February&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>       Case</span> 3:</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>       Display</span>
+&quot;March&quot;</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>       Default</span>:</p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>       Display</span> &quot;Error:
+Invalid month&quot;</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>Select</span></p>
+
+</div>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>22.</span>Set</h2>
+
+<p class=Description>Assign a value to a variable.  The variable must be
+declared before it can be assigned.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>SetStatement</span>      := &quot;<span
+class=Keyword>Set</span>&quot; <span class=ProductionName>Name</span> '=' <span
+class=ProductionName>Expression<br>
+<br>
+</span></p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Set </span>weight = 150</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Set </span>MyName = &quot;Grace Hopper&quot;</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Set</span> BMI = weight * (703 / height ^ 2)</p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+background:lightgrey'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%;
+font-family:"Calibri Light",sans-serif;color:#0D0D0D;background:lightgrey'>&nbsp;</span></b></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>23.</span>While</h2>
+
+<p class=Description>Loop over statement(s) while the <span
+class=ProductionName><span style='font-style:normal'>BoolExpression</span></span>
+is true (continue while it is true). Tests each time before statements are
+executed.</p>
+
+<h3>Syntax:</h3>
+
+<p class=Syntax><span class=ProductionName>WhileStatement</span> := &quot;<span
+class=Keyword>While</span>&quot; <span class=ProductionName>BoolExpression</span><br>
+                        <span class=ProductionName>Statement</span>*<br>
+                   &quot;<span class=Keyword>End</span>&quot; &quot;<span
+class=Keyword>While</span>&quot;</p>
+
+<h4>Examples</h4>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#FFFFD1'>
+
+<p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>Set</span> count = 0</p>
+
+<p class=ExampleCxSpMiddle style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>While</span> count &lt; 10    </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Display</span> count    </p>
+
+<p class=ExampleCxSpMiddle style='text-indent:.5in;background:#FFFFD1;
+border:none;padding:0in'><span class=Keyword>Set</span> count = count + 1</p>
+
+<p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+class=Keyword>End</span> <span class=Keyword>While</span></p>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif;
+background:silver'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><b><span style='font-size:14.0pt;line-height:107%;
+font-family:"Calibri Light",sans-serif;color:#0D0D0D;background:silver'>&nbsp;</span></b></p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>24.</span> Elevator</h2>
+
+<p class=MsoNormal>The Elevator support routines require that a class Elevator
+be created with the following structure:</p>
+
+<p class=MsoNormal><span class=Keyword>Class</span> <span class=Member>Elevator</span><br>
+<br>
+&nbsp;&nbsp;&nbsp;<span class=Keyword>&nbsp;Public Integer</span> <span
+class=Member>currentDirection</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                          
+&nbsp;&nbsp;<span style='font-family:Courier;color:green'>// Current direction </span><span
+style='font-size:9.0pt;line-height:107%;font-family:Courier;color:green'>up=2/down=1/stopped=0</span><br>
+&nbsp;&nbsp;&nbsp;<span class=Keyword>&nbsp;Public Integer</span> <span
+class=Member>currentFloor</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                             
+ &nbsp;<span style='font-family:Courier;color:green'>// Current floor number</span><br>
+&nbsp;&nbsp;&nbsp;<span class=Keyword>&nbsp;Public Boolean</span> <span
+class=Member>floorButtonPressedUp</span>[FLOOR_COUNT]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+&nbsp;&nbsp;<span style='font-family:Courier;color:green'>// Up button by floor</span><br>
+&nbsp;&nbsp;&nbsp;<span class=Keyword>&nbsp;Public Boolean</span> <span
+class=Member>floorButtonPressedDown</span>[FLOOR_COUNT]&nbsp;&nbsp;&nbsp;&nbsp;<span
+style='font-family:Courier;color:green'>// Down button by floor</span><br>
+&nbsp;&nbsp;&nbsp;<span class=Keyword>&nbsp;Public Boolean</span> <span
+class=Member>floorStops</span>[FLOOR_COUNT]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
+     &nbsp;<span style='font-family:Courier;color:green'>// List of buttons
+press</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<span style='font-family:Courier;color:green'>/////////////////////////////////////////////////////////////////////////////////</span><br>
+&nbsp;&nbsp;<span style='font-family:Courier;color:green'>// Decide what floor
+to go to next.</span><br>
+&nbsp;&nbsp;<span style='font-family:Courier;color:green'>// Returns a number
+between 1 and FloorCount&nbsp;&nbsp;inclusively&nbsp;<br>
+ //&nbsp;(1 based floor number)</span><br>
+&nbsp;&nbsp;<span style='font-family:Courier;color:green'>/////////////////////////////////////////////////////////////////////////////////</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=Keyword>Public Function Integer</span> <span
+class=Member>decideNextFloor</span>()</p>
+
+<p class=MsoNormal>     <span class=Keyword>End Function</span></p>
+
+<p class=MsoNormal>The class members above are populated with the current
+values and can be used in the decideNextFloor function.</p>
+
+<p class=MsoNormal>Built in Modules:</p>
+
+<p class=Syntax><span class=Heading4Char>Syntax</span>:</p>
+
+<p class=Syntax><span class=ProductionName>InitElevator</span> := &quot;<span
+class=Keyword>initElevator</span><span class=Keyword>&quot; '(' </span><span
+class=MsoIntenseEmphasis>floorCount</span><span class=Keyword> ',' </span><span
+class=MsoIntenseEmphasis>elevatorCount</span><span class=Keyword> ',' </span><span
+class=MsoIntenseEmphasis>maxPassengers</span><span class=Keyword> ',' </span><span
+class=MsoIntenseEmphasis>spawnRate</span><span class=Keyword> ',' </span><span
+class=MsoIntenseEmphasis>maxTime</span><span class=Keyword> ',' </span><span
+class=MsoIntenseEmphasis>elevator</span><span class=Keyword> ')'</span></p>
+
+<p class=Syntax><span class=Keyword>&nbsp;</span></p>
+
+<p class=Syntax><span class=Keyword>floorCount        </span><span
+class=MsoBookTitle>- number of floors 2-200</span><span class=Keyword><br>
+elevatorCount     </span><span class=MsoBookTitle>– number of elevators 1-5</span><span
+class=Keyword><br>
+maxPassangers     </span><span class=MsoBookTitle>- number of passangers
+allowed 3-20</span><span class=Keyword><br>
+spanRate          </span><span class=MsoBookTitle>- rate of passanger spawn, .5
+is one every 2 seconds.</span><span class=Keyword><br>
+maxTime           </span><span class=MsoBookTitle>- time in seconds to run
+simulation</span><span class=Keyword><br>
+elevator          </span><span class=MsoBookTitle>- the elevator object with
+the above fields to use for simulation</span></p>
+
+<p class=Syntax><span class=ProductionName>StartElevator</span><span
+class=Keyword>     := &quot;startElevator&quot; '(' ')'.</span></p>
+
+<p class=Syntax><span class=ProductionName>IsElevatorRunning</span><span
+class=Keyword> := &quot;isElevatorRunning '(' ')'.</span></p>
+
+<div>
+
+<table cellspacing=0 cellpadding=0 hspace=0 vspace=0 align=left>
+ <tr>
+  <td valign=top align=left style='padding-top:0in;padding-right:.1in;
+  padding-bottom:0in;padding-left:.1in'>
+  <div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+  background:#FFFFD1'>
+  <p class=ExampleCxSpFirst style='background:#FFFFD1;border:none;padding:0in'><span
+  class=Keyword>Declare</span> Elevator elevator = <span class=Keyword>New</span>
+  Elevator()<br>
+  <span class=Keyword>Set</span> elevator.currentDirection = UP<br>
+  <span class=Keyword>Call</span> <span class=Member>initElevator</span>(FLOOR_COUNT,<span
+  style='font-family:Courier;color:darkblue'>1</span>,<span style='font-family:
+  Courier;color:darkblue'>4</span>, SPAWN_RATE,<span style='font-family:Courier;
+  color:darkblue'>100</span>, elevator)</p>
+  <p class=ExampleCxSpLast style='background:#FFFFD1;border:none;padding:0in'><span
+  class=Keyword>Call</span> <span class=Member>startElevator</span>()</p>
+  </div>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2 style='margin-left:.25in'><span style='text-decoration:none'>25.</span>Built-In
+Functions</h2>
+
+<p class=MsoNormal>These functions can be called from any code in a <span
+class=Keyword>Module</span>, <span class=Keyword>Function</span> or in the <span
+class=Keyword>Program</span></p>
+
+<table class=MsoTable15List3Accent1 border=1 cellspacing=0 cellpadding=0
+ align=left width=1055 style='width:791.6pt;border-collapse:collapse;
+ border:none;margin-left:6.75pt;margin-right:6.75pt'>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:solid #5B9BD5 1.0pt;border-bottom:none;border-right:none;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='color:white'>Return Type</span></b></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;border-top:solid #5B9BD5 1.0pt;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='color:white'>Function</span></b></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;border-top:solid #5B9BD5 1.0pt;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='color:white'>Description</span></b></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;border-top:solid #5B9BD5 1.0pt;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='color:white'>Example</span></b></p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:none;border-right:solid #5B9BD5 1.0pt;
+  background:#5B9BD5;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><b><span style='color:white'>Result</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+  margin-left:.5in;margin-bottom:.0001pt;text-indent:-.5in;line-height:normal'><span
+  class=Keyword><span style='color:#00B0F0'>append</span></span><span
+  class=ProductionName>(</span><span class=Keyword>String</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>text</span><span
+  class=ProductionName>, </span><span class=Keyword>String</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>text2</span><span
+  class=ProductionName>)         </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Concatenates <span class=MsoIntenseEmphasis>text</span>
+  and <span class=MsoIntenseEmphasis>text2</span>. </p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>append</span>(&quot;Hello &quot;,&quot;World&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>  s == &quot;Hello World&quot;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>startsWith</span></span><span
+  class=ProductionName>(</span><span class=Keyword>String</span><span
+  class=ProductionName> text, </span><span class=Keyword>String</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>startText</span><span
+  class=ProductionName>)</span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Tests if <span class=MsoIntenseEmphasis>text</span>
+  starts with <span class=MsoIntenseEmphasis>startText</span>.</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>startsWith</span>(&quot;Hello&quot;, &quot;He&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == <span class=Keyword>true</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Integer</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>length</span></span><span
+  class=ProductionName>(</span><span class=Keyword>String</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>text</span><span
+  class=ProductionName>)</span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Returns the length of the <span class=MsoIntenseEmphasis>text</span>.</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Integer</span> len = <span
+  class=Keyword>length</span>(&quot;hello&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>len == 5</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>toUpper</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>)</span><span class=Keyword>   </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Converts <span class=MsoIntenseEmphasis>text</span> to
+  all uppercase</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>toUpper</span>(&quot;Ted1&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>s == &quot;TED1&quot;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>toLower</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>)</span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Converts <span class=MsoIntenseEmphasis>text</span> to
+  all lowercase</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>toLower</span>(&quot;Ted1&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun style='margin-left:.5in;text-indent:-.5in'>s == &quot;ted1&quot;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>substring</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>, Integer </span><span class=MsoIntenseEmphasis>start</span><span
+  class=Keyword>, Integer </span><span class=MsoIntenseEmphasis>end</span><span
+  class=Keyword>)      </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Extracts a sub-string from <span
+  class=MsoIntenseEmphasis>text</span> starting at <span
+  class=MsoIntenseEmphasis>start</span> to <span class=MsoIntenseEmphasis>end</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>substring</span>(&quot;MarySmith&quot;,0,3)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>s == &quot;Mary&quot;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>currency</span></span><span
+  class=Keyword>(Real </span><span class=MsoIntenseEmphasis>num</span><span
+  class=Keyword>)</span><span class=ProductionName>       </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Formats the <span class=MsoIntenseEmphasis>number</span>
+  as currency</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>currency</span>(1.2343284)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>s == $1.23</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>contains</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>, String </span><span class=MsoIntenseEmphasis>test</span><span
+  class=Keyword>)</span><span class=Keyword>       </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Tests if <span class=MsoIntenseEmphasis>text</span>
+  contain the string <span class=MsoIntenseEmphasis>text</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>contains</span>(&quot;1234&quot;,&quot;3&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == true</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>insert</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>, Integer </span><span class=MsoIntenseEmphasis>pos</span><span
+  class=Keyword>, String </span><span class=MsoIntenseEmphasis>ins</span><span
+  class=Keyword>)</span><span class=ProductionName>         </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Insert a string <span class=MsoIntenseEmphasis>ins</span>
+  at position <span class=MsoIntenseEmphasis>pos</span> in <span
+  class=MsoIntenseEmphasis>text</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>insert</span>(&quot;this&quot;,1,&quot;e &quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>s == &quot;the is&quot;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>delete</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>, Integer </span><span class=MsoIntenseEmphasis>start</span><span
+  class=Keyword>, Integer </span><span class=MsoIntenseEmphasis>end</span><span
+  class=Keyword>)</span><span class=ProductionName>         </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Delete part of <span class=MsoIntenseEmphasis>text</span>
+  from <span class=MsoIntenseEmphasis>start</span> to <span
+  class=MsoIntenseEmphasis>end</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>delete</span>(&quot;this&quot;,1,2)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>s == &quot;ts&quot;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Integer</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>stringToInteger</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>)</span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Convert a <span class=MsoIntenseEmphasis>string</span> to
+  integer</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Integer</span> n = <span
+  class=Keyword>stringToInteger</span>(&quot;100&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>n == 100</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Integer</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>stringToReal</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>)</span><span class=ProductionName>   </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Convert a <span class=MsoIntenseEmphasis>string</span> to
+  real</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r = <span class=Keyword>stringToRea</span>(&quot;3.14&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == 3.14</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>isInteger</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>)</span><span class=ProductionName>      </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Test if <span class=MsoIntenseEmphasis>text</span> is an
+  Integer number</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>IsInteger</span>(&quot;100.0&quot;')</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == false</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>isReal</span></span><span
+  class=Keyword>(String </span><span class=MsoIntenseEmphasis>text</span><span
+  class=Keyword>)</span><span class=ProductionName>         </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Test if <span class=MsoIntenseEmphasis>text</span> is a
+  real number</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>isReal</span>(&quot;best&quot;)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == false</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>isDigit</span></span><span
+  class=Keyword>(Character </span><span class=MsoIntenseEmphasis>c</span><span
+  class=Keyword>)</span><span class=ProductionName>           </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Test if <span class=MsoIntenseEmphasis>character</span>
+  is a digit</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>isDigit</span>('t')</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == false</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>isLetter</span></span><span
+  class=Keyword>(Character </span><span class=MsoIntenseEmphasis>c</span><span
+  class=Keyword>)</span><span class=ProductionName>          </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Test if <span class=MsoIntenseEmphasis>character</span>
+  is a letter</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>isLetter</span>('3')</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == false</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>isLower</span></span><span
+  class=Keyword>(Character </span><span class=MsoIntenseEmphasis>c</span><span
+  class=Keyword>)</span><span class=ProductionName>           </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Test if <span class=MsoIntenseEmphasis>character</span>
+  is a lowercase</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>isLower</span>('T')</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == false</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>isUpper</span></span><span
+  class=Keyword>(Character </span><span class=MsoIntenseEmphasis>c</span><span
+  class=Keyword>)</span><span class=ProductionName>           </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Test if <span class=MsoIntenseEmphasis>character</span>
+  is an uppercase</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>isUpper</span>('t')</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == false</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>isWhitespace</span></span><span
+  class=Keyword>(Character </span><span class=MsoIntenseEmphasis>c</span><span
+  class=Keyword>)</span><span class=ProductionName>   </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Test if <span class=MsoIntenseEmphasis>character</span>
+  is whitespace</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Boolean</span> b = <span
+  class=Keyword>isWhitespace</span>('t')</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>b == false</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Integer</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>random</span></span><span
+  class=Keyword>(Integer </span><span class=MsoIntenseEmphasis>min</span><span
+  class=Keyword>, Integer </span><span class=MsoIntenseEmphasis>max</span><span
+  class=Keyword>)</span><span class=ProductionName>         </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Generate a random number between <span
+  class=MsoIntenseEmphasis>min</span> to <span class=MsoIntenseEmphasis>max</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Integer</span> n = <span
+  class=Keyword>random</span>(2,10)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>n == 3  (or a number between 2 and 10)</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>sqrt</span></span><span
+  class=ProductionName>  (</span><span class=Keyword>Real</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>value</span><span
+  class=ProductionName>)         </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Get the square root of a <span class=MsoIntenseEmphasis>number</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r = <span class=Keyword>sqrt</span>(9)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == 3</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>sin</span></span><span
+  class=ProductionName><span style='color:#00B0F0'> </span>(</span><span
+  class=Keyword>Real</span><span class=ProductionName> </span><span
+  class=MsoIntenseEmphasis>angle</span><span class=ProductionName>)           </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Get the sine of the <span class=MsoIntenseEmphasis>angle</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r = <span class=Keyword>sin</span>(45)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == .707</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>cos</span></span><span
+  class=ProductionName> (</span><span class=Keyword>Real</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>angle</span><span
+  class=ProductionName>)           </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Get the cosine of the <span class=MsoIntenseEmphasis>angle</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r =  <span class=Keyword>cos</span>(45)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == .707</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>tan</span></span><span
+  class=ProductionName> (</span><span class=Keyword>Real</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>angle</span><span
+  class=ProductionName>)           </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Get the tangent of the <span class=MsoIntenseEmphasis>angle</span></p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r = <span class=Keyword>tan</span>(45)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == 1</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>a</span></span><span
+  class=Keyword><span style='color:#00B0F0'>bs</span></span><span
+  class=ProductionName>(</span><span class=Keyword>Real</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>num</span><span
+  class=ProductionName>)        </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Gets the absolute value (positive <span
+  class=MsoIntenseEmphasis>num</span>)</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r = <span class=Keyword>abs</span>(-3)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == 3</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Integer</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>toInteger</span></span><span
+  class=ProductionName>(</span><span class=Keyword>Real</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>num</span><span
+  class=ProductionName>)    </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Convert a real number to an integer </p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Integer</span> I = <span
+  class=Keyword>toInteger</span>(3.14)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>i == 3</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>toReal</span></span><span
+  class=ProductionName> (</span><span class=Keyword>Integer</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>num</span><span
+  class=ProductionName>)        </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Convert a integer to a real number</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r = <span class=Keyword>toReal</span>(10)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == 10.0</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>round</span></span><span
+  class=ProductionName> (</span><span class=Keyword>Real</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>num</span><span
+  class=ProductionName>, </span><span class=Keyword>Integer</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>digits</span><span
+  class=ProductionName>)       </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Round a floating point to <span class=MsoIntenseEmphasis>digits</span>
+  decimal point</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>Real</span> r = <span class=Keyword>round</span>(3.1415,2)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>r == 3.14</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>String</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>format</span></span><span
+  class=ProductionName>   (</span><span class=Keyword>String</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>text</span><span
+  class=ProductionName>,…)      </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Format like Display does</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>String</span> s = <span
+  class=Keyword>format</span>(&quot;Ans=&quot;,10)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>s == &quot;Ans10&quot;</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:none;border-left:solid #5B9BD5 1.0pt;
+  background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>sleep</span></span><span
+  class=ProductionName>(</span><span class=Keyword>Integer</span><span
+  class=ProductionName> </span><span class=MsoIntenseEmphasis>duration</span><span
+  class=ProductionName>)        </span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>sleep (pause for <span class=MsoIntenseEmphasis>duration</span>
+  seconds)</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>sleep</span>(.5)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:none;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Pauses for .5 seconds</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border:solid #5B9BD5 1.0pt;
+  border-right:none;background:white;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Boolean</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>beep</span></span><span
+  class=Keyword>(Integer </span><span class=MsoIntenseEmphasis>freq</span><span
+  class=Keyword>, Integer </span><span class=MsoIntenseEmphasis>duration</span><span
+  class=Keyword>)</span>         </p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Play a tone <span class=MsoIntenseEmphasis>frequency</span>
+  for <span class=MsoIntenseEmphasis>duration</span> seconds</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border-top:solid #5B9BD5 1.0pt;
+  border-left:none;border-bottom:solid #5B9BD5 1.0pt;border-right:none;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>beep</span>(2000,.5)</p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border:solid #5B9BD5 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Sounds 2000 hertz tone for .5 seconds</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=71 valign=top style='width:53.6pt;border-top:none;border-left:solid #5B9BD5 1.0pt;
+  border-bottom:solid #5B9BD5 1.0pt;border-right:none;background:white;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=ProductionName><span style='font-weight:normal'>Real</span></span></p>
+  </td>
+  <td width=306 valign=top style='width:229.5pt;border:none;border-bottom:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal'><span class=Keyword><span style='color:#00B0F0'>seconds()</span></span></p>
+  </td>
+  <td width=264 valign=top style='width:2.75in;border:none;border-bottom:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Get the seconds (resolution .001)</p>
+  </td>
+  <td width=204 valign=top style='width:153.0pt;border:none;border-bottom:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun><span class=Keyword>seconds()</span></p>
+  </td>
+  <td width=210 valign=top style='width:157.5pt;border-top:none;border-left:
+  none;border-bottom:solid #5B9BD5 1.0pt;border-right:solid #5B9BD5 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=ExampleFun>Returns seconds since program start.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+﻿<UserControl x:Class          ="Views.ViewSolutionTree"
+             xmlns            ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x          ="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc         ="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d          ="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views      ="clr-namespace:Views"
+             xmlns:viewModels ="clr-namespace:ViewModels"
+             xmlns:c          ="clr-namespace:Controls"
+             mc:Ignorable     ="d" 
+             d:DesignHeight   ="300"
+             d:DesignWidth    ="300"
+             x:Name           ="MainSolutionView"
+             >
+
+
+    <TreeView Name        ="SolutionView"
+              ItemsSource ="{Binding Solutions}"
+              SelectedItemChanged="SolutionView_OnSelectedItemChanged"
+              KeyDown ="SolutionView_OnKeyDown"
+              SelectedValuePath="{Binding Selected}"
+            
+       >
+
+        <!--<i:Interaction.Behaviors>
+            <views:MouseDoubleClickBehavior />
+        </i:Interaction.Behaviors>-->
+
+        <TreeView.Resources>
+            <!--file view-->
+            <ContextMenu x:Key="FileContext">
+                <MenuItem Header="Copy File" Command="Copy" ToolTip="Copy this file to clipboard.">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/EditCopy.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Paste File" Command="Paste" ToolTip="Paste file from clipboard.">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditPaste.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Cut File" Command="Cut" ToolTip="Cut this file to the clipboard.">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditCut.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Delete File" Command="{Binding DeleteCommand}" ToolTip="Delete this file.">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditDelete.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="Rename" Command="{Binding RenameCommand}" Header="_Rename File" ToolTip="Rename this file." InputGestureText="F2">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Rename.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+
+            <!--folder view-->
+            <ContextMenu x:Key="FolderContext">
+                <MenuItem  Command="{Binding DeleteCommand}" Header="_Delete Folder" ToolTip="Delete this folder and all files in the folder.">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditDelete.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="{Binding RenameCommand}" Header="_Rename Folder" ToolTip="Rename this folder." InputGestureText="F2">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Rename.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+
+            <!--folder view-->
+            <ContextMenu x:Key="ProjectContext">
+                <MenuItem  Command="{Binding DeleteCommand}" Header="_Delete Project" ToolTip="Delete this project, the folder it is in, and all files in the folder.">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/EditDelete.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="{Binding RenameCommand}" Header="_Rename Project" ToolTip="Rename this project and the folder it is in." InputGestureText="F2">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Rename.png" Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="New File"  Command="views:AppCommand.FileNew">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/NewDocument.png"     Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </ContextMenu>
+         
+            <!--solution menu-->
+            <ContextMenu x:Key="SolutionContext">
+                <MenuItem Header="_Close Workspace" ToolTip="Close this workspace." Command="views:AppCommand.WorkspaceClose" SnapsToDevicePixels="True">
+                    <MenuItem.Icon >
+                        <Image Source="/Views/Images/WorkspaceClose.png"     Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                
+                <!--<MenuItem Command="{Binding CloseCommand}" Header="Close this Workspace" ToolTip="Close this Workspace and all files but leave the application running.">
+                    <MenuItem.Icon>
+                        <Image Source ="/Views/Images/no.ico"   Style="{StaticResource ImageEnabled}"/>
+                    </MenuItem.Icon>
+                </MenuItem>-->
+                <MenuItem Command="{Binding RenameCommand}" Header="_Rename Workspace" ToolTip="Rename this Workspace and the folder it is in." InputGestureText="F2">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/Rename.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem  Header="_New Project" ToolTip="add an new project to the current workspace." SnapsToDevicePixels="True" Command="views:AppCommand.ProjectNew">
+                    <MenuItem.Icon>
+                        <Image Source="/Views/Images/ProjectNew.png" Style="{StaticResource ImageEnabled}" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </ContextMenu>
+
+            <HierarchicalDataTemplate  DataType="{x:Type viewModels:ViewModelSolution}" ItemsSource="{Binding Children}" >
+                <StackPanel Orientation="Horizontal"  ContextMenu="{StaticResource SolutionContext}">
+                    <Image Source= "{Binding Icon}" Style="{StaticResource ImageTree}"/>
+                    <c:EditBlock Text="{Binding Title, Mode=TwoWay}"  IsEditingName="{Binding IsEditingName, Mode=TwoWay}" TextFormat="Workspace {0}"/>
+                 </StackPanel>
+            </HierarchicalDataTemplate>
+         
+            <HierarchicalDataTemplate DataType="{x:Type viewModels:ViewModelProject}" ItemsSource="{Binding Children}">
+                <StackPanel Orientation="Horizontal"  ContextMenu="{StaticResource ProjectContext}">
+                    <Image Source="{Binding Icon}" Style="{StaticResource ImageTree}"/>
+                    <c:EditBlock Text="{Binding Name, Mode=TwoWay}"  IsEditingName="{Binding IsEditingName, Mode=TwoWay}" />
+                </StackPanel>
+            </HierarchicalDataTemplate>
+
+            <HierarchicalDataTemplate  DataType="{x:Type viewModels:ViewModelTreeFolder}" ItemsSource="{Binding Children}">
+                <StackPanel Orientation="Horizontal"  ContextMenu="{StaticResource FolderContext}">
+                    <Image  Source="{Binding Icon}" Style="{StaticResource ImageTree}"/>
+                    <c:EditBlock Text="{Binding Title, Mode=TwoWay}"  IsEditingName="{Binding IsEditingName, Mode=TwoWay}" />
+                </StackPanel>
+            </HierarchicalDataTemplate>
+
+            <HierarchicalDataTemplate DataType="{x:Type viewModels:ViewModelTreeFile}">
+                <StackPanel Orientation="Horizontal" ContextMenu="{StaticResource FileContext}">
+                    <Image Source="{Binding Icon}" Style="{StaticResource ImageTree}" />
+                    <c:EditBlock Text="{Binding Title, Mode=TwoWay}"  IsEditingName="{Binding IsEditingName, Mode=TwoWay}"  />
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </TreeView.Resources>
+     
+        <TreeView.ItemContainerStyle>
+              <!--This Style binds a TreeViewItem to a TreeViewItemViewModel.-->    
+            <Style TargetType="{x:Type TreeViewItem}">
+
+                <Setter Property="views:MouseDoubleClick.Command"          Value="{Binding ItemActivateCommand}"/>
+                <Setter Property="views:MouseDoubleClick.CommandParameter" Value="{Binding}"/>
+                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="Visibility" Value="{Binding Path=IsVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                <!--<Setter Property="ToolTip" Value="{Binding Path=Description, Mode=OneWay}"/>-->
+                <Style.Triggers>
+                    <Trigger    Property="IsSelected" Value="True">
+                        <Setter Property="FontWeight" Value="Bold" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </TreeView.ItemContainerStyle>
+
+    </TreeView>
+</UserControl>

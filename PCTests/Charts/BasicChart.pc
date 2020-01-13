@@ -1,0 +1,19 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Charts   Problem #
+// 
+// Author:  Robert Steiner
+// Date:    9/15/2017
+// Class:   CSC119
+// 
+// Description: basic chart
+// 
+/////////////////////////////////////////////////////////////////////////////////
+Declare Real x[8]=1,5,10,20,3,7,5,6
+Declare Integer xlabels[8]=1,2,3,4,5,6,7,8
+Declare Real ylabels[7]=0,5,10,15,20,25,12
+
+
+// new format:
+//Set c = new Chart(Title,XAxis,YAxis,Background)
+//Chart.AddSeries(seriesName,color,width,data[])
+Chart x,Title = "My Chart", XTitle="Days", YTitle="YAxis", XLabels=xlabels, YLabels=ylabels, Grid=X
