@@ -1,0 +1,84 @@
+﻿<Window x:Class    ="Lift.View.OptionsDialog"
+      xmlns        ="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x      ="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc     ="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d      ="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:lift   ="clr-namespace:Lift;assembly=LiftLib"
+      mc:Ignorable ="d" 
+      Height       ="320"
+      Width        ="460"
+      Title        ="Options"
+      >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="223*"/>
+            <ColumnDefinition Width="227*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="125*"/>
+            <RowDefinition Height="101*"/>
+            <RowDefinition Height="30*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupElevator" Header="Elevators" HorizontalAlignment="Left" Height="116" Margin="10,10,0,0" VerticalAlignment="Top" Width="204" Grid.RowSpan="2">
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="17*"></ColumnDefinition>
+                    <ColumnDefinition Width="15*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label   Grid.Row="0" Grid.Column="0" x:Name="labelElevatorCount" Content="Count"         HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,12"/>
+                <Label   Grid.Row="1" Grid.Column="0" x:Name="labelElevatorUser"  Content="Max Occupancy" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,12" />
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="textElevatorCount"  Text="{Binding (lift:Options.ElevatorCount) }" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="49" Margin="0,12"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="textMaxOccupancy"   Text="{Binding (lift:Options.MaxPassengers) }"  HorizontalAlignment="Left"  VerticalAlignment="Center" Width="49" Margin="0,12"/>
+
+            </Grid>
+
+        </GroupBox>
+        <GroupBox Grid.Row="1" x:Name="groupFloor" Header="Floors" HorizontalAlignment="Left" Height="83" Margin="10,10,0,0" VerticalAlignment="Top" Width="204">
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="23*"></ColumnDefinition>
+                    <ColumnDefinition Width="78*"/>
+                    <ColumnDefinition Width="91*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label    Grid.Row="0" Grid.Column="0" x:Name="labelFloorCount" Content="Count"                          HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,12" Grid.ColumnSpan="2"/>
+                <TextBox  Grid.Row="0" Grid.Column="2" x:Name="textFloorCount"  Text="{Binding (lift:Options.FloorCount) }" HorizontalAlignment="Left"     VerticalAlignment="Center" Width="49" Margin="0,12"/>
+            </Grid>
+
+        </GroupBox>
+
+        <GroupBox Grid.Row="0" Grid.Column="1" x:Name="groupRun" Header="Run" HorizontalAlignment="Left" Height="116" Margin="10,10,0,0" VerticalAlignment="Top" Width="204" Grid.RowSpan="2">
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="101*"></ColumnDefinition>
+                    <ColumnDefinition Width="91*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label    Grid.Row="0" Grid.Column="0" x:Name="labeSpawn" Content="Spawns/Sec"    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,12"/>
+                <Label    Grid.Row="1" Grid.Column="0" x:Name="labelTime" Content="Run Time Secs" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,12"/>
+                <TextBox  Grid.Row="0" Grid.Column="1" x:Name="textSpawn" Text="{Binding (lift:Options.SpawnRate) }" HorizontalAlignment="Left"     VerticalAlignment="Center" Width="49" Margin="0,12"/>
+                <TextBox  Grid.Row="1" Grid.Column="1" x:Name="textTime"  Text="{Binding (lift:Options.MaxTime) }"   HorizontalAlignment="Left"     VerticalAlignment="Center" Width="49" Margin="0,12"/>
+            </Grid>
+
+        </GroupBox>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal"  HorizontalAlignment="Right" Width="128">
+            <Button x:Name="buttonOk"     Content="Ok"     HorizontalAlignment="Right"   VerticalAlignment="Top" Width="54" Click="buttonOk_Click"     IsDefault="True" Margin="0,5,10,0"/>
+            <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Right"   VerticalAlignment="Top" Width="54" Click="buttonCancel_Click" IsCancel="True"  Margin="0,5,10,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
+ 

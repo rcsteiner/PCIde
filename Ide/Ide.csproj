@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ide</RootNamespace>
     <AssemblyName>Ide</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -32,6 +32,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -398,10 +399,6 @@
     <None Include="App\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Lift\LiftLib\LiftLib.csproj">
-      <Project>{6C3F4206-4A00-4BE0-9833-F234DAF31A0E}</Project>
-      <Name>LiftLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AvalonDock\AvalonDock.csproj">
       <Project>{DB81988F-E0F2-45A0-A1FD-8C37F3D35244}</Project>
       <Name>AvalonDock</Name>
@@ -413,6 +410,10 @@
     <ProjectReference Include="..\IdeEditor\IdeEditor.csproj">
       <Project>{13a5b497-ba12-45ae-9033-22620c3153fb}</Project>
       <Name>IdeEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lift\LiftLib\LiftLib.csproj">
+      <Project>{6c3f4206-4a00-4be0-9833-f234daf31a0e}</Project>
+      <Name>LiftLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\pc\pc.csproj">
       <Project>{12df0a3a-1ea1-4db5-beaa-2e9f4e7cfd04}</Project>

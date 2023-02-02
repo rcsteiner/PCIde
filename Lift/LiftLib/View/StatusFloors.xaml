@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Lift.View.StatusFloors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lift.View"
+             xmlns:wpfElevator="clr-namespace:Lift"
+             mc:Ignorable="d" 
+             Height="40" Width="80"
+             >
+            <Label x:Name="xFloorNumber" Content="99" Height="40" Width ="40"  FontFamily="Segoe UI Black" Background="Black" Foreground="White"  FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+    </UserControl>
